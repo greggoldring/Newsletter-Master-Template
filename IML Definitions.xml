@@ -628,22 +628,9 @@
           <!-- *************************************************************************************************************************
           BACKGROUND
           ************************************************************************************************************************* -->
-          <type id="background" label="Surround Background" nested="nested">
-              <colorpicker id="bgcolor_body" label="Email Background Color" default="#ffffff" />
-              <image id="bgImg_body" label="Email Background Image (repeats x and y)" />
-          </type>
-          <!-- *************************************************************************************************************************
-          BORDER
-          ************************************************************************************************************************* -->
-          <type id="border" label="Border" nested="nested">
-              <textbox id="border_width" label="Border Width" 
-                       regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-              <colorpicker id="border_color" label="Article Border Color" />
-              <listbox id="border_style" label="Article Border Style">
-                  <listitem id="solid" text="Solid" default="default" />
-                  <listitem id="dotted" text="Dotted" />
-                  <listitem id="dashed" text="Dashed" />
-              </listbox>
+          <type id="background" label="Background" nested="nested">
+              <colorpicker id="bgcolor_body" label="Background color" default="#ffffff" />
+              <image id="bgImg_body" label="Background image (repeats x and y)" />
           </type>
           <!-- *************************************************************************************************************************
           TEXT AND LINK COLORS
@@ -675,6 +662,15 @@
           <type id="padding" label="Padding" nested="nested">
                <textbox id="top" label="Top Padding for Section" default="20" />
                <textbox id="bottom" label="Bottom Padding for Section" default="20" />
+          </type>
+          <type id="border" label="Border" nested="nested">
+              <textbox id="border_width" label="Border Width" regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+              <colorpicker id="border_color" label="Article Border Color" />
+              <listbox id="border_style" label="Article Border Style">
+                  <listitem id="solid" text="Solid" default="default" />
+                  <listitem id="dotted" text="Dotted" />
+                  <listitem id="dashed" text="Dashed" />
+              </listbox>
           </type>
           <type id="articles" label="Main Article's Settings">
               <include partial="article_settings" />

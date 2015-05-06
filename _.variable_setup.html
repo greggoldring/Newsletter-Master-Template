@@ -238,8 +238,8 @@ Base Font Defaults are set
 {% comment -%} <!-- *****************************************************************
   Borders
 ***************************************************************** --> {% endcomment -%}
-{% if defaults.email.border.border_width and defaults.email.border.border_color and defaults.email.border.border_style -%}
-{% assign email_border = "border: " | plus: defaults.email.border.border_width | plus: "px " | plus: defaults.email.border.border_color | plus: " " | plus: defaults.email.border.border_style | plus: ";" -%}
+{% if defaults.primary_settings.border.border_width and defaults.primary_settings.border.border_color and defaults.primary_settings.border.border_style -%}
+{% assign email_border = "border: " | plus: defaults.primary_settings.border.border_width | plus: "px " | plus: defaults.primary_settings.border.border_color | plus: " " | plus: defaults.primary_settings.border.border_style | plus: ";" -%}
 {% endif -%}
 {% assign main_article_border_color = path_primary_articles.border.border_color -%}
 {% assign main_article_border_width = path_primary_articles.border.border_width -%}
