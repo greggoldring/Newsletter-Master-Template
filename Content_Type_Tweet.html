@@ -1,0 +1,45 @@
+{% assign handleWidth = content_column_width | minus: 48 | minus: 10 -%} 
+{% if (item.tweetStyle == 'default') -%}
+     <table cellpadding="0" cellspacing="0" border="0">
+         <tr>
+             <td rowspan="2" width="48">
+                 <img src="{{ item.tweet.userprofileimagehttps }}" border="0">
+             </td>
+             <td rowspan="2" width="10"><img src="{{ 'Templates/11864/spacer.gif?v=635509702410000000' | asset_url }}" width="10" height="1" style="display:block; width:10px; height:1px;" /></td>
+             <td align="left" width="{{ handleWidth }}" style="color:#222222; font-size:20px; font-weight:bold;">
+                 {{ item.tweet.username }}
+                 <!-- <img src="{{ 'Templates/11922/tweet_bird.png?v=635640161580000000' | asset_url }}" width="22" height="19" />-->
+             </td>
+         </tr>
+         <tr>
+             <td align="left">
+                 <a href="https://twitter.com/{{ item.tweet.userscreenname }}" target="_blank"
+                    style="color:#999999; font-size:14px; text-decoration:none;">
+                 @{{ item.tweet.userscreenname }}
+                 </a>
+             </td>
+         </tr>
+         <tr><td colspan="3" height="10" style="line-height:0; font-size:0;">&nbsp;</td></tr>
+         <tr>
+             <td colspan="3" align="left" style="font-size:18px; font-family:'Times New Roman', Times, serif; color:#444444;">
+                 {{ item.tweet.text }}
+             </td>
+         </tr>
+         <tr><td colspan="3" height="10" style="line-height:0; font-size:0;">&nbsp;</td></tr>
+         <tr>
+             <td colspan="3" align="left" style="color:#999999; font-size:12px; text-decoration:none;">
+                 {{ item.tweet.createdat | date: "%I:%M %p &bull; %d %b %Y" }} &bull;
+                 <a href="https://twitter.com/{{ item.tweet.userscreenname }}/status/{{ item.tweet.id }}" target="_blank"
+                    style="font-size:12px; text-decoration:none;">
+                 View On Twitter
+                 </a>
+             </td>
+         </tr>
+     </table>
+{% elsif (item.tweetStyle == 'basic') -%}
+     {{ item.tweet.username }}, @{{ item.tweet.userscreenname }}, {{ item.tweet.text }}
+{% else -%}
+     <div style="border:1px dashed red; padding:10px;">
+         Error!
+     </div>
+{% endif %}

@@ -1,0 +1,46 @@
+{% include ".macro_set_link" -%}
+{% assign content_column_width = section_table_width %}
+{% include .macro_setup_image_params -%}
+
+{% assign leftwidth = img_width %}
+{% assign rightwidth = section_table_width | minus: img_width | minus: item.image_override.gutter %}
+{% if img_align != "left" %}
+{% assign rightwidth = img_width %}
+{% assign leftwidth = section_table_width | minus: img_width | minus: item.image_override.gutter %}
+{% endif %}
+
+<table width="{{ leftwidth }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="left">
+  <tr>
+    <td>
+        {% if img_align == "left" %}
+            {% if link -%}
+                 <a href="{{ link | strip }}">
+            {% endif -%}
+                <img src="{% image_url item.image %}" width="{{ img_width }}" data-width="{{ img_width }}" height="{{ img_height }}" data-height="{{ img_height }}" alt="{{ item.image.alttext }}"  border="0" align="{{ img_align }}" class="image_{{img_align}}" />
+            {% if link -%}
+                 </a>
+            {% endif -%}
+        {% else %}
+             {{ item.content }}
+        {% endif %}
+    </td>
+  </tr>
+</table>
+
+<table width="{{ rightwidth }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="right">
+  <tr>
+    <td>
+        {% if img_align != "left" %}
+            {% if link -%}
+                 <a href="{{ link | strip }}">
+            {% endif -%}
+                <img src="{% image_url item.image %}" width="{{ img_width }}" data-width="{{ img_width }}" height="{{ img_height }}" data-height="{{ img_height }}" alt="{{ item.image.alttext }}"  border="0" align="{{ img_align }}" class="image_{{img_align}}" />
+            {% if link -%}
+                 </a>
+            {% endif -%}
+        {% else %}
+             {{ item.content }}
+        {% endif %}
+    </td>
+  </tr>
+</table>

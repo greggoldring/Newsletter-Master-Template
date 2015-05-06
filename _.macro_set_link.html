@@ -1,0 +1,22 @@
+{% comment %}
+SETUP LINKS
+========================================
+{% endcomment -%}
+{% assign link = false -%}
+{% assign temp_link = false -%}
+{% if item.lpContent -%}
+     {% capture temp_link -%}
+          {% landing_page_link item.id -%}
+     {% endcapture -%}
+{% elsif item.external_link -%}
+    {% assign temp_link = item.external_link | convert_to_link -%}
+{% elsif item.link -%}
+    {% assign temp_link = item.link | convert_to_link -%}
+{% endif -%}
+{% if temp_link -%}
+     {% assign link = temp_link | strip -%}
+{% endif -%}
+{% if landing_page -%}
+     {% assign link = false -%}
+{% endif -%}
+

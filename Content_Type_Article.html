@@ -1,0 +1,104 @@
+{% include ".macro_set_link" -%}
+{% include "Content_Type_Article.setup" -%}
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+                           
+    {% if landingpage == true and returntonewsletter_show and returntonewsletter_position == "above" -%}
+    <tr>
+        <td align="right">
+            <a href="{{ urls.backtomailout }}">
+                {{ returntonewsletter_label }}
+            </a>
+        </td>
+    </tr>
+    {% if article_padding_top > 0 -%}
+    <tr><td style="font-size:0; line-height:0;" height="{{ article_padding_top }}">&nbsp;</td></tr>
+    {% endif -%}  
+    {% endif -%}
+
+    {% if item.image and img_align == "above" %}
+    <tr>
+        <td>
+            {% include "Content_Type_Article_Image" %}
+        </td>
+    </tr>
+    {% endif %}
+    <tr> 
+        <td>
+            {% if item.image and img_flow == "column" and img_align != "above" %}
+            <table cellpadding="0" cellspacing="0" border="0" class="wrapper" 
+                   width="{{ image_column_width }}"
+                   align="{{ image_column_align }}">
+            <tr>
+                <td>
+                    {% include "Content_Type_Article_Image" %}
+                </td>
+            </tr>
+            </table>
+            {% endif %}
+
+            {% if item.title or item.teaser or item.lpContent -%}
+            <table cellpadding="0" cellspacing="0" border="0" class="wrapper"
+                   width="{{ content_column_width }}"
+                   align="{{ content_column_align }}">
+            <tr>
+                <td align="left">
+                    {% if item.image and img_flow == "wrap" and img_align != "above" %}
+                    {% include "Content_Type_Article_Image" %}
+                    {% endif %}
+
+                    <h1 class="article_header" style="
+                                                      {% if item.header.color %}color: {{ item.header.color }};{% endif -%}
+                                                      {% if item.header.fontsize %}font-size: {{ item.header.fontsize }}px;{% endif -%}
+                                                      {% if item.header.lineheight %}line-height: {{ item.header.lineheight }};{% endif -%}
+                                                      {% if item.header.weight %}font-weight: {{ item.header.weight }};{% endif -%}
+                                                      {% if item.header.style %}font-style: {{ item.header.style }};{% endif -%}
+                                                      {% if item.header.bottomPadding %}margin-bottom: {{ item.header.bottomPadding }}px;{% endif -%}
+                                                      ">
+                    {{ item.title }}
+                    </h1>
+                    {% if landingpage != true -%}
+                    <div class="article_teaser" style="
+                                                       {% if item.base.color %}color: {{ item.base.color }};{% endif -%}
+                                                       {% if item.base.fontsize %}font-size: {{ item.base.color }}px;{% endif -%}
+                                                       {% if item.base.lineheight %}line-height: {{ item.base.color }};{% endif -%}
+                                                       ">
+                    {{ item.teaser }}
+                    {% if link and item.lpLink.show == "true" -%}
+                    <a href="{{ link }}" style="
+                                                {% if item.lpLink.color %}color: {{ item.lpLink.color }};{% endif -%}
+                                                {% if item.lpLink.textdecoration %}text-decoration: {{ item.lpLink.textdecoration }};{% endif -%}
+                                                ">
+                    {{ item.link_label }}
+                    </a>
+                    {% endif -%}
+                    </div>
+                    {% else -%}
+                    <div class="article_landingpage" style="
+                                                            {% if item.base.color %}color: {{ item.base.color }};{% endif -%}
+                                                            {% if item.base.fontsize %}font-size: {{ item.base.color }}px;{% endif -%}
+                                                            {% if item.base.lineheight %}line-height: {{ item.base.color }};{% endif -%}
+                                                            ">
+                    {{ item.lpContent }}
+                    </div>
+                    {% endif -%}
+                </td>
+            </tr>
+            </table>
+            {% endif -%}
+        </td>
+    </tr>
+
+
+    {% if landingpage == true and returntonewsletter_show and returntonewsletter_position == "below" -%}
+    {% if article_padding_bottom > 0 -%}
+    <tr><td style="font-size:0; line-height:0;" height="{{ article_padding_bottom }}">&nbsp;</td></tr>
+    {% endif -%}
+    <tr>
+        <td align="right">
+            <a href="{{ urls.backtomailout }}">
+                {{ returntonewsletter_label }}
+            </a>
+        </td>
+    </tr>
+    {% endif -%}
+</table>

@@ -1,0 +1,39 @@
+{% assign landingpage = true -%}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      {% include .variable_setup -%}
+      {% include ".html_head" -%}
+  </head>
+  <body>
+    {% webbug -%}
+      
+      <div style="background-color:{{ body_bgcolor }};">
+          {% if pre_content.preview_text.content != "" %}
+          <div style="font-size:0; line-height:0; color: {{ body_bgcolor }};">
+              {{ pre_content.preview_text.content }}
+          </div>
+          {% endif %}
+          <!--[if gte mso 9]>
+          <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+          <v:fill type="tile" src="{% image_url  body_bgimg %}" color="{{ body_bgcolor }}"/>
+          </v:background>
+          <![endif]-->
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                  <td valign="top" align="left" background="{% image_url  body_bgimg %}">
+                      {% assign path_section = header_section -%}
+                      {% include "HeaderFooter_Type.list" -%}
+
+                      {% include "Content_Section_landingpage" -%}
+
+                      {% assign path_section = footer_section -%}
+                      {% include "HeaderFooter_Type.list" -%}
+
+                  </td>
+              </tr>
+          </table>
+      </div>
+    
+  </body>
+</html>

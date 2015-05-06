@@ -1,0 +1,31 @@
+{% capture title_font_family -%}
+{% unless item.font.fontfamily_custom == "other"-%}
+{% unless item.font.fontfamily == "inherit"-%}
+{{ item.font.fontfamily }}{% else -%}
+{{ default_font_family}}{% endunless -%}
+{% else -%}
+{{ item.font.fontfamily_custom }}{% endunless -%}
+{% endcapture -%}
+
+{% capture title_font_size -%}
+{% unless item.font.size == "inherit"-%}
+{{ item.font.size }}{% else -%}
+{{ default_font_size}}{% endunless -%}
+{% endcapture -%}
+
+{% capture title_line_height -%}
+{% unless item.font.lineheight == "0"-%}
+{{ item.font.lineheight }}{% else -%}
+{{ default_line_height }}{% endunless -%}
+{% endcapture -%}
+
+<h1 style="margin:0; 
+           font-family: {{title_font_family }};
+           color: {{ item.font.color }};
+           font-size: {{ title_font_size }}px;
+           line-height: {{ title_line_height }};
+           font-weight: {% unless item.font.bold %}normal{%else%}bold{%endunless%};
+           font-style: {% unless item.font.italic %}none{%else%}italic{%endunless%};
+           ">
+    {{ item.title }}
+</h1>

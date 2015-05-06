@@ -1,0 +1,30 @@
+<table width="{{ table_width }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="center" dir="{{ text_flow }}" bgcolor="{{ email_bgcolor }}">
+    <tr valign="top">
+        <td align="{{ main_align }}" valign="top">
+            {% assign main_column_width = table_width | minus: main_column_article_margin_left | minus: main_column_article_margin_right -%}
+            <table width="{{ main_column_article_margin_left }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="left"><tr><td style="line-height:1px; font-size:1px;" width="{{leftMarginGutter}}">&nbsp;</td></tr></table>
+            <!--[if gte mso 9]>
+               </td><td align="{{ main_align }}" valign="top">
+            <![endif]-->
+            <table width="{{ main_column_width }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="left">
+                <tr><td style="line-height:0; font-size:0;" height="{{ main_column_padding_top }}">&nbsp;</td></tr>
+                <tr>
+                    <td class="primary">
+                        {% assign article_bgcolor = main_article_bgcolor -%}
+                        {% assign article_padding_top = main_article_padding_top -%}
+                        {% assign article_padding_right = main_article_padding_right -%}
+                        {% assign article_padding_left = main_article_padding_left -%}
+                        {% assign article_padding_bottom = main_article_padding_bottom -%}
+                        {% assign article_column_width = main_column_width -%}
+                        {% assign item = article -%}
+                        <!-- OPEN ARTICLE-->
+                        {% assign item = article %}
+                        {% include "Content_Type.list" -%}
+                        <!-- CLOSE ARTICLE-->
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="{{ main_column_padding_bottom }}" style="line-height:0; font-size:0;">&nbsp;</td></tr></table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

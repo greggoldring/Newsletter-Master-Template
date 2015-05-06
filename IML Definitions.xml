@@ -1,0 +1,745 @@
+<iml>
+  <!-- PARTIALS START -->
+  
+  <partial id="font_settings">
+      <colorpicker id="color" label="Text Color" />
+      <textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+        regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+      <textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+        regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+  </partial>
+  <partial id="content_types">
+    <type id="article" label="Default Article" landingpage="landingpage">
+      <textbox id="title" label="Title" />
+      <image id="image" label="Image" />
+      <richtext id="teaser" label="Email Teaser Text" />
+      <richtext id="lpContent" label="Landing Page Content" />
+      <textbox id="external_link" label="Or Use External Link" />
+      <textbox id="link_label" label="Landing Page/External Link Label" default="Read More" />
+      <type id="image_override" label="Image Settings" nested="nested">
+          <listbox id="side" label="Image Side">
+              <listitem id="left" text="Left" default="default" />
+              <listitem id="above" text="Above" />
+              <listitem id="right" text="Right" />
+          </listbox>
+          <listbox id="flow" label="Text Wrap around Image">
+              <listitem id="wrap" text="Wrap Text Below" default="default" />
+              <listitem id="column" text="Two Separate Columns" />
+          </listbox>
+          <textbox id="maxWidth" label="Max Width" 
+                   help="The maximum width an image should appear in the desktop version in pixels. Ignored if image is above Article" 
+                   regex="^\d*$" regexerror="Please enter a whole number only." />
+      </type>
+      
+
+      <type id="overrides" label="Override Default Settings" nested="nested">
+        <colorpicker id="bgcolor" label="Article Background Color" default="" />
+      </type>
+      <type id="header" label="Override Header Settings" nested="nested">
+        <colorpicker id="color" label="Header Text Color" />
+        <textbox id="fontsize" label="Header Font Size"  help="Enter the number of pixels that your text should be"
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+        <textbox id="lineheight" label="Header Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+        <textbox id="bottomPadding" label="Bottom Padding" help="Enter the pixels that are placed below a header, above the following content" 
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+        <listbox id="weight" label="Header Font Weight">
+          <listitem id="" text="Inherit" default="default" />
+          <listitem id="bold" text="Bold" />
+          <listitem id="normal" text="Normal" />
+          <listitem id="lighter" text="Lighter" />
+        </listbox> 
+        <listbox id="style" label="Header Font Style">
+          <listitem id="" text="Inherit" default="default" />
+          <listitem id="normal" text="Normal" />
+          <listitem id="italic" text="Italic" />
+        </listbox>  
+      </type>
+      <type id="base" label="Override Base Settings" nested="nested">
+        <colorpicker id="color" label="Base Text Color" />
+        <textbox id="fontsize" label="Base Font Size"  help="Enter the number of pixels that your text should be"
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+        <textbox id="lineheight" label="Base Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+      </type>
+      <type id="lpLink" label="Override Landing Page Link" nested="nested">
+        <colorpicker id="color" label="Landing Page Link Color" />
+        <listbox id="textdecoration" label="Landing Page Underline links">
+          <listitem id="" text="Inherit" default="default" />
+          <listitem id="underline" text="Yes" />
+          <listitem id="none" text="No" />
+        </listbox>
+        <bool id="show" label="Show Landing Page Link" default="true" />
+      </type>
+      <type id="border" label="Override Border" nested="nested">
+        <textbox id="border_width" label="Border Width" 
+        regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+        <colorpicker id="border_color" label="Border Color" />
+        <listbox id="border_style" label="Border Style">
+          <listitem id="solid" text="Solid" default="default" />
+          <listitem id="dotted" text="Dotted" />
+          <listitem id="dashed" text="Dashed" />
+        </listbox>
+          <bool id="removeborder" />
+      </type>
+      <type id="padding" label="Override Padding" nested="nested">
+        <textbox id="top" label="Top Padding" />
+        <textbox id="bottom" label="Bottom Padding" />
+        <textbox id="left" label="Left Padding" />
+        <textbox id="right" label="Right Padding" />
+      </type>
+    </type>
+
+      <type id="type_button" label="Button" icon="Type_Link">
+        
+        <textbox id="label" label="Label" />
+        <textbox id="link" label="Link" />
+        <textbox id="width" label="Explicitly Define Width" help="If the automatically generated width is wrong, use this setting to override it." />
+        <listbox id="alignment" label="Alignment">
+            <listitem id="center" text="Center" default="default" />
+            <listitem id="left" text="Left" />
+            <listitem id="right" text="Right" />
+        </listbox>
+        <type id="style" label="Styling" nested="nested">
+          <colorpicker id="background_color" label="Background Color" />
+          <colorpicker id="font_color" label="Font Color" />
+          <textbox id="font_size" label="Font Size"  help="Enter the number of pixels that your text should be"
+            regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+          <textbox id="border_width" label="Border Width" />
+          <textbox id="border_radius" label="Border Radius (%)" />
+          <colorpicker id="border_color" label="Border Color" />
+          <textbox id="height" label="Height" />
+        </type>
+        <type id="overrides" label="Override Default Settings" nested="nested">
+           <colorpicker id="bgcolor" label="Article Background Color" default="" />
+        </type>
+        <type id="border" label="Override Border" nested="nested">
+          <textbox id="border_width" label="Border Width" 
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+          <colorpicker id="border_color" label="Border Color" />
+          <listbox id="border_style" label="Border Style">
+            <listitem id="solid" text="Solid" default="default" />
+            <listitem id="dotted" text="Dotted" />
+            <listitem id="dashed" text="Dashed" />
+          </listbox>
+          <bool id="removeborder" />
+        </type>
+        <type id="padding" label="Override Padding" nested="nested">
+          <textbox id="top" label="Top Padding" />
+          <textbox id="bottom" label="Bottom Padding" />
+          <textbox id="left" label="Left Padding" />
+          <textbox id="right" label="Right Padding" />
+        </type>
+    </type>
+    <type id="type_tweet" label="Tweet" icon="Type_Twitter">
+        <tweet id="tweet" label="Tweet" />
+        <listbox id="tweetStyle" label="Tweet Visual Style">
+            <listitem id="default" text="Default" />
+            <listitem id="basic" text="Basic, Text Only" />
+        </listbox>
+        <!-- bool id="embedMedia" label="Embed Media" / -->
+        <type id="overrides" label="Override Default Settings" nested="nested">
+            <colorpicker id="bgcolor" label="Article Background Color" default="" />
+        </type>
+        <type id="border" label="Override Border" nested="nested">
+          <textbox id="border_width" label="Border Width" 
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+          <colorpicker id="border_color" label="Border Color" />
+          <listbox id="border_style" label="Border Style">
+            <listitem id="solid" text="Solid" default="default" />
+            <listitem id="dotted" text="Dotted" />
+            <listitem id="dashed" text="Dashed" />
+          </listbox>
+          <bool id="removeborder" />
+        </type>
+        <type id="padding" label="Override Padding" nested="nested">
+          <textbox id="top" label="Top Padding" />
+          <textbox id="bottom" label="Bottom Padding" />
+          <textbox id="left" label="Left Padding" />
+          <textbox id="right" label="Right Padding" />
+        </type>
+    </type>
+    
+    <!--type id="type_oembed" label="oEmbed Media (Videos, Images, etc)">
+      <oembed id="media" label="Media URL" 
+        help="You can paste a link to a YouTube, Vimeo, Instagram, Flickr, Soundcloud, and other oEmbed sites and have them inserted automagically" />
+    </type-->
+  </partial>
+  
+  <partial id="headerfooter_types">
+    
+    <type id="fullwidth_image" label="Image Section">
+      <bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+      <image id="image" label="Image" />
+      <textbox id="external_link" label="Link" />
+      <type id="image_override" label="Image Settings" nested="nested">
+        <listbox id="side" label="Alignment">
+          <listitem id="middle" text="Middle" default="default" />
+          <listitem id="right" text="Right" />
+          <listitem id="left" text="Left" />
+        </listbox>
+        <textbox id="maxWidth" label="Maximum Width Image should appear" />
+      </type>
+      <type id="section_overrides" label="Override Section Settings" nested="nested">
+        <colorpicker id="body_bgcolor" label="Section's Surround Background Color" />
+        <colorpicker id="email_bgcolor" label="Section's Background Color" />
+        <textbox id="table_width" label="Section's Width" />
+      </type>
+      <type id="padding" label="Section Padding" nested="nested">
+        <textbox id="top" label="Top Padding" default="10" />
+        <textbox id="bottom" label="Bottom Padding" default="10" />
+        <textbox id="left" label="Left Padding" default="0" />
+        <textbox id="right" label="Right Padding" default="0" />
+      </type>
+    </type>
+    
+    <type id="halfwidth_image_text" label="Half Image, Half Richtext Section">
+      <bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+      <image id="image" label="Image" />
+      <textbox id="external_link" label="Image's Link" />
+      <richtext id="content" label="Richtext Area" />
+
+      <type id="image_override" label="Image Settings" nested="nested">
+        <listbox id="side" label="Alignment">
+          <listitem id="left" text="Left" default="default" />
+          <listitem id="right" text="Right" />
+        </listbox>
+        <textbox id="maxWidth" label="Maximum Width Image should appear" default="200" />
+        <textbox id="gutter" label="Minimum Space Between Image and Richtext" default="20" />
+      </type>
+      <type id="section_overrides" label="Override Section Settings" nested="nested">
+        <colorpicker id="body_bgcolor" label="Section's Surround Background Color" />
+        <colorpicker id="email_bgcolor" label="Section's Background Color" />
+        <textbox id="table_width" label="Section's Width" />
+      </type>
+      <type id="padding" label="Section Padding" nested="nested">
+        <textbox id="top" label="Top Padding" default="10" />
+        <textbox id="bottom" label="Bottom Padding" default="10" />
+        <textbox id="left" label="Left Padding" default="0" />
+        <textbox id="right" label="Right Padding" default="0" />
+      </type>   
+    </type>
+    <!-- maybe add View Online link to social_links and share_bar -->
+    <type id="social_links" label="Social Media Links">
+      <bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+      <listbox id="alignment" label="Alignment">
+        <listitem id="center" text="Center" default="default" />
+        <listitem id="right" text="Right" />
+        <listitem id="left" text="Left" />
+      </listbox>
+      <textbox id="spacing" label="Space between Icons" default="0" />
+      <type id="label" label="Label Options" nested="nested">
+        <textbox id="text" label="Label" help="ex. Find Us On : " />
+        <colorpicker id="color" label="Text Color" />
+        <textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+        <textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+      </type>
+      <type id="section_overrides" label="Override Section Settings" nested="nested">
+        <colorpicker id="body_bgcolor" label="Section's Surround Background Color" />
+        <colorpicker id="email_bgcolor" label="Section's Background Color" />
+        <textbox id="table_width" label="Section's Width" />
+      </type>
+      <type id="padding" label="Section Padding" nested="nested">
+        <textbox id="top" label="Top Padding" default="10" />
+        <textbox id="bottom" label="Bottom Padding" default="10" />
+        <textbox id="left" label="Left Padding" default="0" />
+        <textbox id="right" label="Right Padding" default="0" />
+      </type>
+      
+      <collection id="social_media_sites" label="Social Media Sites">
+        <type id="site" label="Site">
+          <listbox id="title" label="Site Name">
+            <listitem id="facebook" text="Facebook" default="default" />
+            <listitem id="twitter" text="Twitter" />
+            <listitem id="youtube" text="YouTube" />
+            <listitem id="linkedin" text="Linked In" />
+            <listitem id="googleplus" text="Google Plus" />
+            <listitem id="blogger" text="Blogger" />
+            <listitem id="rss" text="RSS" />
+            <listitem id="pintrest" text="Pintrest" />
+            <listitem id="website" text="Website" />
+            <listitem id="unknown" text="Other…" />
+          </listbox>
+          <textbox id="link" label="Link" help="The full link to your site" />
+          <image id="custom_image" label="Use Custom Icon" />
+          <textbox id="image_width" label="Image Width" default="32" />
+          <textbox id="image_height" label="Image Height" default="32" />
+        </type>
+      </collection>
+      
+    </type>
+    <type id="share_bar" label="Share Buttons">
+      <bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+      <listbox id="alignment" label="Alignment">
+          <listitem id="center" text="Center" default="default" />
+          <listitem id="right" text="Right" />
+          <listitem id="left" text="Left" />
+      </listbox>
+      <textbox id="spacing" label="Space between Icons" default="5" />
+      <type id="label" label="Label Options" nested="nested">
+        <textbox id="text" label="Override Label" />
+        <colorpicker id="color" label="Text Color" />
+        <textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+        <textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+      </type>
+      <type id="forwardtofriend" label="Forward To Friend" nested="nested">
+        <bool id="show" label="Show Link" default="true" help="Only works in Email, not on landing pages." />
+        <image id="custom_image" label="Use Custom Icon" maxwidth="64" />
+      </type>
+      <type id="facebook" label="Facebook" nested="nested">
+        <bool id="show" label="Show Link" default="true" />
+        <image id="custom_image" label="Use Custom Icon" maxwidth="64" />
+      </type>
+      <type id="twitter" label="Twitter" nested="nested">
+        <bool id="show" label="Show Link" default="true" />
+        <image id="custom_image" label="Use Custom Icon" maxwidth="64" />
+      </type>
+      <type id="linkedin" label="Linked In" nested="nested">
+        <bool id="show" label="Show Link" default="true" />
+        <bool id="show_lp" label="Show Link on Landing Page" default="true" />
+        <image id="custom_image" label="Use Custom Icon" maxwidth="64" />
+      </type>
+      <type id="googleplus" label="Google Plus" nested="nested">
+        <bool id="show" label="Show Link" default="true" />
+        <bool id="show_lp" label="Show Link on Landing Page" default="true" />
+        <image id="custom_image" label="Use Custom Icon" maxwidth="64" />
+      </type>
+      <type id="section_overrides" label="Override Section Settings" nested="nested">
+        <colorpicker id="body_bgcolor" label="Section's Surround Background Color" />
+        <colorpicker id="email_bgcolor" label="Section's Background Color" />
+        <textbox id="table_width" label="Section's Width" />
+      </type>
+      <type id="padding" label="Section Padding" nested="nested">
+        <textbox id="top" label="Top Padding" default="10" />
+        <textbox id="bottom" label="Bottom Padding" default="10" />
+        <textbox id="left" label="Left Padding" default="0" />
+        <textbox id="right" label="Right Padding" default="0" />
+      </type>
+    </type>
+    <type id="text_area" label="Text Area">
+      <bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+      <richtext id="content" label="Content" />
+      
+      <type id="style" label="Text Settings" nested="nested">
+        <colorpicker id="color" label="Text Color" />
+        <textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+        <textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+      </type>
+      
+      <type id="section_overrides" label="Override Section Settings" nested="nested">
+        <colorpicker id="body_bgcolor" label="Section's Surround Background Color" />
+        <colorpicker id="email_bgcolor" label="Section's Background Color" />
+        <textbox id="table_width" label="Section's Width" />
+      </type>
+      <type id="padding" label="Section Padding" nested="nested">
+        <textbox id="top" label="Top Padding" default="10" />
+        <textbox id="bottom" label="Bottom Padding" default="10" />
+        <textbox id="left" label="Left Padding" default="0" />
+        <textbox id="right" label="Right Padding" default="0" />
+      </type>
+    </type>
+    <type id="subscribe_links" label="Subscriber Links">
+      <bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+      
+      <bool id="show_unsubscribe" label="Show Unsubscribe" default="true" />
+      <bool id="show_subscribe" label="Show Subscribe" default="true" />
+      <listbox id="alignment" label="Alignment">
+        <listitem id="center" text="Center" default="default" />
+        <listitem id="right" text="Right" />
+        <listitem id="left" text="Left" />
+      </listbox>
+      
+      <type id="link_overrides" label="Link Styling" nested="nested">
+        <colorpicker id="color" label="Text Color" />
+        <textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+        <textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+        <bool id="underline" label="Underline Links" default="true" />
+      </type>
+      <type id="section_overrides" label="Override Section Settings" nested="nested">
+        <colorpicker id="body_bgcolor" label="Section's Surround Background Color" />
+        <colorpicker id="email_bgcolor" label="Section's Background Color" />
+        <textbox id="table_width" label="Section's Width" />
+      </type>
+      <type id="padding" label="Section Padding" nested="nested">
+        <textbox id="top" label="Top Padding" default="10" />
+        <textbox id="bottom" label="Bottom Padding" default="10" />
+        <textbox id="left" label="Left Padding" default="0" />
+        <textbox id="right" label="Right Padding" default="0" />
+      </type>
+    </type>
+    <type id="date_bar" label="Date Sent Bar">
+      <bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+      <textbox id="date_format" label="Date Format" help="Put liquid date formatting hints here" default="%B %-d, %Y" />
+      <textbox id="text" label="Optional Text Section" help="Used for Issue, newsletter title, Subscribe link, etc" />
+      <listbox id="alignment" label="Which side is date on?">
+        <listitem id="right" text="Right" default="default" />
+        <listitem id="left" text="Left" />
+        <listitem id="center" text="Center" />
+      </listbox>
+      <type id="style" label="Text Settings" nested="nested">
+        <colorpicker id="color" label="Text Color" />
+        <textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+        <textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+      </type>
+      
+      <type id="section_overrides" label="Override Section Settings" nested="nested">
+        <colorpicker id="body_bgcolor" label="Section's Surround Background Color" />
+        <colorpicker id="email_bgcolor" label="Section's Background Color" />
+        <textbox id="table_width" label="Section's Width" />
+      </type>
+      <type id="padding" label="Section Padding" nested="nested">
+        <textbox id="top" label="Top Padding" default="10" />
+        <textbox id="bottom" label="Bottom Padding" default="10" />
+        <textbox id="left" label="Left Padding" default="0" />
+        <textbox id="right" label="Right Padding" default="0" />
+      </type>
+    </type>
+    <type id="spacer" label="Spacer">
+      <textbox id="height" label="Height" default="10" />
+      <type id="section_overrides" label="Override Section Settings" nested="nested">
+        <colorpicker id="body_bgcolor" label="Section's Surround Background Color" />
+        <colorpicker id="email_bgcolor" label="Section's Background Color" />
+        <textbox id="table_width" label="Section's Width" />
+      </type>
+    </type>
+    <type id="custom_html" label="Raw HTML Section">
+      <bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+      <textarea id="html" label="HTML Only" help="You cannot insert Javascript into an email" />
+      <type id="section_overrides" label="Override Section Settings" nested="nested">
+        <colorpicker id="body_bgcolor" label="Section's Surround Background Color" />
+        <colorpicker id="email_bgcolor" label="Section's Background Color" />
+        <textbox id="table_width" label="Section's Width" />
+      </type>
+      <type id="padding" label="Section Padding" nested="nested">
+        <textbox id="top" label="Top Padding" default="10" />
+        <textbox id="bottom" label="Bottom Padding" default="10" />
+        <textbox id="left" label="Left Padding" default="0" />
+        <textbox id="right" label="Right Padding" default="0" />
+      </type>
+    </type>
+  </partial>
+  
+  <partial id="article_settings">
+    <colorpicker id="bgcolor" label="Article Background Color" />
+    
+    <type id="border" label="Border" nested="nested">
+      <textbox id="border_width" label="Border Width" 
+        regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+      <colorpicker id="border_color" label="Article Border Color" />
+      <listbox id="border_style" label="Article Border Style">
+        <listitem id="solid" text="Solid" default="default" />
+        <listitem id="dotted" text="Dotted" />
+        <listitem id="dashed" text="Dashed" />
+      </listbox>
+    </type>
+    
+    <type id="margin" label="Margins" nested="nested">
+        <textbox id="right" label="Right Margin" help="How much horizontal whitespace should there be on the right side of the email?" default="20" />
+        <textbox id="left" label="Left Margin" help="How much horizontal whitespace should there be on the left side of the email?" default="20" />
+        <textbox id="bottom" label="Bottom Margin" help="How much horizontal whitespace should there be on the bottom of the email?" default="20" />
+    </type>
+    <type id="padding" label="Padding" nested="nested">
+        <textbox id="top" label="Top Padding" help="How much horizontal whitespace should there be on the top of the email?" default="0" />
+        <textbox id="bottom" label="Bottom Padding" help="How much horizontal whitespace should there be on the bottom of the email?" default="0" />
+        <textbox id="right" label="Right Padding" help="How much horizontal whitespace should there be on the right side of the email?" default="0" />
+        <textbox id="left" label="Left Padding" help="How much horizontal whitespace should there be on the left side of the email?" default="0" />
+    </type>
+    <!-- *************************************************************************************************************************
+    HEADER FONTS
+    ************************************************************************************************************************* -->
+    <type id="header_font" label="Header Font" nested="nested">
+        <listbox id="family" label="Font Family" 
+                 help="This font will be the most common one in your mailout. ">
+        <!-- Add "GF, " before any Google Font to enable it's support -->
+        <listitem id="inherit" text="Inherit" default="default" />
+        <listitem id="GF, Arvo, Rockwell, Georgia, serif" text="Arvo, Rockwell, Georgia, serif (Google Font)" />
+        <listitem id="Arial, sans-serif" text="Arial, sans-serif" />
+        <listitem id="Comic Sans MS, Chalkboard SE, sans-serif" text="Comic Sans MS, Chalkboard SE, sans-serif" />
+        <listitem id="Courier New, Courier, mono" text="Courier New, Courier, mono" />
+        <listitem id="GF, Droid Sans, Calibri, Arial, sans-serif" text="Droid Sans, Calibri, Arial, sans-serif (Google Font)" />
+        <listitem id="GF, Droid Serif, Cambria, Times New Roman, serif" text="Droid Serif, Cambria, Times New Roman, serif (Google Font)" />
+        <listitem id="Georgia, serif" text="Georgia, serif" />
+        <listitem id="Helvetica Neue, Helvetica, Arial, sans-serif" text="Helvetica Neue, Helvetica, Arial, sans-serif" />
+        <listitem id="GF, Indie Flower, Comic Sans MS, Chalkboard SE, sans-serif" text="Indie Flower, Comic Sans MS, Chalkboard SE, sans-serif (Google Font)" />
+        <listitem id="GF, Lato, Arial, sans-serif" text="Lato, Arial, sans-serif (Google Font)" />
+        <listitem id="GF, Merriweather, Cambria, Georgia, serif" text="Merriweather, Cambria, Georgia, serif (Google Font)" />
+        <listitem id="GF, Myriad Pro, Open Sans, Corbel, Arial, sans-serif" text="Myriad Pro, Open Sans, Corbel, Arial, sans-serif (Google Font)" />
+        <listitem id="GF, Open Sans, Corbel, Arial, sans-serif" text="Open Sans, Corbel, Arial, sans-serif (Google Font)" />
+        <listitem id="GF, Oswald, Arial Narrow, sans-serif" text="Oswald, Arial Narrow, sans-serif" />
+        <listitem id="Palatino, Book Antiqua, Droid Serif, serif" text="Palatino, Book Antiqua, Droid Serif, serif" />
+        <listitem id="GF, PT Sans, Trebuchet MS, serif" text="PT Sans, Trebuchet MS, serif (Google Font)" />
+        <listitem id="GF, PT Serif, Lucida Bright, Times New Roman, serif" text="PT Serif, Lucida Bright, Times New Roman, serif (Google Font)" />
+        <listitem id="GF, Roboto, Calibri, Arial, sans-serif" text="Roboto, Calibri, Arial, sans-serif (Google Font)" />
+        <listitem id="GF, Roboto Slab, Rockwell, Georgia, serif" text="Roboto Slab, Rockwell, Georgia, serif (Google Font)" />
+        <listitem id="GF, Shadows Into Light, Comic Sans MS, Chalkboard SE, sans-serif" text="Shadows Into Light, Comic Sans MS, Chalkboard SE, sans-serif (Google Font)" />
+        <listitem id="GF, 'Slabo 27px', Rockwell, Georgia, serif" text="Slabo 27px, Rockwell, Georgia, serif (Google Font)" />
+        <listitem id="Times New Roman, serif" text="Times New Roman, serif" />
+        <listitem id="Trebuchet MS, sans-serif" text="Trebuchet MS, sans-serif" />
+        <listitem id="GF, Ubuntu, Tahoma, Verdana, sans-serif" text="Ubuntu, Tahoma, Verdana, sans-serif (Google Font)" />
+        <listitem id="Verdana, sans-serif" text="Verdana, sans-serif" />
+        <listitem id="GF, Vollkorn, Book Antiqua, Georgia, serif" text="Vollkorn, Book Antiqua, Georgia, serif" />
+        <listitem id="other" text="Other (please specify in below)" />
+        </listbox>
+        <textbox id="family_other" label="Other Font Stack" help="*Other must be selected above" 
+                 default="" />
+       <colorpicker id="color" label="Text Color" />
+       <textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+         regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+       <textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+         regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+
+
+        <listbox id="weight" label="Font Weight">
+            <listitem id="bold" text="Bold" default="default" />
+            <listitem id="normal" text="Normal" />
+            <listitem id="lighter" text="Lighter" />
+        </listbox> 
+        <listbox id="style" label="Font Style">
+            <listitem id="normal" text="Normal" default="default" />
+            <listitem id="italic" text="Italic" />
+        </listbox>  
+        <textbox id="bottomPadding" label="Bottom Padding" help="Enter the pixels that are placed below a header, above the following content" 
+          default="10" regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+        
+    </type>
+    <!-- *************************************************************************************************************************
+    BASE FONTS
+    ************************************************************************************************************************* -->
+    <type id="base_font" label="Base Font" nested="nested">
+        <listbox id="family" label="Font Family" 
+                 help="This font will be the most common one in your mailout. ">
+        <!-- Add "GF, " before any Google Font to enable it's support -->
+        <listitem id="inherit" text="Inherit" default="default" />
+        <listitem id="Arial, sans-serif" text="Arial, sans-serif" />
+        <listitem id="Comic Sans MS, Chalkboard SE, sans-serif" text="Comic Sans MS, Chalkboard SE, sans-serif" />
+        <listitem id="Courier New, Courier, mono" text="Courier New, Courier, mono" />
+        <listitem id="GF, Droid Sans, Calibri, Arial, sans-serif" text="Droid Sans, Calibri, Arial, sans-serif (Google Font)" />
+        <listitem id="GF, Droid Serif, Cambria, Times New Roman, serif" text="Droid Serif, Cambria, Times New Roman, serif (Google Font)" />
+        <listitem id="Georgia, serif" text="Georgia, serif" />
+        <listitem id="Helvetica Neue, Helvetica, Arial, sans-serif" text="Helvetica Neue, Helvetica, Arial, sans-serif" />
+        <listitem id="GF, Indie Flower, Comic Sans MS, Chalkboard SE, sans-serif" text="Indie Flower, Comic Sans MS, Chalkboard SE, sans-serif (Google Font)" />
+        <listitem id="GF, Lato, Arial, sans-serif" text="Lato, Arial, sans-serif (Google Font)" />
+        <listitem id="GF, Merriweather, Cambria, Georgia, serif" text="Merriweather, Cambria, Georgia, serif (Google Font)" />
+        <listitem id="GF, Myriad Pro, Open Sans, Corbel, Arial, sans-serif" text="Myriad Pro, Open Sans, Corbel, Arial, sans-serif (Google Font)" />
+        <listitem id="GF, Open Sans, Corbel, Arial, sans-serif" text="Open Sans, Corbel, Arial, sans-serif (Google Font)" />
+        <listitem id="GF, Oswald, Arial Narrow, sans-serif" text="Oswald, Arial Narrow, sans-serif" />
+        <listitem id="Palatino, Book Antiqua, Droid Serif, serif" text="Palatino, Book Antiqua, Droid Serif, serif" />
+        <listitem id="GF, PT Sans, Trebuchet MS, serif" text="PT Sans, Trebuchet MS, serif (Google Font)" />
+        <listitem id="GF, PT Serif, Lucida Bright, Times New Roman, serif" text="PT Serif, Lucida Bright, Times New Roman, serif (Google Font)" />
+        <listitem id="GF, Roboto, Calibri, Arial, sans-serif" text="Roboto, Calibri, Arial, sans-serif (Google Font)" />
+        <listitem id="Times New Roman, serif" text="Times New Roman, serif" />
+        <listitem id="Trebuchet MS, sans-serif" text="Trebuchet MS, sans-serif" />
+        <listitem id="GF, Ubuntu, Tahoma, Verdana, sans-serif" text="Ubuntu, Tahoma, Verdana, sans-serif (Google Font)" />
+        <listitem id="Verdana, sans-serif" text="Verdana, sans-serif" />
+        <listitem id="GF, Vollkorn, Book Antiqua, Georgia, serif" text="Vollkorn, Book Antiqua, Georgia, serif" />
+        <listitem id="other" text="Other (please specify in below)" />
+        </listbox>
+        <textbox id="family_other" label="Other Font Stack" help="*Other must be selected above" 
+                 default="" />
+       <colorpicker id="color" label="Text Color" />
+       <textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+         regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+       <textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+         regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+    </type>
+    <!-- *************************************************************************************************************************
+    BASE LINKS
+    ************************************************************************************************************************* -->
+    <type id="link" label="Link Settings" nested="nested">
+      <colorpicker id="color" label="Link Color" default="#00a7dd" />
+      <listbox id="textdecoration" label="Underline links">
+        <listitem id="inherit" text="Inherit" default="default" />
+        <listitem id="underline" text="Yes" />
+        <listitem id="none" text="No" />
+      </listbox>
+    </type>
+  </partial>
+
+  <partial id="mailout_links_partial">
+    <type id="mailout_links" label="Mailout Links">
+      <!-- *************************************************************************************************************************
+      DEFAULT LINKS - SUBSCRIBE
+      ************************************************************************************************************************* -->
+        <type id="subscribe" label="Subscribe Link" nested="nested">
+          <textbox id="label" label="Label" default="Subscribe" />
+          <bool id="hide" label="Hide Link" />
+        </type>
+      <!-- *************************************************************************************************************************
+      DEFAULT LINKS - UNSUBSCRIBE
+      ************************************************************************************************************************* -->
+        <type id="unsubscribe" label="UnSubscribe Link" nested="nested">
+          <textbox id="label" label="Label" default="Unsubscribe" />
+          <bool id="hide" label="Hide Link" />
+        </type>
+  
+        <type id="separator" label="Separator" nested="nested">
+            <textbox id="character" label="Character" help="What character should separate multiple links?" default="|" />  
+            <colorpicker id="color" label="Color" help="What color should the separate be?" default="#000000" />  
+        </type>
+    </type>
+  </partial>
+
+  <!-- *************************************************************************************************************************
+  *************************************************************************************************************************
+  PARTIALS END 
+  *************************************************************************************************************************
+  *************************************************************************************************************************-->
+
+  <type id="preview_text" label="Email Client Teaser Text">
+      <textbox id="content" label="Content" help="This text will display beside the subject line in many modern browsers, like the iphone, to give a hint of what your email is about." />
+  </type>
+  
+  
+  <!-- MAIN ARTICLES -->
+  <collection id="main_area" label="Main Articles">
+      <include partial="content_types" />
+  </collection>
+
+  <!-- SIDEBAR ARTICLES -->
+  <collection id="sidebar_area" label="Sidebar Articles">
+      <include partial="content_types" />
+  </collection>
+
+  <!-- HEADER/FOOTER SECTIONS -->
+  <collection id="header_section" label="Header Section">
+    <include partial="headerfooter_types" />
+  </collection>
+  
+  <collection id="footer_section" label="Footer Section">
+    <include partial="headerfooter_types" />
+  </collection>
+
+  <type id="defaults" label="Default Settings">
+    <!-- ================================================================================================================================
+     TEMPLATE OPTIONS
+    ================================================================================================================================ -->
+      <type id="email" label="Email Settings">
+          <textbox id="emailWidth" label="Email Width" help="How wide should your email be; in pixels" default="600" />
+
+          <!-- *************************************************************************************************************************
+          BACKGROUND
+          ************************************************************************************************************************* -->
+          <type id="background" label="Surround Background" nested="nested">
+              <colorpicker id="bgcolor_body" label="Email Background Color" default="#ffffff" />
+              <image id="bgImg_body" label="Email Background Image (repeats x and y)" />
+          </type>
+          <!-- *************************************************************************************************************************
+          BORDER
+          ************************************************************************************************************************* -->
+          <type id="border" label="Border" nested="nested">
+              <textbox id="border_width" label="Border Width" 
+                       regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+              <colorpicker id="border_color" label="Article Border Color" />
+              <listbox id="border_style" label="Article Border Style">
+                  <listitem id="solid" text="Solid" default="default" />
+                  <listitem id="dotted" text="Dotted" />
+                  <listitem id="dashed" text="Dashed" />
+              </listbox>
+          </type>
+          <!-- *************************************************************************************************************************
+          TEXT AND LINK COLORS
+          ************************************************************************************************************************* -->
+          <type id="colorsandfonts" label="Text and Link Defaults" nested="nested">
+              <colorpicker id="font_color" label="Font Color" default="#222222" />
+               <textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+                 regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="14" />
+               <textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+                 regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="1.5" />
+                 
+               <colorpicker id="link_color" label="Link Color" default="#00a7dd" />
+               <listbox id="link_textdecoration" label="Underline links">
+                 <listitem id="underline" text="Yes" default="default" />
+                 <listitem id="none" text="No" />
+               </listbox>
+          </type>
+
+          <!-- *************************************************************************************************************************
+          Custom CSS
+          ************************************************************************************************************************* -->
+          <type id="advanced" label="Custom CSS" nested="nested">
+              <textarea id="customCSS" label="Custom CSS (will be 'inlined' automatically)" />
+          </type>
+          <!-- border, shadow, etc -->
+      </type>
+      <type id="primary_settings" label="Main Section's Settings">
+          <colorpicker id="bgcolor" label="Content Background" default="#ffffff" />
+          <type id="padding" label="Padding" nested="nested">
+               <textbox id="top" label="Top Padding for Section" default="20" />
+               <textbox id="bottom" label="Bottom Padding for Section" default="20" />
+          </type>
+          <type id="articles" label="Main Article's Settings">
+              <include partial="article_settings" />
+          </type>
+          <type id="buttons" label="Button Default Stylings">
+            <colorpicker id="background_color" label="Background Color" default="#fafafb" />
+            <colorpicker id="font_color" label="Font Color" default="#2f353e" />
+            <textbox id="font_size" label="Font Size"  help="Enter the number of pixels that your text should be"
+              regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+            <textbox id="border_width" label="Border Width" default="1" />
+            <textbox id="border_radius" label="Border Radius (%)" default="50" />
+            <colorpicker id="border_color" label="Border Color" default="#e6e6e8" />
+            <textbox id="height" label="Height" default="36" />
+          </type>
+      </type>
+      <type id="sidebar_settings" label="Sidebar Section's Sections">
+          <listbox id="side" label="Position">
+              <listitem id="right" text="Right Side" default="default" />
+              <listitem id="left" text="Left Side" />
+          </listbox>
+          <textbox id="width" label="Width" help="How many pixels wide is the sidebar?" default="200" />
+          <colorpicker id="bgcolor" label="Background Color" />
+          <type id="margin" label="Margin" nested="nested">
+               <textbox id="top" label="Top Margin for Section" default="20" />
+               <textbox id="bottom" label="Bottom Margin for Section" default="20" />
+          </type>
+          <type id="articles" label="Sidebar Article's Settings">
+              <include partial="article_settings" />
+          </type>
+      </type>
+
+      <type id="default_links" label="Links and Messages">
+            <!-- *************************************************************************************************************************
+        DEFAULT LINKS - TROUBLE LINK
+        ************************************************************************************************************************* -->
+          <type id="trouble" label="'Trouble' Link" nested="nested">
+              <listbox id="show" label="Show">
+                <listitem id="auto" text="Only When Needed" default="default" />
+                <listitem id="always" text="Always" />
+                <listitem id="never" text="Never" />  
+              </listbox>
+              <textbox id="label" label="Label" default="Don't see images? View online here." />
+          </type>
+          
+            <!-- *************************************************************************************************************************
+        DEFAULT LINKS - RETURN TO NEWSLETTER
+        ************************************************************************************************************************* -->
+          <type id="returntonewsletter" label="Return to Newsletter Link (on landing pages)" nested="nested">
+              <bool id="show" label="Show Link" default="true" />
+              <textbox id="label" label="Label" default="&laquo; Return to the full newsletter" />
+              <listbox id="position" label="Link's Position">
+                <listitem id="above" text="Above Content" />
+                <listitem id="below" text="Below Content" default="default" />
+              </listbox>
+          </type>
+            <!-- *************************************************************************************************************************
+        DEFAULT LINKS - Delivered by...
+        ************************************************************************************************************************* -->
+          <type id="deliveredby" label="Delivered by&#x2026;" nested="nested">
+              <bool id="show" label="Show Message" default="true" />
+          </type>
+          <type id="secIMUSEONLY" label="IM Use Only" nested="nested">
+              <textbox id="hideUnsubscribe" label="rem_us" />
+          </type>
+      </type>
+  </type>
+</iml>

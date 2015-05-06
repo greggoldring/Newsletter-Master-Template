@@ -1,0 +1,32 @@
+<table cellpadding="0" cellspacing="0" border="0" align="{{ item.alignment }}">
+  <tr valign="middle">
+      {% if item.label.text != "" -%}
+          <td style="
+                color: {{ item.label.color }};
+                font-size: {{ item.label.fontsize }};
+                line-height: {{ item.label.lineheight }};
+          " nowrap="nowrap">
+              {{ item.label.text }}
+          </td>
+          <td width="{{item.spacing}}" style="font-size:1; line-height:1;">&nbsp;</td>
+      {% endif -%}
+      {% for site in item.social_media_sites %}
+        {% assign image_url = 'Templates/11922/share_' | plus: site.title | plus: '.png?v=1' | asset_url -%}
+        {% if site.custom_image -%}
+           {% capture image_url %}{% image_url site.custom_image %}{% endcapture -%}
+        {% endif -%}
+        {% assign image_height = site.image_height -%}
+        {% assign image_width = site.image_width -%}
+        <td>
+            {% node site -%}
+            <a href="{{ site.link | convert_to_link  }}">
+                <img src="{{ image_url }}" width="{{ image_width }}" height="{{ image_height }}" alt="{{ site.title }}" style="display:block; width:{{ image_width }}px; height:{{ image_height }}px;" />
+            </a>
+            {% endnode -%}
+        </td>
+      {% if item.spacing > 0 and forloop.last == 'false' %}
+      <td width="{{item.spacing}}" style="font-size:1; line-height:1;">&nbsp;</td>
+      {% endif -%}
+      {% endfor %}
+  </tr>
+</table>

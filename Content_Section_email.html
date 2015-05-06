@@ -1,0 +1,93 @@
+<table width="{{ table_width }}" cellpadding="0" cellspacing="0" border="0" 
+       class="wrapper" align="center" 
+       dir="{{ text_flow }}" 
+       {% if email_border %}style="{{ email_border }}"{% endif -%}
+       {% if email_bgcolor %}bgcolor="{{ email_bgcolor }}"{% endif -%}
+       >
+    <tr valign="top">
+        <td align="{{ main_align }}" valign="top">
+            {% if main_align == "left" %}
+            <table width="{{ main_column_article_margin_left }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="left"><tr><td style="line-height:1px; font-size:1px;" width="{{leftMarginGutter}}">&nbsp;</td></tr></table>
+            {% else %}
+            <table width="{{ main_column_article_margin_right }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="right"><tr><td style="line-height:1px; font-size:1px;" width="{{rightMarginGutter}}">&nbsp;</td></tr></table>
+            {% endif%}
+            <!--[if gte mso 9]>
+</td><td align="{{ main_align }}" valign="top">
+<![endif]-->
+            <!-- Articles Begin -->
+            <table width="{{ main_column_width }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="{{ main_align }}" dir="ltr">
+                {% if main_column_padding_top != 0 -%}
+                <tr><td style="line-height:0; font-size:0;" height="{{ main_column_padding_top }}">&nbsp;</td></tr>
+                {% endif -%}
+                <tr>
+                    <td class="primary">
+                        {% assign article_bgcolor = main_article_bgcolor -%}
+                        {% assign article_padding_top = main_article_padding_top -%}
+                        {% assign article_padding_right = main_article_padding_right -%}
+                        {% assign article_padding_left = main_article_padding_left -%}
+                        {% assign article_padding_bottom = main_article_padding_bottom -%}
+                        {% assign article_column_width = main_column_width -%}
+                        {% for item in main_area -%}
+                        {% node item -%}
+                        <!-- OPEN ARTICLE-->
+                        {% include "Content_Type.list" -%}
+                        <!-- CLOSE ARTICLE-->
+                        {% endnode -%}
+                        {% if forloop.last -%}
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="{{ main_column_padding_bottom }}" style="line-height:0; font-size:0;">&nbsp;</td></tr></table>
+                        {% else -%}
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="{{ main_column_article_margin_bottom }}" style="line-height:0; font-size:0;">&nbsp;</td></tr></table>
+                        {% endif -%}
+                        {% endfor -%}
+                    </td>
+                </tr>
+            </table>
+            <!-- Articles End -->
+            {% if sidebarCount > 0 %}
+            <!--[if gte mso 9]>
+</td><td align="{{ sidebar_align }}" valign="top">
+<![endif]-->   
+            <!-- Sidebar Articles Begin -->
+            <table style="background:{{ sidebar_bgcolor }};" bgcolor="{{ sidebar_bgcolor }}" width="{{ sidebar_column_width | plus: sidebar_column_article_margin_left | plus: sidebar_column_article_margin_right }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="{{ sidebar_align }}" dir="ltr">
+                {% if sidebar_column_margin_top != 0 -%}
+                <tr><td style="line-height:0; font-size:0;" height="{{ sidebar_column_margin_top }}">&nbsp;</td></tr>
+                {% endif -%}
+                <tr>
+                    <td align="left">
+                        {% if sidebar_column_article_margin_left != 0 -%}
+                        <table width="{{ sidebar_column_article_margin_left }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="left">
+                            <tr>
+                                <td style="line-height:1px; font-size:1px;" width="{{columnGutter}}">&nbsp;</td>
+                            </tr>
+                        </table>
+                        {% endif -%}
+                        <table width="{{ sidebar_column_width }}" cellpadding="0" cellspacing="0" border="0" class="wrapper95" align="left">
+                            <tr>
+                                <td class="sidebar">
+                                    {% assign article_bgcolor = sidebar_article_bgcolor -%}
+                                    {% assign article_padding_top = sidebar_article_padding_top -%}
+                                    {% assign article_padding_right = sidebar_article_padding_right -%}
+                                    {% assign article_padding_left = sidebar_article_padding_left -%}
+                                    {% assign article_padding_bottom = sidebar_article_padding_bottom -%}
+                                    {% assign article_column_width = sidebar_column_width -%}
+                                    {% for item in sidebar_area -%}
+                                    {% node item -%}
+                                       {% include "Content_Type.list" -%}
+                                    {% endnode -%}
+                                    {% if forloop.last -%}
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="{{ sidebar_column_margin_bottom }}" style="line-height:0; font-size:0;">&nbsp;</td></tr></table>
+                                    {% else -%}
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="{{ sidebar_column_article_margin_bottom }}" style="line-height:0; font-size:0;">&nbsp;</td></tr></table>
+                                    {% endif -%}
+                                    {% endfor -%}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>   
+            <!-- Sidebar Articles End -->
+            {% endif %}
+        </td>
+    </tr>
+</table>

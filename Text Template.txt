@@ -1,0 +1,27 @@
+This email requires HTML to be viewed properly.
+
+Please click here to view :
+<mymailout:view medium="text"/>
+
+
+
+
+{% unless settings.secIMUSEONLY.hideUnsubscribe == "yw2u%HztBF3xLt" or unsubscribe_link_present == true -%}
+__________________________
+
+
+Unsubscribe:
+{{ urls.unsubscribeurl }}
+{% endunless -%}
+
+__________________________
+
+{{ mailinglist.companyname }} 
+{{ mailinglist.mailingaddress }}
+
+__________________________
+
+{% unless deliveredby_show == false %}
+This email was created and delivered using 
+Industry Mailout - http://www.industrymailout.com/?utm_source=customers&amp;utm_medium=email&amp;utm_content=creator_{{ mailinglist.id }}&amp;utm_campaign=poweredby
+{% endunless %}

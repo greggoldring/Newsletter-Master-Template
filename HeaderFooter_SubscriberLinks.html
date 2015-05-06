@@ -1,0 +1,38 @@
+<div style="text-align:{{ item.alignment }};
+            color: {{ item.link_overrides.color }};
+            font-size: {{ item.link_overrides.fontsize }};
+            line-height: {{ item.link_overrides.lineheight }};
+        ">
+    {% if item.show_subscribe == 'true' %}
+        <a href="{{ urls.subscribeurl }}" style="
+            color: {{ item.link_overrides.color }};
+            font-size: {{ item.link_overrides.fontsize }};
+            line-height: {{ item.link_overrides.lineheight }};
+            {% if item.link_overrides.underline == true -%}
+            text-decoration:underline;
+            {% else -%}
+            text-decoration:none;
+            {% endif -%}
+        ">
+            Subscribe
+        </a>
+    {% endif %}
+    {% if item.show_subscribe == 'true' and item.show_unsubscribe == 'true'%}  
+    | 
+    {% endif -%}
+    {% if item.show_unsubscribe == 'true'%}  
+        <a href="{{ urls.unsubscribeurl }}" style="
+            color: {{ item.link_overrides.color }};
+            font-size: {{ item.link_overrides.fontsize }};
+            line-height: {{ item.link_overrides.lineheight }};
+            {% if item.link_overrides.underline == true -%}
+            text-decoration:underline;
+            {% else -%}
+            text-decoration:none;
+            {% endif -%}
+        ">
+            Unsubscribe
+        </a>
+        {% assign unsubscribe_link_present = true %}
+    {% endif %}
+</div>

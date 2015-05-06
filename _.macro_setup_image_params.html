@@ -1,0 +1,14 @@
+{% assign img_align = item.image_override.side -%}
+{% assign img_width = item.image.width | round -%}
+{% assign img_maxwidth = item.image_override.maxWidth | to_int | round -%}
+
+{% if img_maxwidth == 0 or img_maxwidth > content_column_width -%}
+  {% assign img_maxwidth = content_column_width | round -%}
+{% endif -%}
+{% assign img_height = item.image.height | round -%}
+
+{% if img_width > img_maxwidth -%}
+     {% assign temp_imgRatio = img_width | to_double | divided_by: img_height -%}
+     {% assign img_width = img_maxwidth | round -%}
+     {% assign img_height = img_maxwidth | to_double | divided_by: temp_imgRatio | round -%}
+{% endif -%}

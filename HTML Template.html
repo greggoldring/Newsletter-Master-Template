@@ -1,0 +1,88 @@
+{% assign landingpage = false -%}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      {% include .variable_setup -%}
+      {% include ".html_head" -%}
+      <link href="https://dkv9dfy5bc6mk.cloudfront.net/css/trouble.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    {% webbug %}
+      {% if trouble_show == "auto" or trouble_show == "always" -%}
+      <div{% if trouble_show == "auto" %} class="trouble"{%endif %} style="width:{{ table_width }}px; margin:0 auto;">
+           <table width="{{ table_width }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="center"><tr><td align="right" style="text-align:right;">
+                <a href="{{ urls.backtomailouturlpersonalized  }}" style="font-size:10px; line-height:1.1em; color:#888; text-decoration:none;">{{ trouble_label | newline_to_br }}</a>
+           </td></tr></table>
+      </div>
+      {% endif -%}
+      <div style="background-color:{{ body_bgcolor }};">
+              {% if preview_text.content != "" %}
+                  <div style="font-size:0; line-height:0; color: {{ body_bgcolor }};">
+                      {{ preview_text.content }}
+                  </div>
+              {% endif %}
+          {% if body_bgimg -%}
+          <!--[if gte mso 9]>
+              <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+                   <v:fill type="tile" src="{% image_url  body_bgimg %}" color="{{ body_bgcolor }}"/>
+              </v:background>
+          <![endif]-->
+          {% endif -%}
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                  <td valign="top" align="left" {% if body_bgimg %} background="{% image_url  body_bgimg %}" {% endif %}>
+                      {% assign path_section = header_section -%}
+                      {% include "HeaderFooter_Type.list" -%}
+
+                      {% include "Content_Section_email" -%}
+
+                      {% assign path_section = footer_section -%}
+                      {% include "HeaderFooter_Type.list" -%}
+                  </td>
+              </tr>
+          </table>
+      </div>
+      
+      
+      
+      
+<!-- Footer Begin -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff">
+    <tr><td style="line-height:0; font-size:0;" height="{{ main_column_padding_bottom }}">&nbsp;</td></tr>
+    <tr>
+        <td>
+            <table width="{{ table_width | minus: leftMarginGutter | minus: rightMarginGutter }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="center">
+                <tr>
+                    <td>
+                        {% unless defaults.default_links.secIMUSEONLY.hideUnsubscribe == "yw2u%HztBF3xLt" or unsubscribe_link_present == true %}
+                        <p style="text-align:center; font-size:12px;">
+                            <a href="{{ urls.unsubscribeurl }}">Unsubscribe</a>
+                        </p>
+                        {% endunless %}
+
+                        <p style="text-align:center; font-size:12px; color:#555555;">
+                            {{ mailinglist.companyname }} 
+                            {% if mailinglist.companyname != "" and mailinglist.mailingaddress != "" %}|{% endif -%} 
+                            {{ mailinglist.mailingaddress }}
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr><td style="line-height:1px; font-size:1px;" height="20">&nbsp;</td></tr>
+    {% unless deliveredby_show == false %}
+    <tr>
+        <td>
+            <p style="text-align:center; font-size:12px; color:#888888;">
+                This email was created and delivered using 
+                <a href="http://www.industrymailout.com/?utm_source=customers&amp;utm_medium=email&amp;utm_content=creator_{{ mailinglist.id }}&amp;utm_campaign=poweredby" notracking style="color:#666666" >Industry Mailout</a>
+            </p>
+        </td>
+    </tr>
+    {% endunless %}
+</table>
+<!-- Footer End -->
+    
+  </body>
+</html>

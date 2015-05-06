@@ -1,0 +1,407 @@
+{% assign path_default_links = defaults.default_links -%}
+    {% assign returntonewsletter_show = path_default_links.returntonewsletter.show -%}
+    {% assign returntonewsletter_label = path_default_links.returntonewsletter.label -%}
+    {% assign returntonewsletter_position = path_default_links.returntonewsletter.position -%}
+    {% assign deliveredby_show = path_default_links.deliveredby.show -%}
+{% assign trouble_show = path_default_links.trouble.show -%}
+{% assign trouble_label = path_default_links.trouble.label -%}
+
+{% assign path_primary_settings = defaults.primary_settings -%}
+{% assign path_primary_articles = path_primary_settings.articles -%}
+{% assign path_sidebar_settings = defaults.sidebar_settings -%}
+{% assign path_sidebar_articles = path_sidebar_settings.articles -%}
+
+{% comment -%} <!-- *****************************************************************
+This section detects what the default fonts are used
+***************************************************************** --> {% endcomment -%}
+    {% assign base_font_fam = path_primary_articles.base_font.family -%}
+    {% if base_font_fam == "other" -%}
+         {% assign base_font_fam = path_primary_articles.base_font.family_other -%}
+    {% elsif base_font_fam == "inherit"  -%}
+         {% assign base_font_fam = "GF, Open Sans, Corbel, Arial, sans-serif" -%}
+    {% endif -%}
+
+    {% assign base_header_font_fam = path_primary_articles.header_font.family -%}
+    {% if base_header_font_fam == "other" -%}
+         {% assign base_header_font_fam = path_primary_articles.headerfont.family_other -%}
+    {% elsif base_header_font_fam == "inherit"  -%}
+         {% assign base_header_font_fam = "GF, Open Sans, Corbel, Arial, sans-serif" -%}
+    {% endif -%}
+
+    {% assign sidebar_font_fam = path_sidebar_articles.base_font.family -%}
+    {% if sidebar_font_fam == "other" -%}
+         {% assign sidebar_font_fam = path_sidebar_articles.base_font.family_other -%}
+    {% elsif sidebar_font_fam == "inherit"  -%}
+         {% assign sidebar_font_fam = base_font_fam -%}
+    {% endif -%}
+    
+    {% assign sidebar_header_font_fam = path_sidebar_articles.header_font.family -%}
+    {% if sidebar_header_font_fam == "other" -%}
+         {% assign sidebar_header_font_fam = path_sidebar_articles.base_font.family_other -%}
+    {% elsif sidebar_header_font_fam == "inherit"  -%}
+         {% assign sidebar_header_font_fam = base_header_font_fam -%}
+    {% endif -%}
+{% comment -%} <!-- *****************************************************************
+This section detects if any defaults are Google and creates an array 
+to be used to import the font from the Google CDN
+***************************************************************** --> {% endcomment -%}
+    {% assign google_font_array = "" -%} 
+
+        {% assign font_fam_split = base_font_fam | split : ', ' -%}
+        {% if font_fam_split[0] == "GF" -%}
+            {% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
+        {% endif -%}
+        {% assign base_font_family = base_font_fam | replace: "GF, ","" -%}
+
+        {% assign font_fam_split = base_header_font_fam | split : ', ' -%}
+        {% if font_fam_split[0] == "GF" -%}
+            {% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
+        {% endif -%}
+        {% assign base_header_font_family = base_header_font_fam | replace: "GF, ","" -%}
+        
+        {% assign font_fam_split = sidebar_font_fam | split : ', ' -%}
+        {% if font_fam_split[0] == "GF" -%}
+          {% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
+        {% endif -%}
+        {% assign sidebar_font_family = sidebar_font_fam | replace: "GF, ","" -%}
+
+        {% assign font_fam_split = sidebar_header_font_fam | split : ', ' -%}
+        {% if font_fam_split[0] == "GF" -%}
+          {% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
+        {% endif -%}
+        {% assign sidebar_header_font_family = sidebar_header_font_fam | replace: "GF, ","" -%}
+     
+    {% assign google_font_array = google_font_array | split : "," -%}
+
+{% comment -%} <!-- *****************************************************************
+  Base Font Defaults are set 
+***************************************************************** --> {% endcomment -%}
+    {% assign default_path = defaults.email.colorsandfonts -%}
+    {% assign base_font_size = default_path.fontsize -%}
+    {% assign base_font_color = default_path.font_color -%}
+    {% assign base_font_line_height = default_path.lineheight -%}
+    {% assign base_link_color = default_path.link_color -%}
+    {% assign base_link_decoration = default_path.link_textdecoration -%}
+    
+
+{% comment -%} <!-- *****************************************************************
+Base Font Defaults are set 
+***************************************************************** --> {% endcomment -%}
+
+    {% assign primary_font_family = base_font_family -%}    
+    {% assign primary_font_size = base_font_size -%}
+    {% if path_primary_articles.base_font.fontsize -%}
+         {% assign primary_font_size = path_primary_articles.base_font.fontsize -%}
+    {% endif -%}
+    {% assign primary_line_height = base_font_line_height -%}
+    {% if path_primary_articles.base_font.lineheight -%}
+         {% assign primary_line_height = path_primary_articles.base_font.lineheight -%}
+    {% endif -%}
+    {% assign primary_font_color = base_font_color -%}
+        
+    {% if path_primary_articles.base_font.color -%}
+         {% assign primary_font_color = path_primary_articles.base_font.color -%}
+    {% endif -%}
+
+    {% assign primary_link_decoration = base_link_decoration -%}
+    {% if path_primary_articles.link.textdecoration != "inherit" -%}
+         {% assign primary_link_decoration =  path_primary_articles.link.textdecoration -%}
+    {% endif -%}
+    {% assign primary_link_color = base_link_color -%}
+    {% if path_primary_articles.link.color -%}
+         {% assign primary_link_color = path_primary_articles.link.color -%}
+    {% endif -%}
+
+{% comment -%} =================================={% endcomment -%}
+
+    {% assign sidebar_font_size = primary_font_size -%}
+    {% if path_sidebar_articles.base_font.fontsize -%}
+         {% assign sidebar_font_size = path_sidebar_articles.base_font.fontsize -%}
+    {% endif -%}
+    {% assign sidebar_line_height = primary_line_height -%}
+    {% if path_sidebar_articles.base_font.lineheight -%}
+         {% assign sidebar_line_height = path_sidebar_articles.base_font.lineheight -%}
+    {% endif -%}
+    {% assign sidebar_font_color = primary_font_color -%}
+    {% if path_sidebar_articles.base_font.color -%}
+         {% assign sidebar_font_color = path_sidebar_articles.base_font.color -%}
+    {% endif -%}
+
+    {% assign sidebar_link_decoration = primary_link_decoration -%}
+    {% if path_sidebar_articles.link.textdecoration != "inherit" -%}
+         {% assign sidebar_link_decoration =  path_sidebar_articles.link.textdecoration -%}
+    {% endif -%}
+    {% assign sidebar_link_color = primary_link_color -%}
+    {% if path_sidebar_articles.link.color -%}
+         {% assign sidebar_link_color = path_sidebar_articles.link.color -%}
+    {% endif -%}
+    
+
+
+{% comment -%} <!-- *****************************************************************
+  Header Font Defaults Set
+***************************************************************** --> {% endcomment -%}
+    {% assign primary_header_font_family = base_header_font_family -%}
+    
+    {% assign primary_header_font_size = primary_font_size | to_int | times: 1.4 | round -%}
+    {% if path_primary_articles.header_font.fontsize -%}
+         {% assign primary_header_font_size = path_primary_articles.header_font.fontsize  -%}
+    {% endif -%}
+    {% assign primary_header_line_height = primary_line_height -%}
+    {% if path_primary_articles.header_font.lineheight -%}
+         {% assign primary_header_line_height = path_primary_articles.header_font.lineheight -%}
+    {% endif -%}
+    {% assign primary_header_font_color = primary_font_color -%}
+    
+    {% if path_primary_articles.header_font.color -%}
+         {% assign primary_header_font_color = path_primary_articles.header_font.color -%}
+    {% endif -%}
+    
+    {% assign primary_header_font_weight = path_primary_articles.header_font.weight -%}
+    {% assign primary_header_font_style = path_primary_articles.header_font.style -%}
+    {% assign primary_header_bottom_padding = path_primary_articles.header_font.bottomPadding -%}
+
+    {% assign sidebar_header_font_size = primary_header_font_size -%}
+    {% if path_sidebar_articles.header_font.fontsize -%}
+         {% assign sidebar_header_font_size = path_sidebar_articles.header_font.fontsize -%}
+    {% endif -%}
+    {% assign sidebar_header_line_height = primary_header_line_height -%}
+    {% if path_sidebar_articles.header_font.lineheight -%}
+         {% assign sidebar_header_line_height = path_sidebar_articles.header_font.lineheight -%}
+    {% endif -%}
+    {% assign sidebar_header_font_color = primary_header_font_color -%}
+    {% if path_sidebar_articles.header_font.color -%}
+         {% assign sidebar_header_font_color = path_sidebar_articles.header_font.color -%}
+    {% endif -%}
+    {% assign sidebar_header_font_weight = primary_header_font_weight -%}
+    {% if path_sidebar_articles.header_font.weight != "inherit" -%}
+      {% assign sidebar_header_font_weight = path_sidebar_articles.header_font.weight -%}    
+    {% endif -%}
+    {% assign sidebar_header_font_style = primary_header_font_style -%}
+    {% if path_sidebar_articles.header_font.style != "inherit" -%}
+      {% assign sidebar_header_font_style = path_sidebar_articles.header_font.style -%}    
+    {% endif -%}
+
+    {% assign sidebar_header_bottom_padding = primary_header_bottom_padding -%}
+    {% if path_sidebar_articles.header_font.bottomPadding != "inherit" -%}
+      {% assign sidebar_header_bottom_padding = path_sidebar_articles.header_font.bottomPadding -%}    
+    {% endif -%}
+
+{% comment -%} <!-- *****************************************************************
+  Scaffolding/ Main Table Settings
+***************************************************************** --> {% endcomment -%}
+{% assign table_width = defaults.email.emailWidth -%}
+{% assign columnGutter = 0 -%}
+
+{% comment -%} <!-- *****************************************************************
+  Margins and Paddings
+***************************************************************** --> {% endcomment -%}
+{% assign main_column_padding_top = path_primary_settings.padding.top -%}
+{% assign main_column_padding_bottom = path_primary_settings.padding.bottom -%}
+
+{% assign main_column_article_margin_right = path_primary_articles.margin.right -%}
+{% assign main_column_article_margin_bottom = path_primary_articles.margin.bottom -%}
+{% assign main_column_article_margin_left = path_primary_articles.margin.left -%}
+
+{% assign main_article_padding_top = path_primary_articles.padding.top -%}
+{% assign main_article_padding_right = path_primary_articles.padding.right -%}
+{% assign main_article_padding_bottom = path_primary_articles.padding.bottom -%}
+{% assign main_article_padding_left = path_primary_articles.padding.left -%}
+
+{% assign sidebar_column_margin_top = path_sidebar_settings.margin.top -%}
+{% assign sidebar_column_margin_bottom = path_sidebar_settings.margin.bottom -%}
+
+{% assign sidebar_column_article_margin_left = path_sidebar_articles.margin.left -%}
+{% assign sidebar_column_article_margin_right = path_sidebar_articles.margin.right -%}
+{% assign sidebar_column_article_margin_bottom = path_sidebar_articles.margin.bottom -%}
+
+{% assign sidebar_article_padding_top = path_sidebar_articles.padding.top -%}
+{% assign sidebar_article_padding_right = path_sidebar_articles.padding.right -%}
+{% assign sidebar_article_padding_bottom = path_sidebar_articles.padding.bottom -%}
+{% assign sidebar_article_padding_left = path_sidebar_articles.padding.left -%}
+
+{% comment -%} <!-- *****************************************************************
+  Backgrounds
+***************************************************************** --> {% endcomment -%}
+{% assign body_bgcolor = defaults.email.background.bgcolor_body -%}
+{% assign body_bgimg = defaults.email.background.bgImg_body -%}
+
+{% assign email_bgcolor = path_primary_settings.bgcolor -%}
+{% assign sidebar_bgcolor = email_bgcolor -%} 
+{% if path_sidebar_settings.bgcolor -%}
+  {% assign sidebar_bgcolor = path_sidebar_settings.bgcolor -%} 
+{% endif -%}
+
+{% assign main_article_bgcolor = path_primary_articles.bgcolor -%}
+{% assign sidebar_article_bgcolor = path_sidebar_articles.bgcolor -%}
+
+{% comment -%} <!-- *****************************************************************
+  Borders
+***************************************************************** --> {% endcomment -%}
+{% if defaults.email.border.border_width and defaults.email.border.border_color and defaults.email.border.border_style -%}
+{% assign email_border = "border: " | plus: defaults.email.border.border_width | plus: "px " | plus: defaults.email.border.border_color | plus: " " | plus: defaults.email.border.border_style | plus: ";" -%}
+{% endif -%}
+{% assign main_article_border_color = path_primary_articles.border.border_color -%}
+{% assign main_article_border_width = path_primary_articles.border.border_width -%}
+{% assign main_article_border_style = path_primary_articles.border.border_style -%}
+
+{% assign sidebar_article_border = path_sidebar_articles.border.border_color -%}
+{% assign sidebar_article_width = path_sidebar_articles.border.border_width -%}
+{% assign sidebar_article_style = path_sidebar_articles.border.border_style -%}
+
+
+{% comment -%} <!-- *****************************************************************
+  Column Widths
+***************************************************************** --> {% endcomment -%}
+
+{% assign main_column_width = table_width | minus: main_column_article_margin_left | minus: main_column_article_margin_right -%}
+{% assign sidebarCount = sidebar_area | size -%}
+{% if sidebarCount > 0 -%}
+     {% assign sidebar_column_width = path_sidebar_settings.width | minus: sidebar_column_article_margin_right | minus: sidebar_column_article_margin_left -%}
+     {% assign main_column_width = main_column_width | minus: path_sidebar_settings.width -%}
+{% endif -%}
+
+{% comment -%} <!-- *****************************************************************
+  Column Order and Mobile Responsiveness Settings
+***************************************************************** --> {% endcomment -%}
+{% assign sidebar_side = path_sidebar_settings.side -%}
+{% assign main_align = "left" -%}
+{% assign sidebar_align = "right" -%}
+{% assign text_flow = "ltr" -%}
+{% if sidebar_side == "left" -%}
+    {% assign main_align = "right" -%}
+    {% assign sidebar_align = "left" -%}
+    {% assign text_flow = "rtl" -%}
+{% endif -%}
+
+
+{% comment -%} <!-- *****************************************************************
+Header/ Email Image
+***************************************************************** --> {% endcomment -%}
+
+{% assign emailImage =  null -%}
+{% if pre_content.image.img -%}
+    {% capture emailImage -%}{% image_url pre_content.image.img -%}{% endcapture -%}
+{% endif -%}
+{% assign emailImage_link = pre_content.image.link -%}
+{% assign emailImage_bgcolor = pre_content.image.bgcolor -%}
+
+
+{% comment -%} <!-- *****************************************************************
+  
+
+
+Bar Section
+***************************************************************** --> {% endcomment -%}
+
+{% assign share_path = defaults.share_bar_settings -%}
+
+{% assign share_alignment = share_path.alignment -%}
+{% assign share_cellspacing = share_path.spacing -%}
+
+{% assign share_label = "Share:" -%}{% comment -%} | localize: mailinglist.culture, "%% share_label_translation %%" {% endcomment -%}
+{% if share_path.label.text -%}
+     {% assign share_label = share_path.label.text -%}
+{% endif -%}
+{% assign share_label_fontsize = share_path.label.fontsize -%}
+{% assign share_label_lineheight = share_path.label.lineheight -%}
+{% assign share_label_color = share_path.label.color -%}
+
+{% assign share_forwardtofriend = share_path.forwardtofriend -%}
+{% assign share_facebook = share_path.facebook -%}
+{% assign share_twitter = share_path.twitter -%}
+{% assign share_linkedin = share_path.linkedin -%}
+{% assign share_googleplus = share_path.googleplus -%}
+
+{% if landingpage == false -%}
+     {% assign share_forwardtofriend_exists = share_forwardtofriend.show_email -%}
+     {% assign share_facebook_exists = share_facebook.show_email -%}
+     {% assign share_twitter_exists = share_twitter.show_email -%}
+     {% assign share_linkedin_exists = share_linkedin.show_email -%}
+     {% assign share_googleplus_exists = share_googleplus.show_email  -%}
+{% else -%}
+     {% assign share_facebook_exists = share_facebook.show_lp -%}
+     {% assign share_twitter_exists = share_twitter.show_lp -%}
+     {% assign share_linkedin_exists = share_linkedin.show_lp -%}
+     {% assign share_googleplus_exists = share_googleplus.show_lp  -%}
+{% endif -%}
+
+{% assign sharetitle = mailout.subject | url_encode -%}
+{% assign sharelink = urls.backtomailout | url_encode -%}
+{% if landingpage == true -%}
+     {% assign sharetitle = article.title | url_encode -%}
+     {% capture temp_link -%}{% landing_page_link article.id -%}{% endcapture -%}
+     {% assign sharelink = temp_link | url_encode -%}
+{% endif -%}
+
+{% assign share_forwardtofriend_url = urls.forward -%}
+{% capture share_facebook_url -%}https://www.facebook.com/dialog/feed?app_id=339506129572133&amp;link={{ sharelink  }}&amp;name={{ sharetitle }}&amp;{% if emailImage -%}picture={{ emailImage }}&amp;{% endif -%}redirect_uri={{ sharelink }}{% endcapture -%}
+{% capture share_twitter_url -%}http://twitter.com/home?status={{ sharetitle }}{{ " : " | url_encode}}{{ sharelink  }}{% endcapture -%}
+{% capture share_linkedin_url -%}http://www.linkedin.com/shareArticle?mini=true&amp;url={{ sharelink }}{% endcapture -%}
+{% capture share_googleplus_url -%}https://plus.google.com/share?url={{ sharelink }}{% endcapture -%}
+
+
+{% assign share_oneTypeExists = false -%}
+{% if share_forwardtofriend_exists or share_facebook_exists or share_twitter_exists or share_linkedin_exists or share_googleplus_exists -%}
+     {% assign share_oneTypeExists = true -%}
+{% endif -%}
+
+{% assign custom_img = share_forwardtofriend.custom_image -%}
+{% assign forwardtofriend_image_url = 'Templates/11922/forwardtofriend.png?v=635628798870000000' | asset_url -%}
+{% assign forwardtofriend_image_height = '16' -%}
+{% assign forwardtofriend_image_width = '16' -%}
+{% assign forwardtofriend_image_alttext = 'Share on Facebook' -%}
+{% if custom_img -%}
+    {% capture forwardtofriend_image_url -%}{% image_url custom_img -%}{% endcapture -%}
+    {% assign forwardtofriend_image_height = custom_img.height -%}
+    {% assign forwardtofriend_image_width = custom_img.width -%}
+    {% assign forwardtofriend_image_alttext = custom_img.alltext -%}
+{% endif -%}
+
+{% assign custom_img = share_facebook.custom_image -%}
+{% assign facebook_image_url = 'Templates/11922/facebook.png?v=635628798870000000' | asset_url -%}
+{% assign facebook_image_height = '16' -%}
+{% assign facebook_image_width = '16' -%}
+{% assign facebook_image_alttext = 'Share on Facebook' -%}
+{% if custom_img -%}
+     {% capture facebook_image_url -%}{% image_url custom_img -%}{% endcapture -%}
+     {% assign facebook_image_height = custom_img.height -%}
+     {% assign facebook_image_width = custom_img.width -%}
+     {% assign facebook_image_alttext = custom_img.alttext -%}
+{% endif -%}
+
+{% assign custom_img = share_twitter.custom_image -%}
+{% assign twitter_image_url = 'Templates/11922/twitter.png?v=635628798870000000' | asset_url -%}
+{% assign twitter_image_height = '16' -%}
+{% assign twitter_image_width = '16' -%}
+{% assign twitter_image_alttext = 'Share on Twitter' -%}
+{% if custom_img -%}
+     {% capture twitter_image_url -%}{% image_url custom_img -%}{% endcapture -%}
+     {% assign twitter_image_height = custom_img.height -%}
+     {% assign twitter_image_width = custom_img.width -%}
+     {% assign twitter_image_alttext = custom_img.alttext -%}
+{% endif -%}
+
+{% assign custom_img = share_linkedin.custom_image -%}
+{% assign linkedin_image_url = 'Templates/11922/linkedin.png?v=635628798870000000' | asset_url -%}
+{% assign linkedin_image_height = '16' -%}
+{% assign linkedin_image_width = '16' -%}
+{% assign linkedin_image_alttext = 'Share on Linkedin' -%}
+{% if custom_img -%}
+     {% capture linkedin_image_url -%}{% image_url custom_img -%}{% endcapture -%}
+     {% assign linkedin_image_height = custom_img.height -%}
+     {% assign linkedin_image_width = custom_img.width -%}
+     {% assign linkedin_image_alttext = custom_img.alttext -%}
+{% endif -%}
+
+{% assign custom_img = share_googleplus.custom_image -%}
+{% assign googleplus_image_url = 'Templates/11922/gplus.png?v=635628798870000000' | asset_url -%}
+{% assign googleplus_image_height = '16' -%}
+{% assign googleplus_image_width = '16' -%}
+{% assign googleplus_image_alttext = 'Share on Google Plus' -%}
+{% if custom_img -%}
+     {% capture googleplus_image_url -%}{% image_url custom_img -%}{% endcapture -%}
+     {% assign googleplus_image_height = custom_img.height -%}
+     {% assign googleplus_image_width = custom_img.width -%}
+     {% assign googleplus_image_alttext = custom_img.alttext -%}
+{% endif -%}

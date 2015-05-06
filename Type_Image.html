@@ -1,0 +1,21 @@
+{% include "Type_Article_variables" -%}'
+{% if link -%}
+<a href="{{ link }}" target="_blank" style="display:block; text-decoration:none;">
+{% endif -%}
+     <img 
+          src="{% image_url item.image %}" 
+          width="{{ item.image.width }}" 
+          height="{{ item.image.height }}" 
+          alt="{{ item.image.alttext }}" 
+          style="
+                 display:block; width:{{ item.image.width }}px; height:auto;
+                 {% if item.settings.align == 'center' -%}
+                 margin:0 auto;{% elsif item.settings.align == 'right' -%}
+                 margin:0 0 0 auto;{% endif -%}
+                 " 
+          border="0" 
+          {% comment %} align="{{ item.settings.align }}" {% endcomment %}
+     /> 
+{% if link -%}
+     </a> 
+{% endif -%}

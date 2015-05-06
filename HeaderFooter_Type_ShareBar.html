@@ -1,0 +1,180 @@
+
+{% comment -%} <!-- *****************************************************************
+  Share Bar Section
+***************************************************************** --> {% endcomment -%}
+
+{% assign share_path = item -%}
+
+{% assign share_alignment = share_path.alignment -%}
+{% assign share_cellspacing = share_path.spacing -%}
+
+{% assign share_label = "Share:" %}{% comment %} | localize: mailinglist.culture, "%% share_label_translation %%" {% endcomment -%}
+{% if share_path.label.text -%}
+     {% assign share_label = share_path.label.text -%}
+{% endif -%}
+{% assign share_label_fontsize = share_path.label.fontsize -%}
+{% assign share_label_lineheight = share_path.label.lineheight -%}
+{% assign share_label_color = share_path.label.color -%}
+
+{% assign share_forwardtofriend = share_path.forwardtofriend -%}
+{% assign share_facebook = share_path.facebook -%}
+{% assign share_twitter = share_path.twitter -%}
+{% assign share_linkedin = share_path.linkedin -%}
+{% assign share_googleplus = share_path.googleplus -%}
+
+{% if landingpage == false -%}
+     {% assign share_forwardtofriend_exists = share_forwardtofriend.show -%}
+{% endif -%}
+     {% assign share_facebook_exists = share_facebook.show -%}
+     {% assign share_twitter_exists = share_twitter.show -%}
+     {% assign share_linkedin_exists = share_linkedin.show -%}
+     {% assign share_googleplus_exists = share_googleplus.show  -%}
+
+{% assign sharetitle = mailout.subject | url_encode -%}
+{% assign sharelink = urls.backtomailout | url_encode -%}
+{% if landingpage == true -%}
+     {% assign sharetitle = article.title | url_encode -%}
+     {% capture temp_link %}{% landing_page_link article.id -%}{% endcapture -%}
+     {% assign sharelink = temp_link | url_encode -%}
+{% endif -%}
+
+{% assign share_forwardtofriend_url = urls.forward -%}
+{% capture share_facebook_url -%}https://www.facebook.com/dialog/feed?app_id=339506129572133&amp;link={{ sharelink  }}&amp;name={{ sharetitle }}&amp;{% if emailImage -%}picture={{ emailImage }}&amp;{% endif -%}redirect_uri={{ sharelink }}{% endcapture -%}
+{% capture share_twitter_url -%}http://twitter.com/home?status={{ sharetitle }}{{ " : " | url_encode}}{{ sharelink  }}{% endcapture -%}
+{% capture share_linkedin_url -%}http://www.linkedin.com/shareArticle?mini=true&amp;url={{ sharelink }}{% endcapture -%}
+{% capture share_googleplus_url -%}https://plus.google.com/share?url={{ sharelink }}{% endcapture -%}
+
+
+{% assign share_oneTypeExists = false -%}
+{% if share_forwardtofriend_exists or share_facebook_exists or share_twitter_exists or share_linkedin_exists or share_googleplus_exists -%}
+     {% assign share_oneTypeExists = true -%}
+{% endif -%}
+
+{% assign custom_img = share_forwardtofriend.custom_image -%}
+{% assign forwardtofriend_image_url = 'Templates/11922/forwardtofriend.png?v=635628798870000000' | asset_url -%}
+{% assign forwardtofriend_image_height = '16' -%}
+{% assign forwardtofriend_image_width = '16' -%}
+{% assign forwardtofriend_image_alttext = 'Share on Facebook' -%}
+{% if custom_img -%}
+    {% capture forwardtofriend_image_url -%}{% image_url custom_img -%}{% endcapture -%}
+    {% assign forwardtofriend_image_height = custom_img.height -%}
+    {% assign forwardtofriend_image_width = custom_img.width -%}
+    {% assign forwardtofriend_image_alttext = custom_img.alltext -%}
+{% endif -%}
+
+{% assign custom_img = share_facebook.custom_image -%}
+{% assign facebook_image_url = 'Templates/11922/facebook.png?v=635628798870000000' | asset_url -%}
+{% assign facebook_image_height = '16' -%}
+{% assign facebook_image_width = '16' -%}
+{% assign facebook_image_alttext = 'Share on Facebook' -%}
+{% if custom_img -%}
+     {% capture facebook_image_url -%}{% image_url custom_img -%}{% endcapture -%}
+     {% assign facebook_image_height = custom_img.height -%}
+     {% assign facebook_image_width = custom_img.width -%}
+     {% assign facebook_image_alttext = custom_img.alttext -%}
+{% endif -%}
+
+{% assign custom_img = share_twitter.custom_image -%}
+{% assign twitter_image_url = 'Templates/11922/twitter.png?v=635628798870000000' | asset_url -%}
+{% assign twitter_image_height = '16' -%}
+{% assign twitter_image_width = '16' -%}
+{% assign twitter_image_alttext = 'Share on Twitter' -%}
+{% if custom_img -%}
+     {% capture twitter_image_url -%}{% image_url custom_img -%}{% endcapture -%}
+     {% assign twitter_image_height = custom_img.height -%}
+     {% assign twitter_image_width = custom_img.width -%}
+     {% assign twitter_image_alttext = custom_img.alttext -%}
+{% endif -%}
+
+{% assign custom_img = share_linkedin.custom_image -%}
+{% assign linkedin_image_url = 'Templates/11922/linkedin.png?v=635628798870000000' | asset_url -%}
+{% assign linkedin_image_height = '16' -%}
+{% assign linkedin_image_width = '16' -%}
+{% assign linkedin_image_alttext = 'Share on Linkedin' -%}
+{% if custom_img -%}
+     {% capture linkedin_image_url -%}{% image_url custom_img -%}{% endcapture -%}
+     {% assign linkedin_image_height = custom_img.height -%}
+     {% assign linkedin_image_width = custom_img.width -%}
+     {% assign linkedin_image_alttext = custom_img.alttext -%}
+{% endif -%}
+
+{% assign custom_img = share_googleplus.custom_image -%}
+{% assign googleplus_image_url = 'Templates/11922/gplus.png?v=635628798870000000' | asset_url -%}
+{% assign googleplus_image_height = '16' -%}
+{% assign googleplus_image_width = '16' -%}
+{% assign googleplus_image_alttext = 'Share on Google Plus' -%}
+{% if custom_img -%}
+     {% capture googleplus_image_url -%}{% image_url custom_img -%}{% endcapture -%}
+     {% assign googleplus_image_height = custom_img.height -%}
+     {% assign googleplus_image_width = custom_img.width -%}
+     {% assign googleplus_image_alttext = custom_img.alttext -%}
+{% endif -%}
+
+
+
+
+{% if share_oneTypeExists %}
+
+{% assign sharelink =  urls.backtomailout  | url_encode %}
+<table cellpadding="0" cellspacing="0" border="0" align="center"
+       {% comment %}align="{{ share_alignment }}"{% endcomment %} class="sharebuttons">
+  <tr>
+    <td style="text-align:center; font-size:12px; color:#555555;">
+     {{ share_label }}
+    </td>
+     {% if share_forwardtofriend_exists == true -%}
+      <td width="{{ share_cellspacing }}" style="line-height:1px; font-size:1px;">&nbsp;</td>
+      <td>
+          {% node share_forwardtofriend -%}
+          <a href="{{ share_forwardtofriend_url }}" style="text-decoration:none;">
+              <img src="{{ forwardtofriend_image_url }}" width="{{ forwardtofriend_image_width }}" height="{{ forwardtofriend_image_height }}" style="display:block;" alt="{{ forwardtofriend_image_alttext }}" />
+          </a>
+          {% endnode -%}
+      </td>
+      {% endif %} 
+      {% if share_facebook_exists == true -%}
+      <td width="{{ share_cellspacing }}" style="line-height:1px; font-size:1px;">&nbsp;</td>
+      <td>
+          {% node share_facebook -%}
+          <a href="{{ share_facebook_url }}" style="text-decoration:none;">
+              <img src="{{ facebook_image_url }}" width="{{ facebook_image_width }}" height="{{ facebook_image_height }}" style="display:block;" alt="{{ facebook_image_alttext }}" />
+          </a>
+          {% endnode -%}
+      </td>
+      {% endif %} 
+
+      {% if share_twitter_exists == true -%}
+      <td width="{{ share_cellspacing }}" style="line-height:1px; font-size:1px;">&nbsp;</td>
+      <td>
+          {% node share_twitter -%}
+          <a href="{{ share_twitter_url }}" style="text-decoration:none;">
+              <img src="{{ twitter_image_url }}" width="{{ twitter_image_width }}" height="{{ twitter_image_height }}" style="display:block;" alt="{{ twitter_image_alttext }}" />
+          </a>
+          {% endnode -%}
+      </td>
+      {% endif %} 
+
+      {% if share_linkedin_exists == true -%}
+      <td width="{{ share_cellspacing }}" style="line-height:1px; font-size:1px;">&nbsp;</td>
+      <td>
+          {% node share_linkedin -%}
+          <a href="{{ share_linkedin_url }}" style="text-decoration:none;">
+              <img src="{{ linkedin_image_url }}" width="{{ linkedin_image_width }}" height="{{ linkedin_image_height }}" style="display:block;" alt="{{ linkedin_image_alttext }}" />
+          </a>
+          {% endnode -%}
+      </td>
+      {% endif %} 
+
+      {% if share_googleplus_exists == true -%}
+      <td width="{{ share_cellspacing }}" style="line-height:1px; font-size:1px;">&nbsp;</td>
+      <td>
+          {% node share_googleplus -%}
+          <a href="{{ share_googleplus_url }}" style="text-decoration:none;">
+              <img src="{{ googleplus_image_url }}" width="{{ googleplus_image_width }}" height="{{ googleplus_image_height }}" style="display:block;" alt="{{ googleplus_image_alttext }}" />
+          </a>
+          {% endnode -%}
+      </td>
+      {% endif %} 
+  </tr>
+</table>
+{% endif %}

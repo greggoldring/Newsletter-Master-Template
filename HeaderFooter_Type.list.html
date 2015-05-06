@@ -1,0 +1,62 @@
+{% for item in path_section -%}
+{% include "HeaderFooter_Type.setup" -%}
+{% comment %}
+    {{ section_table_width }}|
+    {{ section_body_bgcolor }}|
+    {{ section_email_bgcolor }}|
+    {{ section_padding_top }}|
+    {{ section_padding_bottom }}|
+    {{ section_padding_left }}|
+    {{ section_padding_right }}
+{% endcomment -%}
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0"
+       {% if section_body_bgcolor %} bgcolor="{{ section_body_bgcolor }}" {% endif %}
+       ><tr><td>
+<table width="{{ section_table_width }}" cellpadding="0" cellspacing="0" border="0" class="wrapper95" align="center"
+       {% if section_email_bgcolor %} bgcolor="{{ section_email_bgcolor }}" {% endif %}
+       >
+{% if section_padding_top > 0 -%}
+     <tr><td style="font-size:0; line-height:0;" height="{{ section_padding_top }}">&nbsp;</td></tr>
+{% endif -%}
+    <tr>
+        {% if section_padding_left > 0 %}
+        <td width="{{ section_padding_left }}" style="line-height:1px; font-size:1px;">&nbsp;</td>
+        {% endif %}
+        <td>
+        {% node item -%}            
+            {% if item.tagid == "date_bar" -%}
+                 {% include "HeaderFooter_Type_Datebar" -%}
+            {% elsif item.tagid == "fullwidth_image" -%}
+                 {% include "HeaderFooter_Type_Image" -%}
+            {% elsif item.tagid == "halfwidth_image_text" -%}
+                 {% include "HeaderFooter_Type_Image+Richtext" -%}
+            {% elsif item.tagid == "share_bar" -%}
+                 {% include "HeaderFooter_Type_ShareBar" -%}
+            {% elsif item.tagid == "social_links" -%}
+                 {% include "HeaderFooter_Type_SocialMediaSites" -%}
+            {% elsif item.tagid == "subscribe_links" -%}
+                 {% include "HeaderFooter_Type_SubscribeLinks" -%}
+            {% elsif item.tagid == "text_area" -%}
+                 {% include "HeaderFooter_Type_Textarea" -%}
+            {% elsif item.tagid == "spacer" -%}
+            {% include "HeaderFooter_Type_Spacer" -%}
+            {% elsif item.tagid == "custom_html" -%}
+                 {% include "HeaderFooter_Type_RawHTML" -%}
+            {% else -%}
+                <div style="color:red; border:1px dotted red; padding:10px;">
+                    Error Will Robinson! Add Content for {{ item.tagid }} Here!
+                </div>
+            {% endif -%}
+        {% endnode -%}
+        </td>
+        {% if section_padding_right > 0 %}
+        <td width="{{ section_padding_right }}" style="line-height:1px; font-size:1px;">&nbsp;</td>
+        {% endif %}
+    </tr>
+    {% if section_padding_bottom > 0 -%}
+    <tr><td style="font-size:0; line-height:0;" height="{{ section_padding_bottom }}">&nbsp;</td></tr>
+    {% endif -%}
+</table>
+</td></tr></table>
+{% endfor -%}

@@ -1,0 +1,106 @@
+{% include ".macro_set_link" -%}
+
+{% assign button_inline_style = item.style -%}
+{% assign button_style = defaults.primary_settings.buttons -%}
+
+{% assign button_background-color = button_style.background_color -%}
+{% if button_inline_style.background_color -%}
+  {% assign button_background-color = button_inline_style.background_color -%}
+{% endif -%}
+
+{% assign button_border-width = button_style.border_width -%}
+{% if button_inline_style.border_width -%}
+  {% assign button_border-width = button_inline_style.border_width -%}
+{% endif -%}
+
+{% assign button_border-color = button_style.border_color -%}
+{% if button_inline_style.border_color -%}
+  {% assign button_border-color = button_inline_style.border_color -%}
+{% endif -%}
+
+{% assign button_border-radius = button_style.border_radius -%}
+{% if button_inline_style.border_radius -%}
+  {% assign button_border-radius = button_inline_style.border_radius -%}
+{% endif -%}
+
+{% assign button_color = button_style.font_color -%}
+{% if button_inline_style.font_color -%}
+  {% assign button_color = button_inline_style.font_color -%}
+{% endif -%}
+
+{% assign button_font-size = base_font_size -%}
+{% if button_inline_style.font_size -%}
+  {% assign button_font-size = button_inline_style.font_size -%}
+{% elsif button_style.font_size -%}
+  {% assign button_font-size = button_style.font_size -%}
+{% endif -%}
+
+{% assign button_font-family = primary_header_font_family -%}
+
+{% assign button_height = button_font-size | to_double | times: 1.8 -%}
+{% if button_inline_style.height -%}
+  {% assign button_height = button_inline_style.height -%}
+{% elsif button_style.height -%}
+  {% assign button_height = button_style.height -%}
+{% endif -%}
+
+{% assign button_letter_width = button_font-size | to_double | divided_by: 1.2 %}
+{% assign button_width = item.label | size | to_int | times: button_letter_width | round -%}
+{% if item.width -%}
+  {% assign button_width = item.width -%}
+{% endif -%}
+
+{% assign button_px_border_radius = button_height | to_int | times: button_border-radius | divided_by: 100 -%}
+
+
+
+<div style="text-align:{{ item.alignment }};">
+<!--[if mso]>
+<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" 
+href="{{ link }}"
+arcsize="{{ button_border-radius }}%"
+strokecolor="{{ button_border-color }}"
+strokeweight="{{ button_border-width }}px"
+fillcolor="{{ button_background-color }}"
+style="
+    v-text-anchor:middle;
+    width:{{ button_width }}px;
+    height:{{ button_height }}px;
+">
+<v:stroke dashstyle="solid" />
+<w:anchorlock></w:anchorlock>
+<center style="
+    color:{{ button_color }};
+    font-size:{{ button_font-size }}px;
+    font-weight:normal;
+    font-family:{{button_font-family}};
+    line-height:1;
+">
+{{ item.label }}
+</center>
+</v:roundrect>
+<![endif]-->
+<a href="{{ link }}" style="
+    background-color: {{ button_background-color }};
+    border-width:{{ button_border-width }}px;
+    border-style:solid;
+    border-color: {{ button_border-color }};
+    border-radius:{{ button_px_border_radius }}px;
+    color:{{ button_color }};
+    display:inline-block;
+    font-size: {{ button_font-size }}px;
+    font-weight:normal;
+    line-height:{{ button_height }}px;
+    font-family:{{button_font-family}};
+    text-align:center;
+    text-decoration:none;
+    -webkit-text-size-adjust:none;
+    mso-hide:all;
+    
+    width:{{ button_width }}px;
+    height:{{ button_height }}px;
+    max-width:100%;
+">
+{{ item.label }}
+</a>
+</div>

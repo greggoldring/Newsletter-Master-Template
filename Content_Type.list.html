@@ -1,0 +1,73 @@
+{% assign itemPaddingTop = article_padding_top -%}
+{% if item.padding.top -%}
+     {% assign itemPaddingTop = item.padding.top -%}
+{% endif -%}
+{% assign itemPaddingRight = article_padding_right -%}
+{% if item.padding.right -%}
+     {% assign itemPaddingRight = item.padding.right -%}
+{% endif -%}
+{% assign itemPaddingBottom = article_padding_bottom -%}
+{% if item.padding.bottom -%}
+     {% assign itemPaddingBottom = item.padding.bottom -%}
+{% endif -%}
+{% assign itemPaddingLeft = article_padding_left -%}
+{% if item.padding.left -%}
+     {% assign itemPaddingLeft = item.padding.left -%}
+{% endif -%}
+{% assign itemContentWidth = article_column_width | minus: itemPaddingRight | minus: itemPaddingLeft %}
+
+{% assign numOfColumns = 1 -%}
+{% if itemPaddingLeft > 0 -%}
+{% assign temp_numOfColumns = numOfColumns -%}
+{% assign numOfColumns = temp_numOfColumns | plus:1 -%}
+{% endif -%}
+{% if itemPaddingRight > 0 -%}
+{% assign temp_numOfColumns = numOfColumns -%}
+{% assign numOfColumns = temp_numOfColumns | plus:1 -%}
+{% endif -%}
+<table width="{{ article_column_width }}" cellpadding="0" cellspacing="0" border="0" class="item"
+       {% if item.overrides.bgcolor -%}
+            bgcolor="{{ item.overrides.bgcolor }}"
+       {% elsif article_bgcolor -%} 
+            bgcolor="{{ article_bgcolor }}"
+       {% endif -%}
+       {% if item.border.border_width and item.border.border_color and item.border.border_style -%}
+       style="border: {{ item.border.border_width }}px {{ item.border.border_color }} {{ item.border.border_style }};"
+       {% elseif item.border.removeborder == true -%}
+       style="border: 0 transparent none;"
+       {% endif -%}
+       
+       >
+{% if itemPaddingTop > 0 -%}
+<tr><td colspan="{{numOfColumns}}" style="font-size:0; line-height:0;" height="{{ itemPaddingTop }}">&nbsp;</td></tr>
+{% endif -%}
+
+<tr>
+    {% if itemPaddingLeft > 0 -%}
+    <td style="font-size:1px; line-height:1px;" width="{{ itemPaddingLeft }}">&nbsp;</td>
+    {% endif -%}
+    <td width="{{ itemContentWidth }}">
+      
+{% if (item.tagid == 'article')  -%}
+     {% include "Content_Type_Article" -%}
+{% elsif (item.tagid == 'type_button')  -%}
+     {% include "Content_Type_Button" -%}
+{% elsif (item.tagid == 'type_tweet')  -%}
+     {% include "Content_Type_Tweet" -%}
+{% elsif (item.tagid == 'type_oembed')  -%}
+     {% include "Content_Type_oEmbed" -%}
+{% else -%}
+    <div style="color:red; border:1px dotted red; padding:10px;">
+        Error Will Robinson! Add Content for {{ item.tagid }} Here!
+    </div>
+{% endif -%}
+        </td>
+    {% if itemPaddingRight > 0 -%}
+    <td style="font-size:1px; line-height:1px;" width="{{ itemPaddingRight }}">&nbsp;</td>
+    {% endif -%}
+</tr>
+
+{% if itemPaddingBottom > 0 -%}
+<tr><td colspan="{{numOfColumns}}" style="font-size:0; line-height:0;" height="{{ itemPaddingBottom }}">&nbsp;</td></tr>
+{% endif -%}
+</table>
