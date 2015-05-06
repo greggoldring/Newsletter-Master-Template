@@ -584,7 +584,7 @@
   
         <type id="separator" label="Separator" nested="nested">
             <textbox id="character" label="Character" help="What character should separate multiple links?" default="|" />  
-            <colorpicker id="color" label="Color" help="What color should the separate be?" default="#000000" />  
+            <colorpicker id="color" label="Color" help="What color should the separator be?" default="#000000" />  
         </type>
     </type>
   </partial>
@@ -595,36 +595,35 @@
   *************************************************************************************************************************
   *************************************************************************************************************************-->
 
-  <type id="preview_text" label="Email Client Teaser Text">
-      <textbox id="content" label="Content" help="This text will display beside the subject line in many modern browsers, like the iphone, to give a hint of what your email is about." />
+  <type id="preview_text" label="Preheader">
+      <textbox id="content" label="Preheader" help="This text will display beside the subject line in many email clients, such as the iPhone, to give a hint of what your email is about." />
   </type>
   
+  <!-- HEADER/FOOTER SECTIONS -->
+  <collection id="header_section" label="Header">
+    <include partial="headerfooter_types" />
+  </collection>
   
   <!-- MAIN ARTICLES -->
-  <collection id="main_area" label="Main Articles">
+  <collection id="main_area" label="Main body">
       <include partial="content_types" />
   </collection>
 
   <!-- SIDEBAR ARTICLES -->
-  <collection id="sidebar_area" label="Sidebar Articles">
+  <collection id="sidebar_area" label="Sidebar (optional)">
       <include partial="content_types" />
   </collection>
 
-  <!-- HEADER/FOOTER SECTIONS -->
-  <collection id="header_section" label="Header Section">
-    <include partial="headerfooter_types" />
-  </collection>
-  
-  <collection id="footer_section" label="Footer Section">
+  <collection id="footer_section" label="Footer">
     <include partial="headerfooter_types" />
   </collection>
 
-  <type id="defaults" label="Default Settings">
+  <type id="defaults" label="Settings">
     <!-- ================================================================================================================================
      TEMPLATE OPTIONS
     ================================================================================================================================ -->
-      <type id="email" label="Email Settings">
-          <textbox id="emailWidth" label="Email Width" help="How wide should your email be; in pixels" default="600" />
+      <type id="email" label="Colors, fonts and formatting">
+          <textbox id="emailWidth" label="Width of sections" help="The width (measured in pixels) that each of the sections of your mailout will inherit unless specified otherwise." default="600" />
 
           <!-- *************************************************************************************************************************
           BACKGROUND
