@@ -635,14 +635,43 @@
           <!-- *************************************************************************************************************************
           TEXT AND LINK COLORS
           ************************************************************************************************************************* -->
-          <type id="colorsandfonts" label="Text and Link Defaults" nested="nested">
-              <colorpicker id="font_color" label="Font Color" default="#222222" />
-               <textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+          <type id="colorsandfonts" label="Text and links" nested="nested">
+		        <!-- The plan is to add the font family to the top level of the settings ...when we can get to it -Gregg
+						<listbox id="family" label="Font family" help="This font will be the most common one in your mailout. ">
+							--><!-- Add "GF, " before any Google Font to enable it's support --><!-- 
+							<listitem id="inherit" text="Inherit" default="default" />
+				        <listitem id="Arial, sans-serif" text="Arial, sans-serif" />
+				        <listitem id="Comic Sans MS, Chalkboard SE, sans-serif" text="Comic Sans MS, Chalkboard SE, sans-serif" />
+				        <listitem id="Courier New, Courier, mono" text="Courier New, Courier, mono" />
+				        <listitem id="GF, Droid Sans, Calibri, Arial, sans-serif" text="Droid Sans, Calibri, Arial, sans-serif (Google Font)" />
+				        <listitem id="GF, Droid Serif, Cambria, Times New Roman, serif" text="Droid Serif, Cambria, Times New Roman, serif (Google Font)" />
+				        <listitem id="Georgia, serif" text="Georgia, serif" />
+				        <listitem id="Helvetica Neue, Helvetica, Arial, sans-serif" text="Helvetica Neue, Helvetica, Arial, sans-serif" />
+				        <listitem id="GF, Indie Flower, Comic Sans MS, Chalkboard SE, sans-serif" text="Indie Flower, Comic Sans MS, Chalkboard SE, sans-serif (Google Font)" />
+				        <listitem id="GF, Lato, Arial, sans-serif" text="Lato, Arial, sans-serif (Google Font)" />
+				        <listitem id="GF, Merriweather, Cambria, Georgia, serif" text="Merriweather, Cambria, Georgia, serif (Google Font)" />
+				        <listitem id="GF, Myriad Pro, Open Sans, Corbel, Arial, sans-serif" text="Myriad Pro, Open Sans, Corbel, Arial, sans-serif (Google Font)" />
+				        <listitem id="GF, Open Sans, Corbel, Arial, sans-serif" text="Open Sans, Corbel, Arial, sans-serif (Google Font)" />
+				        <listitem id="GF, Oswald, Arial Narrow, sans-serif" text="Oswald, Arial Narrow, sans-serif" />
+				        <listitem id="Palatino, Book Antiqua, Droid Serif, serif" text="Palatino, Book Antiqua, Droid Serif, serif" />
+				        <listitem id="GF, PT Sans, Trebuchet MS, serif" text="PT Sans, Trebuchet MS, serif (Google Font)" />
+				        <listitem id="GF, PT Serif, Lucida Bright, Times New Roman, serif" text="PT Serif, Lucida Bright, Times New Roman, serif (Google Font)" />
+				        <listitem id="GF, Roboto, Calibri, Arial, sans-serif" text="Roboto, Calibri, Arial, sans-serif (Google Font)" />
+				        <listitem id="Times New Roman, serif" text="Times New Roman, serif" />
+				        <listitem id="Trebuchet MS, sans-serif" text="Trebuchet MS, sans-serif" />
+				        <listitem id="GF, Ubuntu, Tahoma, Verdana, sans-serif" text="Ubuntu, Tahoma, Verdana, sans-serif (Google Font)" />
+				        <listitem id="Verdana, sans-serif" text="Verdana, sans-serif" />
+				        <listitem id="GF, Vollkorn, Book Antiqua, Georgia, serif" text="Vollkorn, Book Antiqua, Georgia, serif" />
+				        <listitem id="other" text="Other (please specify in below)" />
+		        </listbox>
+						 -->
+              <colorpicker id="font_color" label="Font color" />
+               <textbox id="fontsize" label="Font size"  help="The size (in pixels) that the fonts in each of the sections of your mailout will inherit unless specified otherwise."
                  regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="14" />
                <textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
                  regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="1.5" />
                  
-               <colorpicker id="link_color" label="Link Color" default="#00a7dd" />
+               <colorpicker id="link_color" label="Link Color" />
                <listbox id="link_textdecoration" label="Underline links">
                  <listitem id="underline" text="Yes" default="default" />
                  <listitem id="none" text="No" />
@@ -663,6 +692,9 @@
                <textbox id="top" label="Top Padding for Section" default="20" />
                <textbox id="bottom" label="Bottom Padding for Section" default="20" />
           </type>
+          <!-- *************************************************************************************************************************
+          BORDER
+          ************************************************************************************************************************* -->
           <type id="border" label="Border" nested="nested">
               <textbox id="border_width" label="Border Width" regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
               <colorpicker id="border_color" label="Article Border Color" />
