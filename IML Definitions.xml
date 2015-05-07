@@ -333,6 +333,7 @@
 		</type>
 		<type id="subscribe_links" label="Subscriber links">
 			<bool id="show_on_landingpage" label="Display on landing pages as well as email" default="true" />
+			<!-- we should also include an edit your subscription link. -Gregg -->
 			<bool id="show_unsubscribe" label="Show Unsubscribe" default="true" />
 			<bool id="show_subscribe" label="Show Subscribe" default="true" />
 			<listbox id="alignment" label="Alignment">
