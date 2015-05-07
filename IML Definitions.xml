@@ -161,64 +161,64 @@
     </type--> 
 	</partial>
 	<partial id="headerfooter_types">
-		<type id="fullwidth_image" label="Image Section">
-			<bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+		<type id="fullwidth_image" label="One column: Image">
+			<bool id="show_on_landingpage" label="Display on landing pages as well as email" default="true" />
 			<image id="image" label="Image" />
 			<textbox id="external_link" label="Link" />
-			<type id="image_override" label="Image Settings" nested="nested">
+			<type id="image_override" label="Image settings" nested="nested">
 				<listbox id="side" label="Alignment">
 					<listitem id="middle" text="Middle" default="default" />
 					<listitem id="right" text="Right" />
 					<listitem id="left" text="Left" />
 				</listbox>
-				<textbox id="maxWidth" label="Maximum Width Image should appear" />
+				<textbox id="maxWidth" label="Max width" help="The maximum width of the image (in pixels). If left blank the maxwidth will become the width of it's container." />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
-				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
-				<colorpicker id="email_bgcolor" label="Section's Background Color" />
-				<textbox id="table_width" label="Section's Width" />
+			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+				<colorpicker id="email_bgcolor" label="Container background color" />
+				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
+				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
-			<type id="padding" label="Section Padding" nested="nested">
-				<textbox id="top" label="Top Padding" default="10" />
-				<textbox id="bottom" label="Bottom Padding" default="10" />
-				<textbox id="left" label="Left Padding" default="0" />
-				<textbox id="right" label="Right Padding" default="0" />
+			<type id="padding" label="Padding" nested="nested">
+				<textbox id="top" label="Top" />
+				<textbox id="bottom" label="Bottom" />
+				<textbox id="left" label="Left" />
+				<textbox id="right" label="Right" />
 			</type>
 		</type>
-		<type id="halfwidth_image_text" label="Half Image, Half Richtext Section">
-			<bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+		<type id="halfwidth_image_text" label="Two columns: Image and text">
+			<bool id="show_on_landingpage" label="Display on landing pages as well as email" default="true" />
 			<image id="image" label="Image" />
-			<textbox id="external_link" label="Image's Link" />
-			<richtext id="content" label="Richtext Area" />
+			<textbox id="external_link" label="Image link" />
+			<richtext id="content" label="Text" />
 			<type id="image_override" label="Image Settings" nested="nested">
 				<listbox id="side" label="Alignment">
 					<listitem id="left" text="Left" default="default" />
 					<listitem id="right" text="Right" />
 				</listbox>
-				<textbox id="maxWidth" label="Maximum Width Image should appear" default="200" />
-				<textbox id="gutter" label="Minimum Space Between Image and Richtext" default="20" />
+				<textbox id="maxWidth" label="The maximum width of the image (in pixels)." default="200" />
+				<textbox id="gutter" label="Gutter" help="The minimum distance (in pixels) between the image and the text" default="20" />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
-				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
-				<colorpicker id="email_bgcolor" label="Section's Background Color" />
-				<textbox id="table_width" label="Section's Width" />
+			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+				<colorpicker id="email_bgcolor" label="Container background color" />
+				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
+				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
-			<type id="padding" label="Section Padding" nested="nested">
-				<textbox id="top" label="Top Padding" default="10" />
-				<textbox id="bottom" label="Bottom Padding" default="10" />
-				<textbox id="left" label="Left Padding" default="0" />
-				<textbox id="right" label="Right Padding" default="0" />
+			<type id="padding" label="Padding" nested="nested">
+				<textbox id="top" label="Top" />
+				<textbox id="bottom" label="Bottom" />
+				<textbox id="left" label="Left" />
+				<textbox id="right" label="Right" />
 			</type>
 		</type>
 		<!-- maybe add View Online link to social_links and share_bar -->
-		<type id="social_links" label="Social Media Links">
-			<bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+		<type id="social_links" label="Social media links">
+			<bool id="show_on_landingpage" label="Display on landing pages as well as email" default="true" />
 			<listbox id="alignment" label="Alignment">
 				<listitem id="center" text="Center" default="default" />
 				<listitem id="right" text="Right" />
 				<listitem id="left" text="Left" />
 			</listbox>
-			<textbox id="spacing" label="Space between Icons" default="0" />
+			<textbox id="spacing" label="Space between icons" default="0" />
 			<type id="label" label="Label Options" nested="nested">
 				<textbox id="text" label="Label" help="ex. Find Us On : " />
 				<colorpicker id="color" label="Font color" />
@@ -227,19 +227,19 @@
 				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
-				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
-				<colorpicker id="email_bgcolor" label="Section's Background Color" />
-				<textbox id="table_width" label="Section's Width" />
+			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+				<colorpicker id="email_bgcolor" label="Container background color" />
+				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
+				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
-			<type id="padding" label="Section Padding" nested="nested">
-				<textbox id="top" label="Top Padding" default="10" />
-				<textbox id="bottom" label="Bottom Padding" default="10" />
-				<textbox id="left" label="Left Padding" default="0" />
-				<textbox id="right" label="Right Padding" default="0" />
+			<type id="padding" label="Padding" nested="nested">
+				<textbox id="top" label="Top" />
+				<textbox id="bottom" label="Bottom" />
+				<textbox id="left" label="Left" />
+				<textbox id="right" label="Right" />
 			</type>
 			<collection id="social_media_sites" label="Social Media Sites">
-				<type id="site" label="Site">
+				<type id="site" label="Social media icons and links">
 					<listbox id="title" label="Site Name">
 						<listitem id="facebook" text="Facebook" default="default" />
 						<listitem id="twitter" text="Twitter" />
@@ -253,14 +253,14 @@
 						<listitem id="unknown" text="Other…" />
 					</listbox>
 					<textbox id="link" label="Link" help="The full link to your site" />
-					<image id="custom_image" label="Use Custom Icon" />
+					<image id="custom_image" label="Custom icon" help="An icon is supplied if this is left blank." />
 					<textbox id="image_width" label="Image Width" default="32" />
 					<textbox id="image_height" label="Image Height" default="32" />
 				</type>
 			</collection>
 		</type>
-		<type id="share_bar" label="Share Buttons">
-			<bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+		<type id="share_bar" label="Share buttons">
+			<bool id="show_on_landingpage" label="Display on landing pages as well as email" default="true" />
 			<listbox id="alignment" label="Alignment">
 				<listitem id="center" text="Center" default="default" />
 				<listitem id="right" text="Right" />
@@ -268,71 +268,71 @@
 			</listbox>
 			<textbox id="spacing" label="Space between Icons" default="5" />
 			<type id="label" label="Label Options" nested="nested">
-				<textbox id="text" label="Override Label" />
+				<textbox id="text" label="Label" help="Labelled as 'Share:' if left blank." />
 				<colorpicker id="color" label="Font color" />
 				<textbox id="fontsize" label="Font size"  help="The size (in pixels) of the font."
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
-			<type id="forwardtofriend" label="Forward To Friend" nested="nested">
-				<bool id="show" label="Show Link" default="true" help="Only works in Email, not on landing pages." />
-				<image id="custom_image" label="Use Custom Icon" maxwidth="64" />
+			<type id="forwardtofriend" label="Forward to a friend" nested="nested">
+				<bool id="show" label="Include forward to a friend icon" default="true" help="Only works in Email, not on landing pages." />
+				<image id="custom_image" label="Custom icon" maxwidth="64" />
 			</type>
 			<type id="facebook" label="Facebook" nested="nested">
-				<bool id="show" label="Show Link" default="true" />
-				<image id="custom_image" label="Use Custom Icon" maxwidth="64" />
+				<bool id="show" label="Include share on Facebook icon" default="true" />
+				<image id="custom_image" label="Custom icon" maxwidth="64" />
 			</type>
 			<type id="twitter" label="Twitter" nested="nested">
-				<bool id="show" label="Show Link" default="true" />
-				<image id="custom_image" label="Use Custom Icon" maxwidth="64" />
+				<bool id="show" label="Include share on Twitter icon" default="true" />
+				<image id="custom_image" label="Custom icon" maxwidth="64" />
 			</type>
-			<type id="linkedin" label="Linked In" nested="nested">
-				<bool id="show" label="Show Link" default="true" />
+			<type id="linkedin" label="LinkedIn" nested="nested">
+				<bool id="show" label="Include share on LinkedIn icon" default="true" />
 				<bool id="show_lp" label="Show Link on Landing Page" default="true" />
-				<image id="custom_image" label="Use Custom Icon" maxwidth="64" />
+				<image id="custom_image" label="Custom icon" maxwidth="64" />
 			</type>
 			<type id="googleplus" label="Google Plus" nested="nested">
 				<bool id="show" label="Show Link" default="true" />
-				<bool id="show_lp" label="Show Link on Landing Page" default="true" />
-				<image id="custom_image" label="Use Custom Icon" maxwidth="64" />
+				<bool id="show_lp" label="Include share on Google+ icon" default="true" />
+				<image id="custom_image" label="Custom icon" maxwidth="64" />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
-				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
-				<colorpicker id="email_bgcolor" label="Section's Background Color" />
-				<textbox id="table_width" label="Section's Width" />
+			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+				<colorpicker id="email_bgcolor" label="Container background color" />
+				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
+				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
-			<type id="padding" label="Section Padding" nested="nested">
-				<textbox id="top" label="Top Padding" default="10" />
-				<textbox id="bottom" label="Bottom Padding" default="10" />
-				<textbox id="left" label="Left Padding" default="0" />
-				<textbox id="right" label="Right Padding" default="0" />
+			<type id="padding" label="Padding" nested="nested">
+				<textbox id="top" label="Top" />
+				<textbox id="bottom" label="Bottom" />
+				<textbox id="left" label="Left" />
+				<textbox id="right" label="Right" />
 			</type>
 		</type>
-		<type id="text_area" label="Text Area">
-			<bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+		<type id="text_area" label="One column: Text area">
+			<bool id="show_on_landingpage" label="Display on landing pages as well as email" default="true" />
 			<richtext id="content" label="Content" />
-			<type id="style" label="Text Settings" nested="nested"> 
+			<type id="style" label="Font" nested="nested"> 
 				<colorpicker id="color" label="Font color" />
 				<textbox id="fontsize" label="Font size"  help="The size (in pixels) of the font."
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
-				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
-				<colorpicker id="email_bgcolor" label="Section's Background Color" />
-				<textbox id="table_width" label="Section's Width" />
+			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+				<colorpicker id="email_bgcolor" label="Container background color" />
+				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
+				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
-			<type id="padding" label="Section Padding" nested="nested">
-				<textbox id="top" label="Top Padding" default="10" />
-				<textbox id="bottom" label="Bottom Padding" default="10" />
-				<textbox id="left" label="Left Padding" default="0" />
-				<textbox id="right" label="Right Padding" default="0" />
+			<type id="padding" label="Padding" nested="nested">
+				<textbox id="top" label="Top" />
+				<textbox id="bottom" label="Bottom" />
+				<textbox id="left" label="Left" />
+				<textbox id="right" label="Right" />
 			</type>
 		</type>
-		<type id="subscribe_links" label="Subscriber Links">
-			<bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+		<type id="subscribe_links" label="Subscriber links">
+			<bool id="show_on_landingpage" label="Display on landing pages as well as email" default="true" />
 			<bool id="show_unsubscribe" label="Show Unsubscribe" default="true" />
 			<bool id="show_subscribe" label="Show Subscribe" default="true" />
 			<listbox id="alignment" label="Alignment">
@@ -348,20 +348,20 @@
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 				<bool id="underline" label="Underline Links" default="true" />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
-				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
-				<colorpicker id="email_bgcolor" label="Section's Background Color" />
-				<textbox id="table_width" label="Section's Width" />
+			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+				<colorpicker id="email_bgcolor" label="Container background color" />
+				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
+				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
-			<type id="padding" label="Section Padding" nested="nested">
-				<textbox id="top" label="Top Padding" default="10" />
-				<textbox id="bottom" label="Bottom Padding" default="10" />
-				<textbox id="left" label="Left Padding" default="0" />
-				<textbox id="right" label="Right Padding" default="0" />
+			<type id="padding" label="Padding" nested="nested">
+				<textbox id="top" label="Top" />
+				<textbox id="bottom" label="Bottom" />
+				<textbox id="left" label="Left" />
+				<textbox id="right" label="Right" />
 			</type>
 		</type>
 		<type id="date_bar" label="Date Sent Bar">
-			<bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+			<bool id="show_on_landingpage" label="Display on landing pages as well as email" default="true" />
 			<textbox id="date_format" label="Date Format" help="Put liquid date formatting hints here" default="%B %-d, %Y" />
 			<textbox id="text" label="Optional Text Section" help="Used for Issue, newsletter title, Subscribe link, etc" />
 			<listbox id="alignment" label="Which side is date on?">
@@ -376,16 +376,16 @@
 				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
-				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
-				<colorpicker id="email_bgcolor" label="Section's Background Color" />
-				<textbox id="table_width" label="Section's Width" />
+			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+				<colorpicker id="email_bgcolor" label="Container background color" />
+				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
+				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
-			<type id="padding" label="Section Padding" nested="nested">
-				<textbox id="top" label="Top Padding" default="10" />
-				<textbox id="bottom" label="Bottom Padding" default="10" />
-				<textbox id="left" label="Left Padding" default="0" />
-				<textbox id="right" label="Right Padding" default="0" />
+			<type id="padding" label="Padding" nested="nested">
+				<textbox id="top" label="Top" />
+				<textbox id="bottom" label="Bottom" />
+				<textbox id="left" label="Left" />
+				<textbox id="right" label="Right" />
 			</type>
 		</type>
 		<type id="spacer" label="Spacer">
@@ -397,18 +397,18 @@
 			</type>
 		</type>
 		<type id="custom_html" label="Raw HTML Section">
-			<bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
+			<bool id="show_on_landingpage" label="Display on landing pages as well as email" default="true" />
 			<textarea id="html" label="HTML Only" help="You cannot insert Javascript into an email" />
 			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
 				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
 				<colorpicker id="email_bgcolor" label="Section's Background Color" />
 				<textbox id="table_width" label="Section's Width" />
 			</type>
-			<type id="padding" label="Section Padding" nested="nested">
-				<textbox id="top" label="Top Padding" default="10" />
-				<textbox id="bottom" label="Bottom Padding" default="10" />
-				<textbox id="left" label="Left Padding" default="0" />
-				<textbox id="right" label="Right Padding" default="0" />
+			<type id="padding" label="Padding" nested="nested">
+				<textbox id="top" label="Top" />
+				<textbox id="bottom" label="Bottom" />
+				<textbox id="left" label="Left" />
+				<textbox id="right" label="Right" />
 			</type>
 		</type>
 	</partial>
