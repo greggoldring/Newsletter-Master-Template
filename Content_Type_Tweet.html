@@ -1,5 +1,6 @@
 {% assign handleWidth = content_column_width | minus: 48 | minus: 10 -%} 
 {% if (item.tweetStyle == 'default') -%}
+<!-- Need to remove hardcoded colour settings. -Gregg -->
      <table cellpadding="0" cellspacing="0" border="0">
          <tr>
              <td rowspan="2" width="48">
@@ -21,7 +22,7 @@
          </tr>
          <tr><td colspan="3" height="10" style="line-height:0; font-size:0;">&nbsp;</td></tr>
          <tr>
-             <td colspan="3" align="left" style="font-size:18px; font-family:'Times New Roman', Times, serif; color:#444444;">
+             <td colspan="3" align="left" style="font-size:18px; color:#444444;">
                  {{ item.tweet.text }}
              </td>
          </tr>
