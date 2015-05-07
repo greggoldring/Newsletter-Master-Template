@@ -1,7 +1,8 @@
 <iml> 
 	<!-- PARTIALS START -->
 	
-	<partial id="font_settings"> <colorpicker id="color" label="Text Color" />
+	<partial id="font_settings">
+		<colorpicker id="color" label="Text Color" />
 		<textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
         regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 		<textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
@@ -27,8 +28,11 @@
 				</listbox>
 				<textbox id="maxWidth" label="Max Width" help="The maximum width an image should appear in the desktop version in pixels. Ignored if image is above Article" regex="^\d*$" regexerror="Please enter a whole number only." />
 			</type>
-			<type id="overrides" label="Override Default Settings" nested="nested"> <colorpicker id="bgcolor" label="Article Background Color" default="" /> </type>
-			<type id="header" label="Override Header Settings" nested="nested"> <colorpicker id="color" label="Header Text Color" />
+			<type id="overrides" label="Override Default Settings" nested="nested">
+				<colorpicker id="bgcolor" label="Article Background Color" default="" /> 
+			</type>
+			<type id="header" label="Override Header Settings" nested="nested">
+				<colorpicker id="color" label="Header Text Color" />
 				<textbox id="fontsize" label="Header Font Size"  help="Enter the number of pixels that your text should be"
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 				<textbox id="lineheight" label="Header Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
@@ -47,13 +51,15 @@
 					<listitem id="italic" text="Italic" />
 				</listbox>
 			</type>
-			<type id="base" label="Override Base Settings" nested="nested"> <colorpicker id="color" label="Base Text Color" />
+			<type id="base" label="Override Base Settings" nested="nested"> 
+				<colorpicker id="color" label="Base Text Color" />
 				<textbox id="fontsize" label="Base Font Size"  help="Enter the number of pixels that your text should be"
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 				<textbox id="lineheight" label="Base Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
-			<type id="lpLink" label="Override Landing Page Link" nested="nested"> <colorpicker id="color" label="Landing Page Link Color" />
+			<type id="lpLink" label="Override Landing Page Link" nested="nested"> 
+				<colorpicker id="color" label="Landing Page Link Color" />
 				<listbox id="textdecoration" label="Landing Page Underline links">
 					<listitem id="" text="Inherit" default="default" />
 					<listitem id="underline" text="Yes" />
@@ -88,7 +94,9 @@
 				<listitem id="left" text="Left" />
 				<listitem id="right" text="Right" />
 			</listbox>
-			<type id="style" label="Styling" nested="nested"> <colorpicker id="background_color" label="Background Color" /> <colorpicker id="font_color" label="Font Color" />
+			<type id="style" label="Styling" nested="nested"> 
+				<colorpicker id="background_color" label="Background Color" /> 
+				<colorpicker id="font_color" label="Font Color" />
 				<textbox id="font_size" label="Font Size"  help="Enter the number of pixels that your text should be"
             regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 				<textbox id="border_width" label="Border Width" />
@@ -96,7 +104,9 @@
 				<colorpicker id="border_color" label="Border Color" />
 				<textbox id="height" label="Height" />
 			</type>
-			<type id="overrides" label="Override Default Settings" nested="nested"> <colorpicker id="bgcolor" label="Article Background Color" default="" /> </type>
+			<type id="overrides" label="Override Default Settings" nested="nested"> 
+				<colorpicker id="bgcolor" label="Article Background Color" default="" /> 
+			</type>
 			<type id="border" label="Override Border" nested="nested">
 				<textbox id="border_width" label="Border Width" 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
@@ -122,7 +132,9 @@
 				<listitem id="basic" text="Basic, Text Only" />
 			</listbox>
 			<!-- bool id="embedMedia" label="Embed Media" / -->
-			<type id="overrides" label="Override Default Settings" nested="nested"> <colorpicker id="bgcolor" label="Article Background Color" default="" /> </type>
+			<type id="overrides" label="Override Default Settings" nested="nested"> 
+				<colorpicker id="bgcolor" label="Article Background Color" default="" /> 
+			</type>
 			<type id="border" label="Override Border" nested="nested">
 				<textbox id="border_width" label="Border Width" 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
@@ -160,7 +172,9 @@
 				</listbox>
 				<textbox id="maxWidth" label="Maximum Width Image should appear" />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> <colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> <colorpicker id="email_bgcolor" label="Section's Background Color" />
+			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
+				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
+				<colorpicker id="email_bgcolor" label="Section's Background Color" />
 				<textbox id="table_width" label="Section's Width" />
 			</type>
 			<type id="padding" label="Section Padding" nested="nested">
@@ -183,7 +197,9 @@
 				<textbox id="maxWidth" label="Maximum Width Image should appear" default="200" />
 				<textbox id="gutter" label="Minimum Space Between Image and Richtext" default="20" />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> <colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> <colorpicker id="email_bgcolor" label="Section's Background Color" />
+			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
+				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
+				<colorpicker id="email_bgcolor" label="Section's Background Color" />
 				<textbox id="table_width" label="Section's Width" />
 			</type>
 			<type id="padding" label="Section Padding" nested="nested">
@@ -210,7 +226,9 @@
 				<textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> <colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> <colorpicker id="email_bgcolor" label="Section's Background Color" />
+			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
+				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
+				<colorpicker id="email_bgcolor" label="Section's Background Color" />
 				<textbox id="table_width" label="Section's Width" />
 			</type>
 			<type id="padding" label="Section Padding" nested="nested">
@@ -278,7 +296,9 @@
 				<bool id="show_lp" label="Show Link on Landing Page" default="true" />
 				<image id="custom_image" label="Use Custom Icon" maxwidth="64" />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> <colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> <colorpicker id="email_bgcolor" label="Section's Background Color" />
+			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
+				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
+				<colorpicker id="email_bgcolor" label="Section's Background Color" />
 				<textbox id="table_width" label="Section's Width" />
 			</type>
 			<type id="padding" label="Section Padding" nested="nested">
@@ -291,13 +311,16 @@
 		<type id="text_area" label="Text Area">
 			<bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
 			<richtext id="content" label="Content" />
-			<type id="style" label="Text Settings" nested="nested"> <colorpicker id="color" label="Text Color" />
+			<type id="style" label="Text Settings" nested="nested"> 
+				<colorpicker id="color" label="Text Color" />
 				<textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 				<textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> <colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> <colorpicker id="email_bgcolor" label="Section's Background Color" />
+			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
+				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
+				<colorpicker id="email_bgcolor" label="Section's Background Color" />
 				<textbox id="table_width" label="Section's Width" />
 			</type>
 			<type id="padding" label="Section Padding" nested="nested">
@@ -316,14 +339,17 @@
 				<listitem id="right" text="Right" />
 				<listitem id="left" text="Left" />
 			</listbox>
-			<type id="link_overrides" label="Link Styling" nested="nested"> <colorpicker id="color" label="Text Color" />
+			<type id="link_overrides" label="Link Styling" nested="nested"> 
+				<colorpicker id="color" label="Text Color" />
 				<textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 				<textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 				<bool id="underline" label="Underline Links" default="true" />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> <colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> <colorpicker id="email_bgcolor" label="Section's Background Color" />
+			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
+				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
+				<colorpicker id="email_bgcolor" label="Section's Background Color" />
 				<textbox id="table_width" label="Section's Width" />
 			</type>
 			<type id="padding" label="Section Padding" nested="nested">
@@ -342,13 +368,16 @@
 				<listitem id="left" text="Left" />
 				<listitem id="center" text="Center" />
 			</listbox>
-			<type id="style" label="Text Settings" nested="nested"> <colorpicker id="color" label="Text Color" />
+			<type id="style" label="Text Settings" nested="nested"> 
+				<colorpicker id="color" label="Text Color" />
 				<textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 				<textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> <colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> <colorpicker id="email_bgcolor" label="Section's Background Color" />
+			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
+				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
+				<colorpicker id="email_bgcolor" label="Section's Background Color" />
 				<textbox id="table_width" label="Section's Width" />
 			</type>
 			<type id="padding" label="Section Padding" nested="nested">
@@ -360,14 +389,18 @@
 		</type>
 		<type id="spacer" label="Spacer">
 			<textbox id="height" label="Height" default="10" />
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> <colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> <colorpicker id="email_bgcolor" label="Section's Background Color" />
+			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
+				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
+				<colorpicker id="email_bgcolor" label="Section's Background Color" />
 				<textbox id="table_width" label="Section's Width" />
 			</type>
 		</type>
 		<type id="custom_html" label="Raw HTML Section">
 			<bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
 			<textarea id="html" label="HTML Only" help="You cannot insert Javascript into an email" />
-			<type id="section_overrides" label="Override Section Settings" nested="nested"> <colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> <colorpicker id="email_bgcolor" label="Section's Background Color" />
+			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
+				<colorpicker id="body_bgcolor" label="Section's Surround Background Color" /> 
+				<colorpicker id="email_bgcolor" label="Section's Background Color" />
 				<textbox id="table_width" label="Section's Width" />
 			</type>
 			<type id="padding" label="Section Padding" nested="nested">
@@ -378,7 +411,8 @@
 			</type>
 		</type>
 	</partial>
-	<partial id="article_settings"> <colorpicker id="bgcolor" label="Article Background Color" />
+	<partial id="article_settings"> 
+		<colorpicker id="bgcolor" label="Article Background Color" />
 		<type id="border" label="Border" nested="nested">
 			<textbox id="border_width" label="Border Width" 
         regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
@@ -498,7 +532,8 @@
 		<!-- *************************************************************************************************************************
     BASE LINKS
     ************************************************************************************************************************* -->
-		<type id="link" label="Link Settings" nested="nested"> <colorpicker id="color" label="Link Color" default="#00a7dd" />
+		<type id="link" label="Link Settings" nested="nested"> 
+			<colorpicker id="color" label="Link Color" default="#00a7dd" />
 			<listbox id="textdecoration" label="Underline links">
 				<listitem id="inherit" text="Inherit" default="default" />
 				<listitem id="underline" text="Yes" />
@@ -524,7 +559,8 @@
 			</type>
 			<type id="separator" label="Separator" nested="nested">
 				<textbox id="character" label="Character" help="What character should separate multiple links?" default="|" />
-				<colorpicker id="color" label="Color" help="What color should the separator be?" default="#000000" /> </type>
+				<colorpicker id="color" label="Color" help="What color should the separator be?" default="#000000" /> 
+			</type>
 		</type>
 	</partial>
 	
@@ -539,14 +575,22 @@
 	</type>
 	
 	<!-- HEADER/FOOTER SECTIONS -->
-	<collection id="header_section" label="Header"> <include partial="headerfooter_types" /> </collection>
+	<collection id="header_section" label="Header"> 
+		<include partial="headerfooter_types" /> 
+	</collection>
 	
 	<!-- MAIN ARTICLES -->
-	<collection id="main_area" label="Main body"> <include partial="content_types" /> </collection>
+	<collection id="main_area" label="Main body"> 
+		<include partial="content_types" /> 
+	</collection>
 	
 	<!-- SIDEBAR ARTICLES -->
-	<collection id="sidebar_area" label="Sidebar"> <include partial="content_types" /> </collection>
-	<collection id="footer_section" label="Footer"> <include partial="headerfooter_types" /> </collection>
+	<collection id="sidebar_area" label="Sidebar"> 
+		<include partial="content_types" /> 
+	</collection>
+	<collection id="footer_section" label="Footer"> 
+		<include partial="headerfooter_types" /> 
+	</collection>
 	<type id="defaults" label="Settings"> 
 		<!-- ================================================================================================================================
      TEMPLATE OPTIONS
@@ -557,7 +601,8 @@
 			<!-- *************************************************************************************************************************
           BACKGROUND
           ************************************************************************************************************************* -->
-			<type id="background" label="Background" nested="nested"> <colorpicker id="bgcolor_body" label="Background color" default="#ffffff" />
+			<type id="background" label="Background" nested="nested"> 
+				<colorpicker id="bgcolor_body" label="Background color" default="#ffffff" />
 				<image id="bgImg_body" label="Background image (repeats x and y)" />
 			</type>
 			<!-- *************************************************************************************************************************
@@ -613,7 +658,8 @@
 			</type>
 			<!-- border, shadow, etc --> 
 		</type>
-		<type id="primary_settings" label="Main section"> <colorpicker id="bgcolor" label="Background colour" default="#ffffff" />
+		<type id="primary_settings" label="Main section"> 
+			<colorpicker id="bgcolor" label="Background colour" default="#ffffff" />
 			<type id="padding" label="Padding" nested="nested">
 				<textbox id="top" label="Top" default="20" />
 				<textbox id="bottom" label="Bottom" default="20" />
@@ -630,7 +676,9 @@
 					<listitem id="dashed" text="Dashed" />
 				</listbox>
 			</type>
-			<type id="articles" label="Articles"> <include partial="article_settings" /> </type>
+			<type id="articles" label="Articles"> 
+				<include partial="article_settings" /> 
+			</type>
 			<type id="buttons" label="Buttons"> 
 				<!-- These settings apply to buttons in both the Main section and in the sidebar. Either we need to categorize the settings differently or we need to communicate that the settings under 'Main' will also apply to 'Sidebar' in this instance. -Gregg  --> 
 				<colorpicker id="background_color" label="Button color" default="#fafafb" />
@@ -639,7 +687,8 @@
 				<textbox id="height" label="Height" default="36" />
 				<textbox id="border_width" label="Border width" default="1" />
 				<textbox id="border_radius" label="Border radius (%)" default="50" />
-				<colorpicker id="border_color" label="Border color" default="#e6e6e8" /> </type>
+				<colorpicker id="border_color" label="Border color" default="#e6e6e8" /> 
+			</type>
 		</type>
 		<type id="sidebar_settings" label="Sidebar section">
 			<listbox id="side" label="Position">
@@ -652,7 +701,9 @@
 				<textbox id="top" label="Top" default="20" />
 				<textbox id="bottom" label="Bottom" default="20" />
 			</type>
-			<type id="articles" label="Articles"> <include partial="article_settings" /> </type>
+			<type id="articles" label="Articles"> 
+				<include partial="article_settings" /> 
+			</type>
 		</type>
 		<type id="default_links" label="Links and Messages"> 
 			<!-- *************************************************************************************************************************
