@@ -610,7 +610,7 @@
   </collection>
 
   <!-- SIDEBAR ARTICLES -->
-  <collection id="sidebar_area" label="Sidebar (optional)">
+  <collection id="sidebar_area" label="Sidebar">
       <include partial="content_types" />
   </collection>
 
@@ -668,10 +668,10 @@
               <colorpicker id="font_color" label="Font color" />
                <textbox id="fontsize" label="Font size"  help="The size (in pixels) that the fonts in each of the sections of your mailout will inherit unless specified otherwise."
                  regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="14" />
-               <textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+               <textbox id="lineheight" label="Line height" help="Enter the line-height, relative to the font size where '1' equals the same line height as font size." 
                  regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="1.5" />
                  
-               <colorpicker id="link_color" label="Link Color" />
+               <colorpicker id="link_color" label="Link color" />
                <listbox id="link_textdecoration" label="Underline links">
                  <listitem id="underline" text="Yes" default="default" />
                  <listitem id="none" text="No" />
@@ -686,48 +686,47 @@
           </type>
           <!-- border, shadow, etc -->
       </type>
-      <type id="primary_settings" label="Main Section's Settings">
-          <colorpicker id="bgcolor" label="Content Background" default="#ffffff" />
+      <type id="primary_settings" label="Main section">
+          <colorpicker id="bgcolor" label="Background colour" default="#ffffff" />
           <type id="padding" label="Padding" nested="nested">
-               <textbox id="top" label="Top Padding for Section" default="20" />
-               <textbox id="bottom" label="Bottom Padding for Section" default="20" />
+               <textbox id="top" label="Top" default="20" />
+               <textbox id="bottom" label="Bottom" default="20" />
           </type>
           <!-- *************************************************************************************************************************
           BORDER
           ************************************************************************************************************************* -->
           <type id="border" label="Border" nested="nested">
-              <textbox id="border_width" label="Border Width" regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-              <colorpicker id="border_color" label="Article Border Color" />
-              <listbox id="border_style" label="Article Border Style">
+              <textbox id="border_width" label="Border width" help="The width (in pixels) of a border surrounding the inside edges of the main section." regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+              <colorpicker id="border_color" label="Border color" />
+              <listbox id="border_style" label="Border style">
                   <listitem id="solid" text="Solid" default="default" />
                   <listitem id="dotted" text="Dotted" />
                   <listitem id="dashed" text="Dashed" />
               </listbox>
           </type>
-          <type id="articles" label="Main Article's Settings">
+          <type id="articles" label="Articles">
               <include partial="article_settings" />
           </type>
-          <type id="buttons" label="Button Default Stylings">
-            <colorpicker id="background_color" label="Background Color" default="#fafafb" />
-            <colorpicker id="font_color" label="Font Color" default="#2f353e" />
-            <textbox id="font_size" label="Font Size"  help="Enter the number of pixels that your text should be"
-              regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-            <textbox id="border_width" label="Border Width" default="1" />
-            <textbox id="border_radius" label="Border Radius (%)" default="50" />
-            <colorpicker id="border_color" label="Border Color" default="#e6e6e8" />
+          <type id="buttons" label="Buttons">
+            <colorpicker id="background_color" label="Button color" default="#fafafb" />
+            <textbox id="font_size" label="Font size"  help="The size (in pixels) of the word(s) on the button." regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+            <colorpicker id="font_color" label="Font color" default="#2f353e" />
             <textbox id="height" label="Height" default="36" />
+            <textbox id="border_width" label="Border width" default="1" />
+            <textbox id="border_radius" label="Border radius (%)" default="50" />
+            <colorpicker id="border_color" label="Border color" default="#e6e6e8" />
           </type>
       </type>
-      <type id="sidebar_settings" label="Sidebar Section's Sections">
+      <type id="sidebar_settings" label="Sidebar section">
           <listbox id="side" label="Position">
-              <listitem id="right" text="Right Side" default="default" />
-              <listitem id="left" text="Left Side" />
+              <listitem id="right" text="Right side" default="default" />
+              <listitem id="left" text="Left side" />
           </listbox>
-          <textbox id="width" label="Width" help="How many pixels wide is the sidebar?" default="200" />
-          <colorpicker id="bgcolor" label="Background Color" />
-          <type id="margin" label="Margin" nested="nested">
-               <textbox id="top" label="Top Margin for Section" default="20" />
-               <textbox id="bottom" label="Bottom Margin for Section" default="20" />
+          <textbox id="width" label="Width" help="The width of the sidebar (in pixels) from border to border" default="200" />
+          <colorpicker id="bgcolor" label="Background color" />
+          <type id="margin" label="Padding" nested="nested">
+               <textbox id="top" label="Top" default="20" />
+               <textbox id="bottom" label="Bottom" default="20" />
           </type>
           <type id="articles" label="Sidebar Article's Settings">
               <include partial="article_settings" />
