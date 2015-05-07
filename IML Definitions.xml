@@ -708,6 +708,7 @@
               <include partial="article_settings" />
           </type>
           <type id="buttons" label="Buttons">
+						<!-- These settings apply to buttons in both the Main section and in the sidebar. Either we need to categorize the settings differently or we need to communicate that the settings under 'Main' will also apply to 'Sidebar' in this instance. -Gregg  -->
             <colorpicker id="background_color" label="Button color" default="#fafafb" />
             <textbox id="font_size" label="Font size"  help="The size (in pixels) of the word(s) on the button." regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
             <colorpicker id="font_color" label="Font color" default="#2f353e" />
