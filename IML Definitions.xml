@@ -749,7 +749,7 @@
             <!-- *************************************************************************************************************************
         DEFAULT LINKS - RETURN TO NEWSLETTER
         ************************************************************************************************************************* -->
-          <type id="returntonewsletter" label="'Return to mailout' link (on landing pages)" nested="nested">
+          <type id="returntonewsletter" label="'Return to&#x2026;' link (on landing pages)" nested="nested">
               <bool id="show" label="Show link" default="true" />
               <textbox id="label" label="Label" default="&laquo; Return to the full mailout" />
               <listbox id="position" label="Position">
