@@ -128,30 +128,30 @@
 		</type>
 		<type id="type_tweet" label="Tweet" icon="Type_Twitter">
 			<tweet id="tweet" label="Tweet" />
-			<listbox id="tweetStyle" label="Tweet Visual Style">
-				<listitem id="default" text="Default" />
-				<listitem id="basic" text="Basic, Text Only" />
+			<listbox id="tweetStyle" label="Display profile photo">
+				<listitem id="default" text="Yes" />
+				<listitem id="basic" text="No" />
 			</listbox>
 			<!-- bool id="embedMedia" label="Embed Media" / -->
-			<type id="overrides" label="Override Default Settings" nested="nested"> 
-				<colorpicker id="bgcolor" label="Article Background Color" default="" /> 
+			<type id="overrides" label="Background" nested="nested"> 
+				<colorpicker id="bgcolor" label="Background color" default="" /> 
 			</type>
-			<type id="border" label="Override Border" nested="nested">
-				<textbox id="border_width" label="Border Width" 
-          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-				<colorpicker id="border_color" label="Border Color" />
-				<listbox id="border_style" label="Border Style">
+			<type id="border" label="Borders" nested="nested">
+				<textbox id="border_width" label="Border width" help="The width (in pixels) of a border surrounding the inside edges of the area around the button."
+        regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+				<colorpicker id="border_color" label="Border color" />
+				<listbox id="border_style" label="Border style">
 					<listitem id="solid" text="Solid" default="default" />
 					<listitem id="dotted" text="Dotted" />
 					<listitem id="dashed" text="Dashed" />
 				</listbox>
-				<bool id="removeborder" />
+				<bool id="removeborder" label="Do not display a border" />
 			</type>
-			<type id="padding" label="Override Padding" nested="nested">
-				<textbox id="top" label="Top Padding" />
-				<textbox id="bottom" label="Bottom Padding" />
-				<textbox id="left" label="Left Padding" />
-				<textbox id="right" label="Right Padding" />
+			<type id="padding" label="Padding" nested="nested">
+				<textbox id="top" label="Top" />
+				<textbox id="bottom" label="Bottom" />
+				<textbox id="left" label="Left" />
+				<textbox id="right" label="Right" />
 			</type>
 		</type>
 		
