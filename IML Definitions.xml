@@ -2,127 +2,128 @@
 	<!-- PARTIALS START -->
 	
 	<partial id="font_settings">
-		<colorpicker id="color" label="Text Color" />
-		<textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+		<colorpicker id="color" label="Font color" />
+		<textbox id="fontsize" label="Font size"  help="The size (in pixels) of the font."
         regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-		<textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+		<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
         regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 	</partial>
 	<partial id="content_types">
-		<type id="article" label="Default Article" landingpage="landingpage">
+		<type id="article" label="Article" landingpage="landingpage">
 			<textbox id="title" label="Title" />
 			<image id="image" label="Image" />
-			<richtext id="teaser" label="Email Teaser Text" />
-			<richtext id="lpContent" label="Landing Page Content" />
-			<textbox id="external_link" label="Or Use External Link" />
-			<textbox id="link_label" label="Landing Page/External Link Label" default="Read More" />
-			<type id="image_override" label="Image Settings" nested="nested">
-				<listbox id="side" label="Image Side">
+			<richtext id="teaser" label="Email content" />
+			<richtext id="lpContent" label="Landing page content" />
+			<textbox id="external_link" label="Link to web page" />
+			<textbox id="link_label" label="'Read more' link label" default="Read more" help="The link will point to either 'Landing page content' or 'Link to web page' but not both." />
+			<type id="image_override" label="Image settings" nested="nested">
+				<listbox id="side" label="Position">
 					<listitem id="left" text="Left" default="default" />
 					<listitem id="above" text="Above" />
 					<listitem id="right" text="Right" />
 				</listbox>
-				<listbox id="flow" label="Text Wrap around Image">
-					<listitem id="wrap" text="Wrap Text Below" default="default" />
-					<listitem id="column" text="Two Separate Columns" />
+				<listbox id="flow" label="Text wrap" help="Wraps text to the full width of line immedately below the image.">
+					<listitem id="wrap" text="On" default="default" />
+					<listitem id="column" text="Off" />
 				</listbox>
-				<textbox id="maxWidth" label="Max Width" help="The maximum width an image should appear in the desktop version in pixels. Ignored if image is above Article" regex="^\d*$" regexerror="Please enter a whole number only." />
+				<textbox id="maxWidth" label="Max width" help="The maximum width of the image (in pixels). This value is ignored when 'Position' is set to 'Above'. In that case the maxwidth will become the width of it's container." regex="^\d*$" regexerror="Please enter a whole number only." />
 			</type>
-			<type id="overrides" label="Override Default Settings" nested="nested">
-				<colorpicker id="bgcolor" label="Article Background Color" default="" /> 
+			<type id="overrides" label="Background settings" nested="nested">
+				<colorpicker id="bgcolor" label="Background color" default="" /> 
 			</type>
-			<type id="header" label="Override Header Settings" nested="nested">
-				<colorpicker id="color" label="Header Text Color" />
-				<textbox id="fontsize" label="Header Font Size"  help="Enter the number of pixels that your text should be"
+			<type id="header" label="Title formatting" nested="nested">
+				<colorpicker id="color" label="Font color" />
+				<textbox id="fontsize" label="Font Size"  help="The size (in pixels) of the font."
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-				<textbox id="lineheight" label="Header Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-				<textbox id="bottomPadding" label="Bottom Padding" help="Enter the pixels that are placed below a header, above the following content" 
+				<textbox id="bottomPadding" label="Bottom Padding" help="The vertical distance (in pixels) between the title and the content below it." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-				<listbox id="weight" label="Header Font Weight">
+				<listbox id="weight" label="Font weight">
 					<listitem id="" text="Inherit" default="default" />
 					<listitem id="bold" text="Bold" />
 					<listitem id="normal" text="Normal" />
 					<listitem id="lighter" text="Lighter" />
 				</listbox>
-				<listbox id="style" label="Header Font Style">
+				<listbox id="style" label="Font style">
 					<listitem id="" text="Inherit" default="default" />
 					<listitem id="normal" text="Normal" />
 					<listitem id="italic" text="Italic" />
 				</listbox>
+				<!-- Titles should be able to have links on them too. -Gregg -->
 			</type>
-			<type id="base" label="Override Base Settings" nested="nested"> 
-				<colorpicker id="color" label="Base Text Color" />
-				<textbox id="fontsize" label="Base Font Size"  help="Enter the number of pixels that your text should be"
+			<type id="base" label="Content formatting" nested="nested"> 
+				<colorpicker id="color" label="Font color" />
+				<textbox id="fontsize" label="Font size"  help="The size (in pixels) of the font."
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-				<textbox id="lineheight" label="Base Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
-			<type id="lpLink" label="Override Landing Page Link" nested="nested"> 
-				<colorpicker id="color" label="Landing Page Link Color" />
-				<listbox id="textdecoration" label="Landing Page Underline links">
+			<type id="lpLink" label="'Read more' link settings" nested="nested"> 
+				<colorpicker id="color" label="Link color" />
+				<listbox id="textdecoration" label="Underline">
 					<listitem id="" text="Inherit" default="default" />
 					<listitem id="underline" text="Yes" />
 					<listitem id="none" text="No" />
 				</listbox>
-				<bool id="show" label="Show Landing Page Link" default="true" />
+				<bool id="show" label="Display 'Read more' link" default="true" />
 			</type>
-			<type id="border" label="Override Border" nested="nested">
-				<textbox id="border_width" label="Border Width" 
+			<type id="border" label="Borders" nested="nested">
+				<textbox id="border_width" label="Border width" help="The width (in pixels) of a border surrounding the inside edges of the article."
         regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-				<colorpicker id="border_color" label="Border Color" />
-				<listbox id="border_style" label="Border Style">
+				<colorpicker id="border_color" label="Border color" />
+				<listbox id="border_style" label="Border style">
 					<listitem id="solid" text="Solid" default="default" />
 					<listitem id="dotted" text="Dotted" />
 					<listitem id="dashed" text="Dashed" />
 				</listbox>
-				<bool id="removeborder" />
+				<bool id="removeborder" label="Do not display a border" />
 			</type>
-			<type id="padding" label="Override Padding" nested="nested">
-				<textbox id="top" label="Top Padding" />
-				<textbox id="bottom" label="Bottom Padding" />
-				<textbox id="left" label="Left Padding" />
-				<textbox id="right" label="Right Padding" />
+			<type id="padding" label="Padding" nested="nested">
+				<textbox id="top" label="Top" />
+				<textbox id="bottom" label="Bottom" />
+				<textbox id="right" label="Right" />
+				<textbox id="left" label="Left" />
 			</type>
 		</type>
 		<type id="type_button" label="Button" icon="Type_Link">
 			<textbox id="label" label="Label" />
 			<textbox id="link" label="Link" />
-			<textbox id="width" label="Explicitly Define Width" help="If the automatically generated width is wrong, use this setting to override it." />
+			<textbox id="width" label="Width" help="Fixed width (in pixels) of the button. Button size adjusts automatically if left blank. " />
 			<listbox id="alignment" label="Alignment">
 				<listitem id="center" text="Center" default="default" />
 				<listitem id="left" text="Left" />
 				<listitem id="right" text="Right" />
 			</listbox>
-			<type id="style" label="Styling" nested="nested"> 
-				<colorpicker id="background_color" label="Background Color" /> 
-				<colorpicker id="font_color" label="Font Color" />
-				<textbox id="font_size" label="Font Size"  help="Enter the number of pixels that your text should be"
+			<type id="style" label="Formatting" nested="nested"> 
+				<colorpicker id="background_color" label="Button color" /> 
+				<colorpicker id="font_color" label="Font color" />
+				<textbox id="font_size" label="Font size"  help="The size (in pixels) of the font."
             regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-				<textbox id="border_width" label="Border Width" />
-				<textbox id="border_radius" label="Border Radius (%)" />
-				<colorpicker id="border_color" label="Border Color" />
+				<textbox id="border_width" label="Border width" />
+				<textbox id="border_radius" label="Border radius (%)" />
+				<colorpicker id="border_color" label="Border color" />
 				<textbox id="height" label="Height" />
 			</type>
-			<type id="overrides" label="Override Default Settings" nested="nested"> 
-				<colorpicker id="bgcolor" label="Article Background Color" default="" /> 
+			<type id="overrides" label="Background" nested="nested"> 
+				<colorpicker id="bgcolor" label="Background color" default="" /> 
 			</type>
-			<type id="border" label="Override Border" nested="nested">
-				<textbox id="border_width" label="Border Width" 
-          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-				<colorpicker id="border_color" label="Border Color" />
-				<listbox id="border_style" label="Border Style">
+			<type id="border" label="Borders" nested="nested">
+				<textbox id="border_width" label="Border width" help="The width (in pixels) of a border surrounding the inside edges of the area around the button."
+        regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
+				<colorpicker id="border_color" label="Border color" />
+				<listbox id="border_style" label="Border style">
 					<listitem id="solid" text="Solid" default="default" />
 					<listitem id="dotted" text="Dotted" />
 					<listitem id="dashed" text="Dashed" />
 				</listbox>
-				<bool id="removeborder" />
+				<bool id="removeborder" label="Do not display a border" />
 			</type>
-			<type id="padding" label="Override Padding" nested="nested">
-				<textbox id="top" label="Top Padding" />
-				<textbox id="bottom" label="Bottom Padding" />
-				<textbox id="left" label="Left Padding" />
-				<textbox id="right" label="Right Padding" />
+			<type id="padding" label="Padding" nested="nested">
+				<textbox id="top" label="Top" />
+				<textbox id="bottom" label="Bottom" />
+				<textbox id="right" label="Right" />
+				<textbox id="left" label="Left" />
 			</type>
 		</type>
 		<type id="type_tweet" label="Tweet" icon="Type_Twitter">
@@ -220,10 +221,10 @@
 			<textbox id="spacing" label="Space between Icons" default="0" />
 			<type id="label" label="Label Options" nested="nested">
 				<textbox id="text" label="Label" help="ex. Find Us On : " />
-				<colorpicker id="color" label="Text Color" />
-				<textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+				<colorpicker id="color" label="Font color" />
+				<textbox id="fontsize" label="Font size"  help="The size (in pixels) of the font."
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-				<textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
 			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
@@ -268,10 +269,10 @@
 			<textbox id="spacing" label="Space between Icons" default="5" />
 			<type id="label" label="Label Options" nested="nested">
 				<textbox id="text" label="Override Label" />
-				<colorpicker id="color" label="Text Color" />
-				<textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+				<colorpicker id="color" label="Font color" />
+				<textbox id="fontsize" label="Font size"  help="The size (in pixels) of the font."
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-				<textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
 			<type id="forwardtofriend" label="Forward To Friend" nested="nested">
@@ -312,10 +313,10 @@
 			<bool id="show_on_landingpage" label="Show on Landing Page" default="true" />
 			<richtext id="content" label="Content" />
 			<type id="style" label="Text Settings" nested="nested"> 
-				<colorpicker id="color" label="Text Color" />
-				<textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+				<colorpicker id="color" label="Font color" />
+				<textbox id="fontsize" label="Font size"  help="The size (in pixels) of the font."
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-				<textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
 			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
@@ -340,10 +341,10 @@
 				<listitem id="left" text="Left" />
 			</listbox>
 			<type id="link_overrides" label="Link Styling" nested="nested"> 
-				<colorpicker id="color" label="Text Color" />
-				<textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+				<colorpicker id="color" label="Link color" />
+				<textbox id="fontsize" label="Font size"  help="The size (in pixels) of the font."
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-				<textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 				<bool id="underline" label="Underline Links" default="true" />
 			</type>
@@ -369,10 +370,10 @@
 				<listitem id="center" text="Center" />
 			</listbox>
 			<type id="style" label="Text Settings" nested="nested"> 
-				<colorpicker id="color" label="Text Color" />
-				<textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+				<colorpicker id="color" label="Font color" />
+				<textbox id="fontsize" label="Font size"  help="The size (in pixels) of the font."
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-				<textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
 			<type id="section_overrides" label="Override Section Settings" nested="nested"> 
@@ -470,12 +471,11 @@
 				<listitem id="GF, Vollkorn, Book Antiqua, Georgia, serif" text="Vollkorn, Book Antiqua, Georgia, serif" />
 				<listitem id="other" text="Other (please specify in below)" />
 			</listbox>
-			<textbox id="family_other" label="Other Font Stack" help="*Other must be selected above" 
-                 default="" />
-			<colorpicker id="color" label="Text Color" />
-			<textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+			<textbox id="family_other" label="Other Font Stack" help="*Other must be selected above" default="" />
+			<colorpicker id="color" label="Font color" />
+			<textbox id="fontsize" label="Font size"  help="The size (in pixels) of the font."
          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-			<textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+			<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			<listbox id="weight" label="Font Weight">
 				<listitem id="bold" text="Bold" default="default" />
@@ -523,10 +523,10 @@
 			</listbox>
 			<textbox id="family_other" label="Other Font Stack" help="*Other must be selected above" 
                  default="" />
-			<colorpicker id="color" label="Text Color" />
-			<textbox id="fontsize" label="Font Size"  help="Enter the number of pixels that your text should be"
+			<colorpicker id="color" label="Font color" />
+			<textbox id="fontsize" label="Font size"  help="The size (in pixels) of the font."
          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
-			<textbox id="lineheight" label="Line Height" help="Enter the line-height, relative to the font size. '1' equals the same line height as font size." 
+			<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
          regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 		</type>
 		<!-- *************************************************************************************************************************
@@ -641,7 +641,7 @@
 				<colorpicker id="font_color" label="Font color" />
 				<textbox id="fontsize" label="Font size"  help="The size (in pixels) that the fonts in each of the sections of your mailout will inherit unless specified otherwise."
                  regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="14" />
-				<textbox id="lineheight" label="Line height" help="Enter the line-height, relative to the font size where '1' equals the same line height as font size." 
+				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
                  regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="1.5" />
 				<colorpicker id="link_color" label="Link color" />
 				<listbox id="link_textdecoration" label="Underline links">
