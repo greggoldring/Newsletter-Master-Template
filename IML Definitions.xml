@@ -728,7 +728,7 @@
                <textbox id="top" label="Top" default="20" />
                <textbox id="bottom" label="Bottom" default="20" />
           </type>
-          <type id="articles" label="Sidebar Article's Settings">
+          <type id="articles" label="Articles">
               <include partial="article_settings" />
           </type>
       </type>
@@ -737,31 +737,31 @@
             <!-- *************************************************************************************************************************
         DEFAULT LINKS - TROUBLE LINK
         ************************************************************************************************************************* -->
-          <type id="trouble" label="'Trouble' Link" nested="nested">
+          <type id="trouble" label="'View in browser' link" nested="nested">
               <listbox id="show" label="Show">
-                <listitem id="auto" text="Only When Needed" default="default" />
+                <listitem id="auto" text="Only when needed" default="default" />
                 <listitem id="always" text="Always" />
                 <listitem id="never" text="Never" />  
               </listbox>
-              <textbox id="label" label="Label" default="Don't see images? View online here." />
+              <textbox id="label" label="Label" default="View in browser" />
           </type>
           
             <!-- *************************************************************************************************************************
         DEFAULT LINKS - RETURN TO NEWSLETTER
         ************************************************************************************************************************* -->
-          <type id="returntonewsletter" label="Return to Newsletter Link (on landing pages)" nested="nested">
-              <bool id="show" label="Show Link" default="true" />
-              <textbox id="label" label="Label" default="&laquo; Return to the full newsletter" />
-              <listbox id="position" label="Link's Position">
-                <listitem id="above" text="Above Content" />
-                <listitem id="below" text="Below Content" default="default" />
+          <type id="returntonewsletter" label="'Return to mailout' link (on landing pages)" nested="nested">
+              <bool id="show" label="Show link" default="true" />
+              <textbox id="label" label="Label" default="&laquo; Return to the full mailout" />
+              <listbox id="position" label="Position">
+                <listitem id="above" text="Above content" />
+                <listitem id="below" text="Below content" default="default" />
               </listbox>
           </type>
             <!-- *************************************************************************************************************************
         DEFAULT LINKS - Delivered by...
         ************************************************************************************************************************* -->
-          <type id="deliveredby" label="Delivered by&#x2026;" nested="nested">
-              <bool id="show" label="Show Message" default="true" />
+          <type id="deliveredby" label="Created and delivered using&#x2026;" nested="nested">
+              <bool id="show" label="Show message" default="true" />
           </type>
           <type id="secIMUSEONLY" label="IM Use Only" nested="nested">
               <textbox id="hideUnsubscribe" label="rem_us" />
