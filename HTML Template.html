@@ -8,14 +8,14 @@
   </head>
   <body>
     {% webbug %}
+      <div style="background-color:{{ body_bgcolor }};">
       {% if trouble_show == "auto" or trouble_show == "always" -%}
-      <div{% if trouble_show == "auto" %} class="trouble"{%endif %} style="width:{{ table_width }}px; margin:0 auto;">
+      <div{% if trouble_show == "auto" %} class="trouble"{%endif %} style="margin:0 auto;">
            <table width="{{ table_width }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="center"><tr><td align="right" style="text-align:right;">
-                <a href="{{ urls.backtomailouturlpersonalized  }}" style="font-size:10px; line-height:1.1em; color:#888; text-decoration:none;">{{ trouble_label | newline_to_br }}</a>
+                <a href="{{ urls.backtomailouturl }}" style="font-size:10px; line-height:1.1em; text-decoration:none;">{{ trouble_label | newline_to_br }}</a>
            </td></tr></table>
       </div>
       {% endif -%}
-      <div style="background-color:{{ body_bgcolor }};">
               {% if preview_text.content != "" %}
                   <div style="font-size:0; line-height:0; color: {{ body_bgcolor }};">
                       {{ preview_text.content }}
