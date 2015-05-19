@@ -4,7 +4,7 @@
             line-height: {{ item.link_overrides.lineheight }};
         ">
     {% if item.show_subscribe == 'true' %}
-        <a href="{{ urls.subscribeurl }}" style="
+        <a href="{{ urls.subscribe }}" style="
             color: {{ item.link_overrides.color }};
             font-size: {{ item.link_overrides.fontsize }};
             line-height: {{ item.link_overrides.lineheight }};
@@ -17,11 +17,32 @@
             Subscribe
         </a>
     {% endif %}
-    {% if item.show_subscribe == 'true' and item.show_unsubscribe == 'true'%}  
-    | 
+    {% if item.show_editmypreferences == 'true' or item.show_unsubsribe == 'true' %}  
+      {% if item.show_subscribe == 'true' %}
+      | 
+      {% endif -%}
+    {% endif -%}
+    {% if item.show_editmypreferences == 'true' %}
+        <a href="{{ urls.editmypreferences }}" style="
+            color: {{ item.link_overrides.color }};
+            font-size: {{ item.link_overrides.fontsize }};
+            line-height: {{ item.link_overrides.lineheight }};
+            {% if item.link_overrides.underline == true -%}
+            text-decoration:underline;
+            {% else -%}
+            text-decoration:none;
+            {% endif -%}
+        ">
+            Manage Subscription
+        </a>
+    {% endif %}
+    {% if item.show_subscribe == 'true' or item.show_editmypreferences == 'true' %}  
+      {% if item.show_unsubscribe == 'true' %}  
+      | 
+      {% endif -%}
     {% endif -%}
     {% if item.show_unsubscribe == 'true'%}  
-        <a href="{{ urls.unsubscribeurl }}" style="
+        <a href="{{ urls.unsubscribe }}" style="
             color: {{ item.link_overrides.color }};
             font-size: {{ item.link_overrides.fontsize }};
             line-height: {{ item.link_overrides.lineheight }};

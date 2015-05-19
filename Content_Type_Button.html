@@ -55,7 +55,7 @@
 
 
 <div style="text-align:{{ item.alignment }};">
-<!--[if mso]>
+{% htmlcomment open:"[if mso]" close:"[endif]" %}
 <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" 
 href="{{ link }}"
 arcsize="{{ button_border-radius }}%"
@@ -79,7 +79,7 @@ style="
 {{ item.label }}
 </center>
 </v:roundrect>
-<![endif]-->
+{% endhtmlcomment %}
 <a href="{{ link }}" style="
     background-color: {{ button_background-color }};
     border-width:{{ button_border-width }}px;

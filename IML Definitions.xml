@@ -1,4 +1,5 @@
 <iml> 
+	
 	<!-- PARTIALS START -->
 	
 	<partial id="font_settings">
@@ -335,6 +336,7 @@
 			<bool id="show_on_landingpage" label="Display on landing pages as well as email" default="true" />
 			<!-- we should also include an edit your subscription link. -Gregg -->
 			<bool id="show_subscribe" label="Include 'Subscribe' link" default="true" />
+			<bool id="show_editmypreferences" label="Include 'Manage Subscription' link" default="false" />
 			<bool id="show_unsubscribe" label="Include 'Unsubscribe' link" default="true" />
 			<listbox id="alignment" label="Alignment">
 				<listitem id="center" text="Center" default="default" />
@@ -564,51 +566,43 @@
 			</type>
 		</type>
 	</partial>
+	<!-- PARTIALS END -->
 	
-	<!-- *************************************************************************************************************************
-  *************************************************************************************************************************
-  PARTIALS END 
-  *************************************************************************************************************************
-  *************************************************************************************************************************-->
-	
+	<!-- CONTENT BEGIN -->	
+	<!-- PREHEADER SECTION -->
 	<type id="preview_text" label="Preheader">
 		<textbox id="content" label="Preheader" help="This text will display beside the subject line in many email clients, such as the iPhone, to give a hint of what your email is about." />
 	</type>
 	
-	<!-- HEADER/FOOTER SECTIONS -->
+	<!-- HEADER SECTION -->
 	<collection id="header_section" label="Header"> 
 		<include partial="headerfooter_types" /> 
 	</collection>
 	
-	<!-- MAIN ARTICLES -->
+	<!-- MAIN BODY SECTION -->
 	<collection id="main_area" label="Main body"> 
 		<include partial="content_types" /> 
 	</collection>
 	
-	<!-- SIDEBAR ARTICLES -->
+	<!-- SIDEBAR SECTION -->
 	<collection id="sidebar_area" label="Sidebar"> 
 		<include partial="content_types" /> 
 	</collection>
+
+	<!-- FOOTER SECTION -->
 	<collection id="footer_section" label="Footer"> 
 		<include partial="headerfooter_types" /> 
-	</collection>
-	<type id="defaults" label="Settings"> 
-		<!-- ================================================================================================================================
-     TEMPLATE OPTIONS
-    ================================================================================================================================ -->
+	</collection>	
+	<!-- CONTENT END -->
+	
+	<!-- SETTINGS BEGIN -->
+	<type id="defaults" label="Settings">
 		<type id="email" label="Colors, fonts and formatting">
 			<textbox id="emailWidth" label="Width of sections" help="The width (measured in pixels) that each of the sections of your mailout will inherit unless specified otherwise." default="600" />
-			
-			<!-- *************************************************************************************************************************
-          BACKGROUND
-          ************************************************************************************************************************* -->
 			<type id="background" label="Background" nested="nested"> 
 				<colorpicker id="bgcolor_body" label="Background color" default="#ffffff" />
 				<image id="bgImg_body" label="Background image (repeats x and y)" />
 			</type>
-			<!-- *************************************************************************************************************************
-          TEXT AND LINK COLORS
-          ************************************************************************************************************************* -->
 			<type id="colorsandfonts" label="Text and links" nested="nested"> 
 				<!-- The plan is to add the font family to the top level of the settings ...when we can get to it -Gregg
 						<listbox id="family" label="Font family" help="This font will be the most common one in your mailout. ">
@@ -650,14 +644,9 @@
 					<listitem id="none" text="No" />
 				</listbox>
 			</type>
-			
-			<!-- *************************************************************************************************************************
-          Custom CSS
-          ************************************************************************************************************************* -->
 			<type id="advanced" label="Custom CSS" nested="nested">
 				<textarea id="customCSS" label="Custom CSS (will be 'inlined' automatically)" />
 			</type>
-			<!-- border, shadow, etc --> 
 		</type>
 		<type id="primary_settings" label="Main section"> 
 			<colorpicker id="bgcolor" label="Background colour" default="#ffffff" />
@@ -665,9 +654,6 @@
 				<textbox id="top" label="Top" default="20" />
 				<textbox id="bottom" label="Bottom" default="20" />
 			</type>
-			<!-- *************************************************************************************************************************
-          BORDER
-          ************************************************************************************************************************* -->
 			<type id="border" label="Border" nested="nested">
 				<textbox id="border_width" label="Border width" help="The width (in pixels) of a border surrounding the inside edges of the main section." regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 				<colorpicker id="border_color" label="Border color" />
@@ -707,9 +693,6 @@
 			</type>
 		</type>
 		<type id="default_links" label="Links and Messages"> 
-			<!-- *************************************************************************************************************************
-        DEFAULT LINKS - TROUBLE LINK
-        ************************************************************************************************************************* -->
 			<type id="trouble" label="'View in browser' link" nested="nested">
 				<listbox id="show" label="Show">
 					<listitem id="auto" text="Only when needed" default="default" />
@@ -718,10 +701,6 @@
 				</listbox>
 				<textbox id="label" label="Label" default="View in browser" />
 			</type>
-			
-			<!-- *************************************************************************************************************************
-        DEFAULT LINKS - RETURN TO NEWSLETTER
-        ************************************************************************************************************************* -->
 			<type id="returntonewsletter" label="'Return to&#x2026;' link (on landing pages)" nested="nested">
 				<bool id="show" label="Show link" default="true" />
 				<textbox id="label" label="Label" default="&laquo; Return to the full mailout" />
@@ -730,9 +709,6 @@
 					<listitem id="below" text="Below content" default="default" />
 				</listbox>
 			</type>
-			<!-- *************************************************************************************************************************
-        DEFAULT LINKS - Delivered by...
-        ************************************************************************************************************************* -->
 			<type id="deliveredby" label="Created and delivered using&#x2026;" nested="nested">
 				<bool id="show" label="Show message" default="true" />
 			</type>
@@ -741,4 +717,6 @@
 			</type>
 		</type>
 	</type>
+	<!-- SETTINGS END -->
+
 </iml>

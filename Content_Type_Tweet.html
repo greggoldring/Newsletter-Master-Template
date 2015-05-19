@@ -1,6 +1,7 @@
+{% assign handleWidth = content_column_width | minus: 18 | minus: 36 | minus: 10 | minus: 18 -%}
 {% if (item.tweetStyle == 'default') -%}
 <!-- Need to update to support Twitter's light and dark card options. -Gregg -->
-<!--<table cellpadding="1" cellspacing="0" border="0">
+<table cellpadding="1" cellspacing="0" border="0">
 	<tr>
 		<td bgcolor="#E1E8ED">
 			<table cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF">
@@ -19,16 +20,16 @@
 					<td>
 						<img src="{{ 'Templates/11864/spacer.gif?v=635509702410000000' | asset_url }}" width="17" height="17" style="display:block; width:17px; height:17px;">
 					</td>
-					<td> -->
+					<td>
 						<table cellpadding="0" cellspacing="0" border="0">
 							<tr>
-								<td rowspan="2" width="48">
-									<img src="{{ item.tweet.userprofileimagehttps }}" width="36" height="36" border="0">
+								<td rowspan="2" width="36">
+									<img src="{{ item.tweet.userprofileimagehttps }}" width="36" height="36" border="0" style="display:block; width:36px !important; height:36px !important;">
 								</td>
 								<td rowspan="2" width="10">
-									<img src="{{ 'Templates/11864/spacer.gif?v=635509702410000000' | asset_url }}" width="10" height="1" style="display:block; width:10px; height:1px;">
+									<img src="{{ 'Templates/11864/spacer.gif?v=635509702410000000' | asset_url }}" width="10" height="1" style="display:block; width:10px !important; height:1px !important;">
 								</td>
-								<td align="left" style="color:#1c2022; font-size:14px; font-weight:bold; font-family: Helvetica, Roboto, 'Segoe UI', Calibri, sans-serif;">
+								<td width="{{ handleWidth }}" align="left" style="color:#1c2022; font-size:14px; font-weight:bold; font-family: Helvetica, Roboto, 'Segoe UI', Calibri, sans-serif;">
 									{{ item.tweet.username }} <!-- <img src="{{ 'Templates/11922/tweet_bird.png?v=635640161580000000' |  asset_url }}" width="22" height="19"
 />-->
 								</td>
@@ -59,7 +60,7 @@
 								</td>
 							</tr>
 						</table>
-					<!-- </td>
+					</td>
 					<td>
 						<img src="{{ 'Templates/11864/spacer.gif?v=635509702410000000' | asset_url }}" width="17" height="17" style="display:block; width:17px; height:17px;">
 					</td>
@@ -78,7 +79,7 @@
 			</table>
 			</td>
 	</tr>
-</table>-->
+</table>
 
 			 
 {% elsif (item.tweetStyle == 'basic') -%}

@@ -327,7 +327,7 @@ Bar Section
 {% endif -%}
 
 {% assign sharetitle = mailout.subject | url_encode -%}
-{% assign sharelink = urls.backtomailout | url_encode -%}
+{% assign sharelink = urls.share | url_encode -%}
 {% if landingpage == true -%}
      {% assign sharetitle = article.title | url_encode -%}
      {% capture temp_link -%}{% landing_page_link article.id -%}{% endcapture -%}
