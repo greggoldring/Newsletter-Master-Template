@@ -597,43 +597,50 @@
 	
 	<!-- SETTINGS BEGIN -->
 	<type id="defaults" label="Settings">
+		<listbox id="family" label="Font family" help="This font will be the most common one in your mailout. ">
+			<!-- Add "GF, " before any Google Font to enable it's support -->
+			<listitem id="inherit" text="Inherit" default="default" />
+        <listitem id="Arial, sans-serif" text="Arial, sans-serif" />
+        <listitem id="Comic Sans MS, Chalkboard SE, sans-serif" text="Comic Sans MS, Chalkboard SE, sans-serif" />
+        <listitem id="Courier New, Courier, mono" text="Courier New, Courier, mono" />
+        <listitem id="GF, Droid Sans, Calibri, Arial, sans-serif" text="Droid Sans, Calibri, Arial, sans-serif (Google Font)" />
+        <listitem id="GF, Droid Serif, Cambria, Times New Roman, serif" text="Droid Serif, Cambria, Times New Roman, serif (Google Font)" />
+        <listitem id="Georgia, serif" text="Georgia, serif" />
+        <listitem id="Helvetica Neue, Helvetica, Arial, sans-serif" text="Helvetica Neue, Helvetica, Arial, sans-serif" />
+        <listitem id="GF, Indie Flower, Comic Sans MS, Chalkboard SE, sans-serif" text="Indie Flower, Comic Sans MS, Chalkboard SE, sans-serif (Google Font)" />
+        <listitem id="GF, Lato, Arial, sans-serif" text="Lato, Arial, sans-serif (Google Font)" />
+        <listitem id="GF, Merriweather, Cambria, Georgia, serif" text="Merriweather, Cambria, Georgia, serif (Google Font)" />
+        <listitem id="GF, Myriad Pro, Open Sans, Corbel, Arial, sans-serif" text="Myriad Pro, Open Sans, Corbel, Arial, sans-serif (Google Font)" />
+        <listitem id="GF, Open Sans, Corbel, Arial, sans-serif" text="Open Sans, Corbel, Arial, sans-serif (Google Font)" />
+        <listitem id="GF, Oswald, Arial Narrow, sans-serif" text="Oswald, Arial Narrow, sans-serif" />
+        <listitem id="Palatino, Book Antiqua, Droid Serif, serif" text="Palatino, Book Antiqua, Droid Serif, serif" />
+        <listitem id="GF, PT Sans, Trebuchet MS, serif" text="PT Sans, Trebuchet MS, serif (Google Font)" />
+        <listitem id="GF, PT Serif, Lucida Bright, Times New Roman, serif" text="PT Serif, Lucida Bright, Times New Roman, serif (Google Font)" />
+        <listitem id="GF, Roboto, Calibri, Arial, sans-serif" text="Roboto, Calibri, Arial, sans-serif (Google Font)" />
+        <listitem id="Times New Roman, serif" text="Times New Roman, serif" />
+        <listitem id="Trebuchet MS, sans-serif" text="Trebuchet MS, sans-serif" />
+        <listitem id="GF, Ubuntu, Tahoma, Verdana, sans-serif" text="Ubuntu, Tahoma, Verdana, sans-serif (Google Font)" />
+        <listitem id="Verdana, sans-serif" text="Verdana, sans-serif" />
+        <listitem id="GF, Vollkorn, Book Antiqua, Georgia, serif" text="Vollkorn, Book Antiqua, Georgia, serif" />
+        <listitem id="other" text="Other (please specify in below)" />
+    </listbox>
+		<colorpicker id="bgcolor_body" label="Background color" default="#ffffff" />
+		<colorpicker id="font_color" label="Font color" />
+		<textbox id="fontsize" label="Font size"  help="The size (in pixels) that the fonts in each of the sections of your mailout will inherit unless specified otherwise." regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="14" />
+		<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="1.5" />
+		<colorpicker id="link_color" label="Link color" />
+		<listbox id="link_textdecoration" label="Underline links">
+			<listitem id="underline" text="Yes" default="default" />
+			<listitem id="none" text="No" />
+		</listbox>
 		<type id="email" label="Colors, fonts and formatting">
 			<textbox id="emailWidth" label="Width of sections" help="The width (measured in pixels) that each of the sections of your mailout will inherit unless specified otherwise." default="600" />
-			<type id="background" label="Background" nested="nested"> 
-				<colorpicker id="bgcolor_body" label="Background color" default="#ffffff" />
+			<type id="background" label="Background" > 
+				<colorpicker id="bgcolor_body" label="Background color" />
 				<image id="bgImg_body" label="Background image (repeats x and y)" />
 			</type>
-			<type id="colorsandfonts" label="Text and links" nested="nested"> 
-				<!-- The plan is to add the font family to the top level of the settings ...when we can get to it -Gregg
-						<listbox id="family" label="Font family" help="This font will be the most common one in your mailout. ">
-							--><!-- Add "GF, " before any Google Font to enable it's support --><!-- 
-							<listitem id="inherit" text="Inherit" default="default" />
-				        <listitem id="Arial, sans-serif" text="Arial, sans-serif" />
-				        <listitem id="Comic Sans MS, Chalkboard SE, sans-serif" text="Comic Sans MS, Chalkboard SE, sans-serif" />
-				        <listitem id="Courier New, Courier, mono" text="Courier New, Courier, mono" />
-				        <listitem id="GF, Droid Sans, Calibri, Arial, sans-serif" text="Droid Sans, Calibri, Arial, sans-serif (Google Font)" />
-				        <listitem id="GF, Droid Serif, Cambria, Times New Roman, serif" text="Droid Serif, Cambria, Times New Roman, serif (Google Font)" />
-				        <listitem id="Georgia, serif" text="Georgia, serif" />
-				        <listitem id="Helvetica Neue, Helvetica, Arial, sans-serif" text="Helvetica Neue, Helvetica, Arial, sans-serif" />
-				        <listitem id="GF, Indie Flower, Comic Sans MS, Chalkboard SE, sans-serif" text="Indie Flower, Comic Sans MS, Chalkboard SE, sans-serif (Google Font)" />
-				        <listitem id="GF, Lato, Arial, sans-serif" text="Lato, Arial, sans-serif (Google Font)" />
-				        <listitem id="GF, Merriweather, Cambria, Georgia, serif" text="Merriweather, Cambria, Georgia, serif (Google Font)" />
-				        <listitem id="GF, Myriad Pro, Open Sans, Corbel, Arial, sans-serif" text="Myriad Pro, Open Sans, Corbel, Arial, sans-serif (Google Font)" />
-				        <listitem id="GF, Open Sans, Corbel, Arial, sans-serif" text="Open Sans, Corbel, Arial, sans-serif (Google Font)" />
-				        <listitem id="GF, Oswald, Arial Narrow, sans-serif" text="Oswald, Arial Narrow, sans-serif" />
-				        <listitem id="Palatino, Book Antiqua, Droid Serif, serif" text="Palatino, Book Antiqua, Droid Serif, serif" />
-				        <listitem id="GF, PT Sans, Trebuchet MS, serif" text="PT Sans, Trebuchet MS, serif (Google Font)" />
-				        <listitem id="GF, PT Serif, Lucida Bright, Times New Roman, serif" text="PT Serif, Lucida Bright, Times New Roman, serif (Google Font)" />
-				        <listitem id="GF, Roboto, Calibri, Arial, sans-serif" text="Roboto, Calibri, Arial, sans-serif (Google Font)" />
-				        <listitem id="Times New Roman, serif" text="Times New Roman, serif" />
-				        <listitem id="Trebuchet MS, sans-serif" text="Trebuchet MS, sans-serif" />
-				        <listitem id="GF, Ubuntu, Tahoma, Verdana, sans-serif" text="Ubuntu, Tahoma, Verdana, sans-serif (Google Font)" />
-				        <listitem id="Verdana, sans-serif" text="Verdana, sans-serif" />
-				        <listitem id="GF, Vollkorn, Book Antiqua, Georgia, serif" text="Vollkorn, Book Antiqua, Georgia, serif" />
-				        <listitem id="other" text="Other (please specify in below)" />
-		        </listbox>
-						 --> 
-				<colorpicker id="font_color" label="Font color" />
+			<type id="colorsandfonts" label="Text and links" > 
+						<colorpicker id="font_color" label="Font color" />
 				<textbox id="fontsize" label="Font size"  help="The size (in pixels) that the fonts in each of the sections of your mailout will inherit unless specified otherwise."
                  regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="14" />
 				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
@@ -644,17 +651,17 @@
 					<listitem id="none" text="No" />
 				</listbox>
 			</type>
-			<type id="advanced" label="Custom CSS" nested="nested">
+			<type id="advanced" label="Custom CSS" >
 				<textarea id="customCSS" label="Custom CSS (will be 'inlined' automatically)" />
 			</type>
 		</type>
 		<type id="primary_settings" label="Main section"> 
 			<colorpicker id="bgcolor" label="Background colour" default="#ffffff" />
-			<type id="padding" label="Padding" nested="nested">
+			<type id="padding" label="Padding" >
 				<textbox id="top" label="Top" default="20" />
 				<textbox id="bottom" label="Bottom" default="20" />
 			</type>
-			<type id="border" label="Border" nested="nested">
+			<type id="border" label="Border" >
 				<textbox id="border_width" label="Border width" help="The width (in pixels) of a border surrounding the inside edges of the main section." regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 				<colorpicker id="border_color" label="Border color" />
 				<listbox id="border_style" label="Border style">
@@ -684,7 +691,7 @@
 			</listbox>
 			<textbox id="width" label="Width" help="The width of the sidebar (in pixels) from border to border" default="200" />
 			<colorpicker id="bgcolor" label="Background color" />
-			<type id="margin" label="Padding" nested="nested">
+			<type id="margin" label="Padding" >
 				<textbox id="top" label="Top" default="20" />
 				<textbox id="bottom" label="Bottom" default="20" />
 			</type>
@@ -693,7 +700,7 @@
 			</type>
 		</type>
 		<type id="default_links" label="Links and Messages"> 
-			<type id="trouble" label="'View in browser' link" nested="nested">
+			<type id="trouble" label="'View in browser' link" >
 				<listbox id="show" label="Show">
 					<listitem id="auto" text="Only when needed" default="default" />
 					<listitem id="always" text="Always" />
@@ -701,7 +708,7 @@
 				</listbox>
 				<textbox id="label" label="Label" default="View in browser" />
 			</type>
-			<type id="returntonewsletter" label="'Return to&#x2026;' link (on landing pages)" nested="nested">
+			<type id="returntonewsletter" label="'Return to&#x2026;' link (on landing pages)" >
 				<bool id="show" label="Show link" default="true" />
 				<textbox id="label" label="Label" default="&laquo; Return to the full mailout" />
 				<listbox id="position" label="Position">
@@ -709,10 +716,10 @@
 					<listitem id="below" text="Below content" default="default" />
 				</listbox>
 			</type>
-			<type id="deliveredby" label="Created and delivered using&#x2026;" nested="nested">
+			<type id="deliveredby" label="Created and delivered using&#x2026;" >
 				<bool id="show" label="Show message" default="true" />
 			</type>
-			<type id="secIMUSEONLY" label="IM Use Only" nested="nested">
+			<type id="secIMUSEONLY" label="IM Use Only" >
 				<textbox id="hideUnsubscribe" label="rem_us" />
 			</type>
 		</type>
