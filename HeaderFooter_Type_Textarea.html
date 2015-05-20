@@ -1,3 +1,13 @@
-<div style="color: {{ item.style.color }}; font-size: {{ item.style.fontsize }}px; line-height: {{ item.style.lineheight }}">
+<div style="
+                {% if item.style.color %}
+                  color: {{ item.style.color }}; 
+                {% endif -%}
+                {% if item.style.fontsize %}
+                  font-size: {{ item.style.fontsize }}px; 
+                {% endif -%}
+                {% if item.style.lineheight %}
+                  line-height: {{ item.style.lineheight }};
+                {% endif -%}
+                ">
 {{ item.content }}
 </div>
