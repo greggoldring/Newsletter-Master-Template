@@ -58,7 +58,7 @@
             <table width="{{ table_width | minus: leftMarginGutter | minus: rightMarginGutter }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="center">
                 <tr>
                     <td>
-                        {% unless defaults.default_links.secIMUSEONLY.hideUnsubscribe == "yw2u%HztBF3xLt" or unsubscribe_link_present == true %}
+                        {% unless settings.default_links.secIMUSEONLY.hideUnsubscribe == "yw2u%HztBF3xLt" or unsubscribe_link_present == true %}
                         <p style="text-align:center; font-size:12px;">
                             <a href="{{ urls.unsubscribe }}">Unsubscribe</a>
                         </p>

@@ -1,4 +1,4 @@
-{% assign path_default_links = defaults.default_links -%}
+{% assign path_default_links = settings.default_links -%}
     {% assign returntonewsletter_show = path_default_links.returntonewsletter.show -%}
     {% assign returntonewsletter_label = path_default_links.returntonewsletter.label -%}
     {% assign returntonewsletter_position = path_default_links.returntonewsletter.position -%}
@@ -6,9 +6,9 @@
 {% assign trouble_show = path_default_links.trouble.show -%}
 {% assign trouble_label = path_default_links.trouble.label -%}
 
-{% assign path_primary_settings = defaults.primary_settings -%}
+{% assign path_primary_settings = settings.primary_settings -%}
 {% assign path_primary_articles = path_primary_settings.articles -%}
-{% assign path_sidebar_settings = defaults.sidebar_settings -%}
+{% assign path_sidebar_settings = settings.sidebar_settings -%}
 {% assign path_sidebar_articles = path_sidebar_settings.articles -%}
 
 {% comment -%} <!-- *****************************************************************
@@ -76,7 +76,7 @@ to be used to import the font from the Google CDN
 {% comment -%} <!-- *****************************************************************
   Base Font Defaults are set 
 ***************************************************************** --> {% endcomment -%}
-    {% assign default_path = defaults.email.colorsandfonts -%}
+    {% assign default_path = settings -%}
     {% assign base_font_size = default_path.fontsize -%}
     {% assign base_font_color = default_path.font_color -%}
     {% assign base_font_line_height = default_path.lineheight -%}
@@ -190,7 +190,7 @@ Base Font Defaults are set
 {% comment -%} <!-- *****************************************************************
   Scaffolding/ Main Table Settings
 ***************************************************************** --> {% endcomment -%}
-{% assign table_width = defaults.width.emailWidth -%}
+{% assign table_width = settings.width.emailWidth -%}
 {% assign columnGutter = 0 -%}
 
 {% comment -%} <!-- *****************************************************************
@@ -223,8 +223,8 @@ Base Font Defaults are set
 {% comment -%} <!-- *****************************************************************
   Backgrounds
 ***************************************************************** --> {% endcomment -%}
-{% assign body_bgcolor = defaults.email.background.bgcolor_body -%}
-{% assign body_bgimg = defaults.email.background.bgImg_body -%}
+{% assign body_bgcolor = settings.email.background.bgcolor_body -%}
+{% assign body_bgimg = settings.email.background.bgImg_body -%}
 
 {% assign email_bgcolor = path_primary_settings.bgcolor -%}
 {% assign sidebar_bgcolor = email_bgcolor -%} 
@@ -238,8 +238,8 @@ Base Font Defaults are set
 {% comment -%} <!-- *****************************************************************
   Borders
 ***************************************************************** --> {% endcomment -%}
-{% if defaults.primary_settings.border.border_width and defaults.primary_settings.border.border_color and defaults.primary_settings.border.border_style -%}
-{% assign email_border = "border: " | plus: defaults.primary_settings.border.border_width | plus: "px " | plus: defaults.primary_settings.border.border_color | plus: " " | plus: defaults.primary_settings.border.border_style | plus: ";" -%}
+{% if settings.primary_settings.border.border_width and settings.primary_settings.border.border_color and settings.primary_settings.border.border_style -%}
+{% assign email_border = "border: " | plus: settings.primary_settings.border.border_width | plus: "px " | plus: settings.primary_settings.border.border_color | plus: " " | plus: settings.primary_settings.border.border_style | plus: ";" -%}
 {% endif -%}
 {% assign main_article_border_color = path_primary_articles.border.border_color -%}
 {% assign main_article_border_width = path_primary_articles.border.border_width -%}
@@ -294,7 +294,7 @@ Header/ Email Image
 Bar Section
 ***************************************************************** --> {% endcomment -%}
 
-{% assign share_path = defaults.share_bar_settings -%}
+{% assign share_path = settings.share_bar_settings -%}
 
 {% assign share_alignment = share_path.alignment -%}
 {% assign share_cellspacing = share_path.spacing -%}

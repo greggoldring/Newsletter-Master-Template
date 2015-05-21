@@ -599,7 +599,7 @@
 	<!-- CONTENT END -->
 	
 	<!-- SETTINGS BEGIN -->
-	<type id="defaults" label="Settings">
+	<type id="settings" label="Settings">
 		<!-- SETTINGS NODE BEGIN -->
 		<listbox id="family" label="Font family" help="This font will be the most common one in your mailout. ">
 			<!-- Add "GF, " before any Google Font to enable it's support -->
