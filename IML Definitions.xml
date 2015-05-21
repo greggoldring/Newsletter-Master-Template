@@ -437,7 +437,7 @@
 			<textbox id="right" label="Right" help="The horizontal space (in pixels) inside the right edge of this section's container." default="0" />
 			<textbox id="left" label="Left" help="How much horizontal whitespace should there be on the left side of the email?" default="0" />
 		</type>
-		<type id="header_font" label="Title formatting" nested="nested">
+		<type id="title" label="Title formatting" nested="nested">
 			<listbox id="family" label="Font family" help="This font will applied to titles and headings. "> 
 				<!-- Add "GF, " before any Google Font to enable it's support -->
 				<listitem id="inherit" text="Inherit" default="default" />
@@ -631,7 +631,7 @@
 		<colorpicker id="font_color" label="Font color" />
 		<textbox id="fontsize" label="Font size"  help="The size (in pixels) that the fonts in each of the sections of your mailout will inherit unless specified otherwise." regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="14" />
 		<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="1.5" />
-		<type id="heading" label="Title and heading text formatting" nested="nested">
+		<type id="headings" label="Title and heading text formatting" nested="nested">
 			<listbox id="family" label="Heading Font family" help="This font will applied to titles and headings. "> 
 				<!-- Add "GF, " before any Google Font to enable it's support -->
 				<listitem id="inherit" text="Inherit" default="default" />

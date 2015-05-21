@@ -21,7 +21,7 @@ This section detects what the default fonts are used
          {% assign base_font_fam = "GF, Open Sans, Corbel, Arial, sans-serif" -%}
     {% endif -%}
 
-    {% assign base_header_font_fam = path_primary_articles.header_font.family -%}
+    {% assign base_header_font_fam = settings.headings.family -%}
     {% if base_header_font_fam == "other" -%}
          {% assign base_header_font_fam = path_primary_articles.headerfont.family_other -%}
     {% elsif base_header_font_fam == "inherit"  -%}
@@ -35,7 +35,7 @@ This section detects what the default fonts are used
          {% assign sidebar_font_fam = base_font_fam -%}
     {% endif -%}
     
-    {% assign sidebar_header_font_fam = path_sidebar_articles.header_font.family -%}
+    {% assign sidebar_header_font_fam = path_sidebar_articles.title.family -%}
     {% if sidebar_header_font_fam == "other" -%}
          {% assign sidebar_header_font_fam = path_sidebar_articles.base_font.family_other -%}
     {% elsif sidebar_header_font_fam == "inherit"  -%}
@@ -144,47 +144,47 @@ Base Font Defaults are set
     {% assign primary_header_font_family = base_header_font_family -%}
     
     {% assign primary_header_font_size = primary_font_size | to_int | times: 1.4 | round -%}
-    {% if path_primary_articles.header_font.fontsize -%}
-         {% assign primary_header_font_size = path_primary_articles.header_font.fontsize  -%}
+    {% if path_primary_articles.title.fontsize -%}
+         {% assign primary_header_font_size = path_primary_articles.title.fontsize  -%}
     {% endif -%}
     {% assign primary_header_line_height = primary_line_height -%}
-    {% if path_primary_articles.header_font.lineheight -%}
-         {% assign primary_header_line_height = path_primary_articles.header_font.lineheight -%}
+    {% if path_primary_articles.title.lineheight -%}
+         {% assign primary_header_line_height = path_primary_articles.title.lineheight -%}
     {% endif -%}
     {% assign primary_header_font_color = primary_font_color -%}
     
-    {% if path_primary_articles.header_font.color -%}
-         {% assign primary_header_font_color = path_primary_articles.header_font.color -%}
+    {% if path_primary_articles.title.color -%}
+         {% assign primary_header_font_color = path_primary_articles.title.color -%}
     {% endif -%}
     
-    {% assign primary_header_font_weight = path_primary_articles.header_font.weight -%}
-    {% assign primary_header_font_style = path_primary_articles.header_font.style -%}
-    {% assign primary_header_bottom_padding = path_primary_articles.header_font.bottomPadding -%}
+    {% assign primary_header_font_weight = path_primary_articles.title.weight -%}
+    {% assign primary_header_font_style = path_primary_articles.title.style -%}
+    {% assign primary_header_bottom_padding = path_primary_articles.title.bottomPadding -%}
 
     {% assign sidebar_header_font_size = primary_header_font_size -%}
-    {% if path_sidebar_articles.header_font.fontsize -%}
-         {% assign sidebar_header_font_size = path_sidebar_articles.header_font.fontsize -%}
+    {% if path_sidebar_articles.title.fontsize -%}
+         {% assign sidebar_header_font_size = path_sidebar_articles.title.fontsize -%}
     {% endif -%}
     {% assign sidebar_header_line_height = primary_header_line_height -%}
-    {% if path_sidebar_articles.header_font.lineheight -%}
-         {% assign sidebar_header_line_height = path_sidebar_articles.header_font.lineheight -%}
+    {% if path_sidebar_articles.title.lineheight -%}
+         {% assign sidebar_header_line_height = path_sidebar_articles.title.lineheight -%}
     {% endif -%}
     {% assign sidebar_header_font_color = primary_header_font_color -%}
-    {% if path_sidebar_articles.header_font.color -%}
-         {% assign sidebar_header_font_color = path_sidebar_articles.header_font.color -%}
+    {% if path_sidebar_articles.title.color -%}
+         {% assign sidebar_header_font_color = path_sidebar_articles.title.color -%}
     {% endif -%}
     {% assign sidebar_header_font_weight = primary_header_font_weight -%}
-    {% if path_sidebar_articles.header_font.weight != "inherit" -%}
-      {% assign sidebar_header_font_weight = path_sidebar_articles.header_font.weight -%}    
+    {% if path_sidebar_articles.title.weight != "inherit" -%}
+      {% assign sidebar_header_font_weight = path_sidebar_articles.title.weight -%}    
     {% endif -%}
     {% assign sidebar_header_font_style = primary_header_font_style -%}
-    {% if path_sidebar_articles.header_font.style != "inherit" -%}
-      {% assign sidebar_header_font_style = path_sidebar_articles.header_font.style -%}    
+    {% if path_sidebar_articles.title.style != "inherit" -%}
+      {% assign sidebar_header_font_style = path_sidebar_articles.title.style -%}    
     {% endif -%}
 
     {% assign sidebar_header_bottom_padding = primary_header_bottom_padding -%}
-    {% if path_sidebar_articles.header_font.bottomPadding != "inherit" -%}
-      {% assign sidebar_header_bottom_padding = path_sidebar_articles.header_font.bottomPadding -%}    
+    {% if path_sidebar_articles.title.bottomPadding != "inherit" -%}
+      {% assign sidebar_header_bottom_padding = path_sidebar_articles.title.bottomPadding -%}    
     {% endif -%}
 
 {% comment -%} <!-- *****************************************************************
