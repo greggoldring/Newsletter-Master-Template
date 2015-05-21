@@ -713,7 +713,7 @@
 				</listbox>
 			</type>
 		</type>
-		<type id="primary_settings" label="Main body formatting"> 
+		<type id="main_body_settings" label="Main body formatting"> 
 			<colorpicker id="bgcolor" label="Background colour of section" />
 			<colorpicker id="bgcolor_body" label="Background colour surrounding the section" />
 			<type id="padding" label="Padding" nested="nested">

@@ -6,24 +6,24 @@
 {% assign trouble_show = path_default_links.trouble.show -%}
 {% assign trouble_label = path_default_links.trouble.label -%}
 
-{% assign path_primary_settings = settings.primary_settings -%}
-{% assign path_primary_articles = path_primary_settings.articles -%}
+{% assign path_main_body_settings = settings.main_body_settings -%}
+{% assign path_main_body = path_main_body_settings.articles -%}
 {% assign path_sidebar_settings = settings.sidebar_settings -%}
 {% assign path_sidebar_articles = path_sidebar_settings.articles -%}
 
 {% comment -%} <!-- *****************************************************************
 This section detects what the default fonts are used
 ***************************************************************** --> {% endcomment -%}
-    {% assign base_font_fam = path_primary_articles.base_font.family -%}
+    {% assign base_font_fam = settings.family -%}
     {% if base_font_fam == "other" -%}
-         {% assign base_font_fam = path_primary_articles.base_font.family_other -%}
+         {% assign base_font_fam = path_main_body.base_font.family_other -%}
     {% elsif base_font_fam == "inherit"  -%}
          {% assign base_font_fam = "GF, Open Sans, Corbel, Arial, sans-serif" -%}
     {% endif -%}
 
     {% assign base_header_font_fam = settings.headings.family -%}
     {% if base_header_font_fam == "other" -%}
-         {% assign base_header_font_fam = path_primary_articles.headerfont.family_other -%}
+         {% assign base_header_font_fam = path_main_body.headerfont.family_other -%}
     {% elsif base_header_font_fam == "inherit"  -%}
          {% assign base_header_font_fam = "GF, Open Sans, Corbel, Arial, sans-serif" -%}
     {% endif -%}
@@ -90,26 +90,26 @@ Base Font Defaults are set
 
     {% assign primary_font_family = base_font_family -%}    
     {% assign primary_font_size = base_font_size -%}
-    {% if path_primary_articles.base_font.fontsize -%}
-         {% assign primary_font_size = path_primary_articles.base_font.fontsize -%}
+    {% if path_main_body.base_font.fontsize -%}
+         {% assign primary_font_size = path_main_body.base_font.fontsize -%}
     {% endif -%}
     {% assign primary_line_height = base_font_line_height -%}
-    {% if path_primary_articles.base_font.lineheight -%}
-         {% assign primary_line_height = path_primary_articles.base_font.lineheight -%}
+    {% if path_main_body.base_font.lineheight -%}
+         {% assign primary_line_height = path_main_body.base_font.lineheight -%}
     {% endif -%}
     {% assign primary_font_color = base_font_color -%}
         
-    {% if path_primary_articles.base_font.color -%}
-         {% assign primary_font_color = path_primary_articles.base_font.color -%}
+    {% if path_main_body.base_font.color -%}
+         {% assign primary_font_color = path_main_body.base_font.color -%}
     {% endif -%}
 
     {% assign primary_link_decoration = base_link_decoration -%}
-    {% if path_primary_articles.link.textdecoration != "inherit" -%}
-         {% assign primary_link_decoration =  path_primary_articles.link.textdecoration -%}
+    {% if path_main_body.link.textdecoration != "inherit" -%}
+         {% assign primary_link_decoration =  path_main_body.link.textdecoration -%}
     {% endif -%}
     {% assign primary_link_color = base_link_color -%}
-    {% if path_primary_articles.link.color -%}
-         {% assign primary_link_color = path_primary_articles.link.color -%}
+    {% if path_main_body.link.color -%}
+         {% assign primary_link_color = path_main_body.link.color -%}
     {% endif -%}
 
 {% comment -%} =================================={% endcomment -%}
@@ -144,22 +144,22 @@ Base Font Defaults are set
     {% assign primary_header_font_family = base_header_font_family -%}
     
     {% assign primary_header_font_size = primary_font_size | to_int | times: 1.4 | round -%}
-    {% if path_primary_articles.title.fontsize -%}
-         {% assign primary_header_font_size = path_primary_articles.title.fontsize  -%}
+    {% if path_main_body.title.fontsize -%}
+         {% assign primary_header_font_size = path_main_body.title.fontsize  -%}
     {% endif -%}
     {% assign primary_header_line_height = primary_line_height -%}
-    {% if path_primary_articles.title.lineheight -%}
-         {% assign primary_header_line_height = path_primary_articles.title.lineheight -%}
+    {% if path_main_body.title.lineheight -%}
+         {% assign primary_header_line_height = path_main_body.title.lineheight -%}
     {% endif -%}
     {% assign primary_header_font_color = primary_font_color -%}
     
-    {% if path_primary_articles.title.color -%}
-         {% assign primary_header_font_color = path_primary_articles.title.color -%}
+    {% if path_main_body.title.color -%}
+         {% assign primary_header_font_color = path_main_body.title.color -%}
     {% endif -%}
     
-    {% assign primary_header_font_weight = path_primary_articles.title.weight -%}
-    {% assign primary_header_font_style = path_primary_articles.title.style -%}
-    {% assign primary_header_bottom_padding = path_primary_articles.title.bottomPadding -%}
+    {% assign primary_header_font_weight = path_main_body.title.weight -%}
+    {% assign primary_header_font_style = path_main_body.title.style -%}
+    {% assign primary_header_bottom_padding = path_main_body.title.bottomPadding -%}
 
     {% assign sidebar_header_font_size = primary_header_font_size -%}
     {% if path_sidebar_articles.title.fontsize -%}
@@ -196,17 +196,17 @@ Base Font Defaults are set
 {% comment -%} <!-- *****************************************************************
   Margins and Paddings
 ***************************************************************** --> {% endcomment -%}
-{% assign main_column_padding_top = path_primary_settings.padding.top -%}
-{% assign main_column_padding_bottom = path_primary_settings.padding.bottom -%}
+{% assign main_column_padding_top = path_main_body_settings.padding.top -%}
+{% assign main_column_padding_bottom = path_main_body_settings.padding.bottom -%}
 
-{% assign main_column_article_margin_right = path_primary_articles.margin.right -%}
-{% assign main_column_article_margin_bottom = path_primary_articles.margin.bottom -%}
-{% assign main_column_article_margin_left = path_primary_articles.margin.left -%}
+{% assign main_column_article_margin_right = path_main_body.margin.right -%}
+{% assign main_column_article_margin_bottom = path_main_body.margin.bottom -%}
+{% assign main_column_article_margin_left = path_main_body.margin.left -%}
 
-{% assign main_article_padding_top = path_primary_articles.padding.top -%}
-{% assign main_article_padding_right = path_primary_articles.padding.right -%}
-{% assign main_article_padding_bottom = path_primary_articles.padding.bottom -%}
-{% assign main_article_padding_left = path_primary_articles.padding.left -%}
+{% assign main_article_padding_top = path_main_body.padding.top -%}
+{% assign main_article_padding_right = path_main_body.padding.right -%}
+{% assign main_article_padding_bottom = path_main_body.padding.bottom -%}
+{% assign main_article_padding_left = path_main_body.padding.left -%}
 
 {% assign sidebar_column_margin_top = path_sidebar_settings.margin.top -%}
 {% assign sidebar_column_margin_bottom = path_sidebar_settings.margin.bottom -%}
@@ -226,24 +226,24 @@ Base Font Defaults are set
 {% assign body_bgcolor = settings.email.background.bgcolor_body -%}
 {% assign body_bgimg = settings.email.background.bgImg_body -%}
 
-{% assign email_bgcolor = path_primary_settings.bgcolor -%}
+{% assign email_bgcolor = path_main_body_settings.bgcolor -%}
 {% assign sidebar_bgcolor = email_bgcolor -%} 
 {% if path_sidebar_settings.bgcolor -%}
   {% assign sidebar_bgcolor = path_sidebar_settings.bgcolor -%} 
 {% endif -%}
 
-{% assign main_article_bgcolor = path_primary_articles.bgcolor -%}
+{% assign main_article_bgcolor = path_main_body.bgcolor -%}
 {% assign sidebar_article_bgcolor = path_sidebar_articles.bgcolor -%}
 
 {% comment -%} <!-- *****************************************************************
   Borders
 ***************************************************************** --> {% endcomment -%}
-{% if settings.primary_settings.border.border_width and settings.primary_settings.border.border_color and settings.primary_settings.border.border_style -%}
-{% assign email_border = "border: " | plus: settings.primary_settings.border.border_width | plus: "px " | plus: settings.primary_settings.border.border_color | plus: " " | plus: settings.primary_settings.border.border_style | plus: ";" -%}
+{% if settings.main_body_settings.border.border_width and settings.main_body_settings.border.border_color and settings.main_body_settings.border.border_style -%}
+{% assign email_border = "border: " | plus: settings.main_body_settings.border.border_width | plus: "px " | plus: settings.main_body_settings.border.border_color | plus: " " | plus: settings.main_body_settings.border.border_style | plus: ";" -%}
 {% endif -%}
-{% assign main_article_border_color = path_primary_articles.border.border_color -%}
-{% assign main_article_border_width = path_primary_articles.border.border_width -%}
-{% assign main_article_border_style = path_primary_articles.border.border_style -%}
+{% assign main_article_border_color = path_main_body.border.border_color -%}
+{% assign main_article_border_width = path_main_body.border.border_width -%}
+{% assign main_article_border_style = path_main_body.border.border_style -%}
 
 {% assign sidebar_article_border = path_sidebar_articles.border.border_color -%}
 {% assign sidebar_article_width = path_sidebar_articles.border.border_width -%}
