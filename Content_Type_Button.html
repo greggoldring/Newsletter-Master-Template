@@ -1,7 +1,11 @@
 {% include ".macro_set_link" -%}
 
 {% assign button_inline_style = item.style -%}
+{% if section == main %}
 {% assign button_style = defaults.primary_settings.buttons -%}
+{% else %}
+{% assign button_style = defaults.sidebar_settings.buttons -%}
+{% endif %}
 
 {% assign button_background-color = button_style.background_color -%}
 {% if button_inline_style.background_color -%}

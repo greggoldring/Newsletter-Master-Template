@@ -21,6 +21,7 @@
                 {% endif -%}
                 <tr>
                     <td class="primary">
+                        {% assign section = main -%}
                         {% assign article_bgcolor = main_article_bgcolor -%}
                         {% assign article_padding_top = main_article_padding_top -%}
                         {% assign article_padding_right = main_article_padding_right -%}
@@ -64,6 +65,7 @@
                         <table width="{{ sidebar_column_width }}" cellpadding="0" cellspacing="0" border="0" class="wrapper95" align="left">
                             <tr>
                                 <td class="sidebar">
+						                        {% assign section = sidebar -%}
                                     {% assign article_bgcolor = sidebar_article_bgcolor -%}
                                     {% assign article_padding_top = sidebar_article_padding_top -%}
                                     {% assign article_padding_right = sidebar_article_padding_right -%}
