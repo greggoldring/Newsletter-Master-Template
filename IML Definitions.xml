@@ -172,9 +172,8 @@
 				</listbox>
 				<textbox id="maxWidth" label="Max width" help="The maximum width of the image (in pixels). If left blank the maxwidth will become the width of it's container." />
 			</type>
-			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+			<type id="section_overrides" label="Backgrounds" nested="nested"> 
 				<colorpicker id="email_bgcolor" label="Container background color" />
-				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
 				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
 			<type id="padding" label="Padding" nested="nested">
@@ -197,9 +196,8 @@
 				<textbox id="maxWidth" label="The maximum width of the image (in pixels)." default="200" />
 				<textbox id="gutter" label="Gutter" help="The minimum distance (in pixels) between the image and the text" default="20" />
 			</type>
-			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+			<type id="section_overrides" label="Backgrounds" nested="nested"> 
 				<colorpicker id="email_bgcolor" label="Container background color" />
-				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
 				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
 			<type id="padding" label="Padding" nested="nested">
@@ -226,9 +224,8 @@
 				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
-			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+			<type id="section_overrides" label="Backgrounds" nested="nested"> 
 				<colorpicker id="email_bgcolor" label="Container background color" />
-				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
 				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
 			<type id="padding" label="Padding" nested="nested">
@@ -296,9 +293,8 @@
 				<bool id="show_lp" label="Include share on Google+ icon" default="true" />
 				<image id="custom_image" label="Custom icon" maxwidth="64" />
 			</type>
-			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+			<type id="section_overrides" label="Backgrounds" nested="nested"> 
 				<colorpicker id="email_bgcolor" label="Container background color" />
-				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
 				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
 			<type id="padding" label="Padding" nested="nested">
@@ -318,9 +314,8 @@
 				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
-			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+			<type id="section_overrides" label="Backgrounds" nested="nested"> 
 				<colorpicker id="email_bgcolor" label="Container background color" />
-				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
 				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
 			<type id="padding" label="Padding" nested="nested">
@@ -350,9 +345,8 @@
 				<bool id="underline" label="Underline links" default="true" />
 				<!-- This is a better way to handle underline preferences. We should do it for 'Read more' links as well. -Gregg -->
 			</type>
-			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+			<type id="section_overrides" label="Backgrounds" nested="nested"> 
 				<colorpicker id="email_bgcolor" label="Container background color" />
-				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
 				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
 			<type id="padding" label="Padding" nested="nested">
@@ -378,9 +372,8 @@
 				<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." 
           regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			</type>
-			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+			<type id="section_overrides" label="Backgrounds" nested="nested"> 
 				<colorpicker id="email_bgcolor" label="Container background color" />
-				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
 				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
 			<type id="padding" label="Padding" nested="nested">
@@ -392,18 +385,16 @@
 		</type>
 		<type id="spacer" label="Spacer">
 			<textbox id="height" label="Height" default="10" />
-			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+			<type id="section_overrides" label="Backgrounds" nested="nested"> 
 				<colorpicker id="email_bgcolor" label="Container background color" />
-				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
 				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
 		</type>
 		<type id="custom_html" label="Raw HTML">
 			<bool id="show_on_landingpage" label="Display on landing pages as well as email" default="true" />
 			<textarea id="html" label="HTML" help="The HTML will be wrapped in the same style of container as other header and footer elements. Note: No Javascript! It won't work in email." />
-			<type id="section_overrides" label="Backgrounds and width" nested="nested"> 
+			<type id="section_overrides" label="Backgrounds" nested="nested"> 
 				<colorpicker id="email_bgcolor" label="Container background color" />
-				<textbox id="table_width" label="Width of Image's container" help="The width (in pixels) of the container in which the image resides." />
 				<colorpicker id="body_bgcolor" label="Page background colour (to the left and right)" help="The background colour to the left and right of the image's container." /> 
 			</type>
 			<type id="padding" label="Padding" nested="nested">

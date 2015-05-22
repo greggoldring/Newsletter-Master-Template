@@ -77,7 +77,8 @@ to be used to import the font from the Google CDN
 Font Settings
 *****************************************************************
 {% endcomment -%}
-    {% assign primary_font_family = base_font_family -%}    {% assign primary_font_size = base_font_size -%}
+    {% assign primary_font_family = base_font_family -%}
+		{% assign primary_font_size = base_font_size -%}
     {% if path_main_body.base_font.fontsize -%}
          {% assign primary_font_size = path_main_body.base_font.fontsize -%}
     {% endif -%}
