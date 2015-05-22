@@ -26,13 +26,13 @@ font-family: {{ primary_font_family }};
 font-size: {{ primary_font_size }}|
 line-height: {{ primary_line_height }}
 color: {{ primary_font_color }}
-header-font-family: {{ primary_header_font_family }}
-header-font-size: {{ primary_header_font_size }}
-header-line-height: {{ primary_header_line_height }}
-header-color: {{ primary_header_font_color }}
-header-weight: {{ primary_header_font_weight }}
-header-style: {{ primary_header_font_style }}
-header-bottompadding: {{ primary_header_bottom_padding }}
+header-font-family: {{ heading_font_family }}
+header-font-size: {{ heading_font_size }}
+header-line-height: {{ heading_line_height }}
+header-color: {{ heading_font_color }}
+header-weight: {{ heading_font_weight }}
+header-style: {{ heading_font_style }}
+header-bottompadding: {{ heading_bottom_padding }}
 
 link-color: {{ primary_link_color }}
 link-text-decoration: {{ primary_link_decoration }}
@@ -129,9 +129,9 @@ img {
 
     h1,h2,h3,h4,h5,h6
     {
-        font-family: {{ primary_header_font_family }};
-        line-height: {{ primary_header_line_height }};
-        color: {{ primary_header_font_color }};
+        font-family: {{ heading_font_family }};
+        line-height: {{ heading_line_height }};
+        color: {{ heading_font_color }};
     }
     a.viewinbrowser
     {
@@ -167,14 +167,14 @@ img {
     }
     .main-body .article_header
     {
-        font-family: {{primary_header_font_family }};
-        color: {{ primary_header_font_color }};
-        font-size: {{ primary_header_font_size }}px;
-        line-height: {{ primary_header_line_height }};
-        font-weight: {{ primary_header_font_weight }};
-        font-style: {{ primary_header_font_style }};
+        font-family: {{ heading_font_family }};
+        color: {{ heading_font_color }};
+        font-size: {{ heading_font_size }}px;
+        line-height: {{ heading_line_height }};
+        font-weight: {{ heading_font_weight }};
+        font-style: {{ heading_font_style }};
         margin-top:0; 
-        margin-bottom:{{ primary_header_bottom_padding}}px;
+        margin-bottom:{{ heading_bottom_padding}}px;
     }
     .main-body a
     {
