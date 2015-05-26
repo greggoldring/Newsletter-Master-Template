@@ -50,12 +50,12 @@ sidebar-font-family: {{ sidebar_font_family }}
 sidebar-font-size: {{ sidebar_font_size }}
 sidebar-line-height: {{ sidebar_line_height }}
 sidebar-color: {{ sidebar_font_color }}
-sidebar-header-font-family: {{ sidebar_header_font_family }};
-sidebar-header-font-size: {{ sidebar_header_font_size }}
+sidebar-header-font-family: {{ sidebar_heading_font_family }};
+sidebar-header-font-size: {{ sidebar_heading_font_size }}
 sidebar-header-line-height: {{ sidebar_header_line_height }}
-sidebar-header-color: {{ sidebar_header_font_color }}
-sidebar-header-weight: {{ sidebar_header_font_weight }}
-sidebar-header-style: {{ sidebar_header_font_style }}
+sidebar-header-color: {{ sidebar_heading_font_color }}
+sidebar-header-weight: {{ sidebar_heading_font_weight }}
+sidebar-header-style: {{ sidebar_heading_font_style }}
 sidebar-header-bottompadding: {{ sidebar_header_bottom_padding }}
 sidebar-link-color: {{ sidebar_link_color }}
 sidebar-link-text-decoration: {{ sidebar_link_decoration }}
@@ -156,10 +156,10 @@ img {
     .main-body .article_teaser,
     .main-body .article_landingpage,
     {
-        font-family: {{ primary_font_family }};
-        font-size: {{ primary_font_size }}px;
-        color: {{ primary_font_color }};
-        line-height: {{ primary_line_height }};
+        font-family: {{ main_body_font_family }};
+        font-size: {{ main_body_font_size }}px;
+        color: {{ main_body_font_color }};
+        line-height: {{ main_body_line_height }};
     }
     .main-body .item
     {
@@ -167,25 +167,25 @@ img {
     }
     .main-body .article_header
     {
-        font-family: {{ heading_font_family }};
-        color: {{ heading_font_color }};
-        font-size: {{ heading_font_size }}px;
-        line-height: {{ heading_line_height }};
-        font-weight: {{ heading_font_weight }};
-        font-style: {{ heading_font_style }};
+        font-family: {{ main_body_heading_font_family }};
+        color: {{ main_body_heading_font_color }};
+        font-size: {{ main_body_heading_font_size }}px;
+        line-height: {{ main_body_heading_line_height }};
+        font-weight: {{ main_body_heading_font_weight }};
+        font-style: {{ main_body_heading_font_style }};
         margin-top:0; 
-        margin-bottom:{{ heading_bottom_padding}}px;
+        margin-bottom:{{ main_body_heading_bottom_padding}}px;
     }
     .main-body a
     {
-        color: {{ primary_link_color }};
-        text-decoration: {{ primary_link_decoration }};
+        color: {{ main_body_link_color }};
+        text-decoration: {{ main_body_link_decoration }};
     }
     .sidebar .item,
     .sidebar .article_teaser,
     .sidebar .article_landingpage
     {
-        font-family: {{sidebar_font_family }};
+        font-family: {{ sidebar_font_family }};
         color: {{ sidebar_font_color }};
         font-size: {{ sidebar_font_size }}px;
         line-height: {{ sidebar_line_height }};
@@ -202,12 +202,12 @@ img {
     .sidebar .article_header
     {
         margin:0; 
-        font-family: {{ sidebar_header_font_family }};
-        color: {{ sidebar_header_font_color }};
-        font-size: {{ sidebar_header_font_size }}px;
+        font-family: {{ sidebar_heading_font_family }};
+        color: {{ sidebar_heading_font_color }};
+        font-size: {{ sidebar_heading_font_size }}px;
         line-height: {{ sidebar_header_line_height }};
-        font-weight: {{ sidebar_header_font_weight }};
-        font-style: {{ sidebar_header_font_style }};
+        font-weight: {{ sidebar_heading_font_weight }};
+        font-style: {{ sidebar_heading_font_style }};
         margin-top:0;
         margin-bottom:{{ sidebar_header_bottom_padding}}px;
     }
@@ -218,9 +218,9 @@ img {
     .sidebar h5,
     .sidebar h6
     {
-        font-family: {{ sidebar_header_font_family }};
+        font-family: {{ sidebar_heading_font_family }};
         line-height: {{ sidebar_header_line_height }};
-        color: {{ sidebar_header_font_color }};
+        color: {{ sidebar_heading_font_color }};
     }
     .sharebuttons
     {
