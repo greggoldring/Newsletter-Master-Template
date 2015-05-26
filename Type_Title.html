@@ -2,23 +2,20 @@
 {% unless item.font.fontfamily_custom == "other"-%}
 {% unless item.font.fontfamily == "inherit"-%}
 {{ item.font.fontfamily }}{% else -%}
-{{ default_font_family }}{% endunless -%}
+{{ heading_font_family }}{% endunless -%}
 {% else -%}
 {{ item.font.fontfamily_custom }}{% endunless -%}
 {% endcapture -%}
-
 {% capture title_font_size -%}
 {% unless item.font.size == "inherit"-%}
 {{ item.font.size }}{% else -%}
-{{ default_font_size}}{% endunless -%}
+{{ heading_font_size }}{% endunless -%}
 {% endcapture -%}
-
 {% capture title_line_height -%}
 {% unless item.font.lineheight == "0"-%}
 {{ item.font.lineheight }}{% else -%}
-{{ default_line_height }}{% endunless -%}
+{{ heading_line_height }}{% endunless -%}
 {% endcapture -%}
-
 <h1 style="margin:0; 
            font-family: {{ title_font_family }};
            color: {{ item.font.color }};

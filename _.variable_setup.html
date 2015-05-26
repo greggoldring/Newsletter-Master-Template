@@ -3,7 +3,6 @@
 Schema path variables (so you don't have to find-replace every time you change the schema)
 *****************************************************************
 {% endcomment -%}
-
 {% assign path_settings = settings -%}
 {% comment -%} base_font_family is assigned below in the Google font section {% endcomment -%}
 {% assign base_font_size = path_settings.fontsize -%}
@@ -39,7 +38,6 @@ Schema path variables (so you don't have to find-replace every time you change t
 {% assign trouble_label = path_trouble.label -%}
 {% assign path_sidebar_settings = settings.sidebar_settings -%}
 {% assign path_sidebar_articles = path_sidebar_settings.articles -%}
-
 {% comment -%} 
 *****************************************************************
 This section detects what the default fonts are used
@@ -147,7 +145,7 @@ Main Body Settings
 {% comment -%}
 ==================================
 {% endcomment -%}
-{% assign sidebar_font_size = primary_font_size -%}
+{% assign sidebar_font_size = base_font_size -%}
 {% if path_sidebar_articles.base_font.fontsize -%}
 {% assign sidebar_font_size = path_sidebar_articles.base_font.fontsize -%}
 {% endif -%}
@@ -173,7 +171,7 @@ Heading Font Settings
 *****************************************************************
 {% endcomment -%}
 {% assign heading_font_family = base_heading_font_family -%}
-{% assign heading_font_size = primary_font_size | to_int | times: 1.4 | round -%}
+{% assign heading_font_size = base_font_size | to_int | times: 1.4 | round -%}
 {% if path_main_body_settings.title.fontsize -%}
 {% assign heading_font_size = path_main_body_settings.title.fontsize  -%}
 {% endif -%}

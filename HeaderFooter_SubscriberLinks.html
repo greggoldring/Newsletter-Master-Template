@@ -16,7 +16,7 @@
         ">
             Subscribe
         </a>
-    {% endif %}
+    {% endif -%}
     {% if item.show_editmypreferences == 'true' or item.show_unsubsribe == 'true' %}  
       {% if item.show_subscribe == 'true' %}
       | 
@@ -35,7 +35,7 @@
         ">
             Manage Subscription
         </a>
-    {% endif %}
+    {% endif -%}
     {% if item.show_subscribe == 'true' or item.show_editmypreferences == 'true' %}  
       {% if item.show_unsubscribe == 'true' %}  
       | 
@@ -55,5 +55,5 @@
             Unsubscribe
         </a>
         {% assign unsubscribe_link_present = true %}
-    {% endif %}
+    {% endif -%}
 </div>

@@ -3,19 +3,13 @@
 <title>
     {{ mailout.subject }}
 </title>
-
 <link href="http://cdn.mailoutinteractive.com/css/trouble.css" rel="stylesheet" type="text/css">
-
-
 {% if google_font_array | size > 0 %}
     <style>
-        @import url(href='https://fonts.googleapis.com/css?family={{ google_font_array | join : "|" }}');
+        @import url(href='https://fonts.googleapis.com/css?family={{ google_font_array | uniq | join : "|" }}');
     </style>
     <!--[if !mso]><!-->
-    <link href='https://fonts.googleapis.com/css?family={{ google_font_array | join : "|" }}' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family={{ google_font_array | uniq | join : "|" }}' rel='stylesheet' type='text/css'>
     <!--<![endif]-->
 {% endif %}
 {% include "..stylescss" %}
-
-
-
