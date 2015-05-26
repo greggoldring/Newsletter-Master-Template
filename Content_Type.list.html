@@ -15,7 +15,6 @@
      {% assign itemPaddingLeft = item.padding.left -%}
 {% endif -%}
 {% assign itemContentWidth = article_column_width | minus: itemPaddingRight | minus: itemPaddingLeft %}
-
 {% assign numOfColumns = 1 -%}
 {% if itemPaddingLeft > 0 -%}
 {% assign temp_numOfColumns = numOfColumns -%}
@@ -36,18 +35,15 @@
        {% elseif item.border.removeborder == true -%}
        style="border: 0 transparent none;"
        {% endif -%}
-       
        >
 {% if itemPaddingTop > 0 -%}
 <tr><td colspan="{{numOfColumns}}" style="font-size:0; line-height:0;" height="{{ itemPaddingTop }}">&nbsp;</td></tr>
 {% endif -%}
-
 <tr>
     {% if itemPaddingLeft > 0 -%}
     <td style="font-size:1px; line-height:1px;" width="{{ itemPaddingLeft }}">&nbsp;</td>
     {% endif -%}
-    <td width="{{ itemContentWidth }}">
-      
+    <td width="{{ itemContentWidth }}">    
 {% if (item.tagid == 'article')  -%}
      {% include "Content_Type_Article" -%}
 {% elsif (item.tagid == 'type_button')  -%}
@@ -66,7 +62,6 @@
     <td style="font-size:1px; line-height:1px;" width="{{ itemPaddingRight }}">&nbsp;</td>
     {% endif -%}
 </tr>
-
 {% if itemPaddingBottom > 0 -%}
 <tr><td colspan="{{numOfColumns}}" style="font-size:0; line-height:0;" height="{{ itemPaddingBottom }}">&nbsp;</td></tr>
 {% endif -%}
