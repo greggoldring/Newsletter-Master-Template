@@ -1,9 +1,27 @@
+{% assign section_table_width = table_width -%}
+{% assign section_body_bgcolor = settings.path_section.bgcolor -%}
+{% assign section_email_bgcolor = settings.path_section.bgcolor_body -%}
+{% assign section_padding_top = settings.path_section.padding.top -%}
+{% assign section_padding_bottom = settings.path_section.padding.bottom -%}
+{% assign section_padding_left = settings.path_section.padding.left -%}
+{% assign section_padding_right = settings.path_section.padding.right -%}
 {% assign path_overrides = item.section_overrides -%}
 {% assign path_padding =  item.padding -%}
-{% assign section_table_width = table_width -%}
+{% if path_overrides.body_bgcolor %}
 {% assign section_body_bgcolor = path_overrides.body_bgcolor -%}
+{% endif %}
+{% if path_overrides.email_bgcolor %}
 {% assign section_email_bgcolor = path_overrides.email_bgcolor -%}
+{% endif %}
+{% if path_padding.top %}
 {% assign section_padding_top = path_padding.top -%}
+{% endif %}
+{% if path_padding.bottom %}
 {% assign section_padding_bottom = path_padding.bottom -%}
+{% endif %}
+{% if path_padding.left %}
 {% assign section_padding_left = path_padding.left -%}
+{% endif %}
+{% if path_padding.right %}
 {% assign section_padding_right = path_padding.right -%}
+{% endif %}
