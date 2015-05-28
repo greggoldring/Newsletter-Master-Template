@@ -762,6 +762,11 @@
 					<listitem id="never" text="Never" />
 				</listbox>
 				<textbox id="label" label="Label" default="View in browser" />
+				<listbox id="alignment" label="Alignment">
+					<listitem id="center" text="Center" default="default" />
+					<listitem id="left" text="Left" />
+					<listitem id="right" text="Right" />
+				</listbox>
 			</type>
 			<type id="returntonewsletter" label="'Return to&#x2026;' link (on landing pages)" nested="nested">
 				<bool id="show" label="Show link" default="true" />

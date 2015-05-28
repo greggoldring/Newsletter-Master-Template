@@ -11,7 +11,7 @@
       <div style="background-color:{{ body_bgcolor }};">
       {% if trouble_show == "auto" or trouble_show == "always" -%}
       <div {% if trouble_show == "auto" %} class="trouble" {%endif %} style="margin:0 auto;">
-        <table width="{{ table_width }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="center">
+        <table width="{{ table_width }}" cellpadding="0" cellspacing="0" border="0" class="wrapper" align="{{ alignment }}">
           <tr>
             <td align="right" style="text-align:right;">
               <a href="{{ urls.webview  }}" style="font-size:10px; line-height:1.1em; text-decoration:none; color: #808080;">{{ trouble_label | newline_to_br }}</a>
