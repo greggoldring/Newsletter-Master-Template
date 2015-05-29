@@ -48,17 +48,10 @@
 {% assign heading_font_style = path_settings.headings.style %}
 {% assign base_link_color = path_settings.link_color -%}
 {% assign base_link_decoration = path_settings.link_textdecoration -%}
-{% assign body_bgcolor = settings.background.bgcolor_body -%}
-{% assign body_bgimg = settings.background.bgImg_body -%}
-{% assign table_width = settings.width.emailWidth -%}
-
-{% comment -%} 
-	NEED: 
-	
-	Width
-	Custom CSS
-	
-	{% endcomment -%}
+{% assign body_bgcolor = path_settings.background.bgcolor_body -%}
+{% assign body_bgimg = path_settings.background.bgImg_body -%}
+{% assign table_width = path_settings.width.emailWidth -%}
+{% assign custom_CSS = path_settings.css.advanced.customCSS %}
 
 
 {% comment -%} *** This section detects what the default fonts are used *** {% endcomment -%}
@@ -153,12 +146,11 @@
 
 {% comment -%} *** Heading Font Settings *** {% endcomment -%}
 
-{% assign heading_font_family = base_heading_font_family -%}
-{% assign heading_font_size = base_font_size | to_int | times: 1.4 | round -%}
-{% if path_main_body_settings.title.fontsize -%}
-{% assign heading_font_size = path_main_body_settings.title.fontsize  -%}
-{% endif -%}
-{% assign heading_line_height = primary_line_height -%}
+{% if path_settings.headings.font_family = "inherit" %}
+	{% assign heading_font_family = path_settings.headings.font_family -%}
+{% else %}
+	{% assign heading_font_family = base_heading_font_family -%}
+{% endif %}
 {% if path_main_body_settings.title.lineheight -%}
 {% assign heading_line_height = path_main_body_settings.title.lineheight -%}
 {% endif -%}
@@ -169,11 +161,11 @@
 {% comment -%}
 ==================================
 {% endcomment -%}
-{% assign main_body_heading_font_size = heading_font_size -%}
+{% assign main_body_heading_font_size = base_font_size | to_int | times: 1.4 | round -%}
 {% if path_main_body_articles.title.fontsize -%}
 {% assign main_body_heading_font_size = path_main_body_articles.title.fontsize -%}
 {% endif -%}
-{% assign main_body_header_line_height = heading_line_height -%}
+{% assign main_body_header_line_height = base_font_line_height -%}
 {% if path_main_body_articles.title.lineheight -%}
 {% assign main_body_header_line_height = path_main_body_articles.title.lineheight -%}
 {% endif -%}
@@ -193,11 +185,11 @@
 {% comment -%}
 ==================================
 {% endcomment -%}
-{% assign sidebar_heading_font_size = heading_font_size -%}
+{% assign sidebar_heading_font_size = base_font_size | to_int | times: 1.4 | round -%}
 {% if path_sidebar_articles.title.fontsize -%}
 {% assign sidebar_heading_font_size = path_sidebar_articles.title.fontsize -%}
 {% endif -%}
-{% assign sidebar_header_line_height = heading_line_height -%}
+{% assign sidebar_header_line_height = base_font_line_height -%}
 {% if path_sidebar_articles.title.lineheight -%}
 {% assign sidebar_header_line_height = path_sidebar_articles.title.lineheight -%}
 {% endif -%}
@@ -246,7 +238,7 @@
 {% if path_sidebar_articles.base_font.fontsize -%}
 {% assign sidebar_font_size = path_sidebar_articles.base_font.fontsize -%}
 {% endif -%}
-{% assign sidebar_line_height = primary_line_height -%}
+{% assign sidebar_line_height = base_font_line_height -%}
 {% if path_sidebar_articles.base_font.lineheight -%}
 {% assign sidebar_line_height = path_sidebar_articles.base_font.lineheight -%}
 {% endif -%}
