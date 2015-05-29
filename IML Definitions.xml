@@ -612,8 +612,6 @@
     </listbox>
 		<textbox id="family_other" label="Other font family" help="^Other must be selected above" default="" />
 		<colorpicker id="font_color" label="Font color" />
-		<textbox id="fontsize" label="Font size"  help="The size (in pixels) that the fonts in each of the sections of your mailout will inherit unless specified otherwise." regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="14" />
-		<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." default="1.5" />
 		<type id="headings" label="Title and heading text formatting" nested="nested">
 			<listbox id="family" label="Heading Font family" help="This font will applied to titles and headings. "> 
 				<!-- Add "GF, " before any Google Font to enable it's support -->
@@ -647,6 +645,7 @@
 				<listitem id="other" text="Other (please specify in below^)" />
 			</listbox>
 			<textbox id="family_other" label="Other heading font family" help="^Other must be selected above" default="" />
+			<colorpicker id="color" label="Font color" />
 			<textbox id="fontsize" label="Font size" help="The size (in pixels) of 'Titles' in articles. The font-size of h1, h2, etc. are not defined. You may define these yourself under 'Custom CSS'." regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			<textbox id="lineheight" label="Line height" help="The vertical distance between lines of text measured in ratio to the font-size. '1' equals the same line height as font size." regex="^[0-9]{0,3}[\.]{0,1}[0-9]{0,2}$" regexerror="Please enter a number." />
 			<listbox id="weight" label="Font weight">
