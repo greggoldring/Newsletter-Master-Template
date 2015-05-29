@@ -1,3 +1,14 @@
+<div>
+	email_border:{{ email_border }}<br />
+	email_bgcolor:{{ email_bgcolor }}<br />
+	leftMarginGutter:{{ leftMarginGutter }}<br />
+	leftMarginGutter:{{ leftMarginGutter }}<br />
+	main_article_bgcolor:{{ main_article_bgcolor }}<br />
+	article_padding_top:{{ article_padding_top }}<br />
+	main_align:{{ main_align }}<br />
+	main_column_article_margin_left:{{ main_column_article_margin_left }}<br />
+	main_column_width:{{ main_column_width }}<br />
+</div>
 <table width="{{ table_width }}" cellpadding="0" cellspacing="0" border="0" 
        class="wrapper" align="center" 
        dir="{{ text_flow }}" 
@@ -23,8 +34,6 @@
                     <td class="main-body">
                         {% assign article_bgcolor = main_article_bgcolor -%}
                         {% assign article_padding_top = main_article_padding_top -%}
-                        {% assign article_padding_right = main_article_padding_right -%}
-                        {% assign article_padding_left = main_article_padding_left -%}
                         {% assign article_padding_bottom = main_article_padding_bottom -%}
                         {% assign article_column_width = main_column_width -%}
                         {% assign side = "main_body_side" -%}
@@ -68,7 +77,6 @@
                                     {% assign article_bgcolor = sidebar_article_bgcolor -%}
                                     {% assign article_padding_top = sidebar_article_padding_top -%}
                                     {% assign article_padding_right = sidebar_article_padding_right -%}
-                                    {% assign article_padding_left = sidebar_article_padding_left -%}
                                     {% assign article_padding_bottom = sidebar_article_padding_bottom -%}
                                     {% assign article_column_width = sidebar_column_width -%}
                                     {% for item in sidebar_area -%}
@@ -93,3 +101,8 @@
         </td>
     </tr>
 </table>
+<div>
+	article_bgcolor:{{ article_bgcolor }}<br />
+	article_padding_top:{{ article_padding_top }}<br />
+	article_column_width:{{ article_column_width }}<br />
+</div>
