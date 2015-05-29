@@ -1,10 +1,10 @@
 {% assign section_table_width = table_width -%}
-{% assign section_body_bgcolor = settings.path_section.bgcolor -%}
-{% assign section_email_bgcolor = settings.path_section.bgcolor_body -%}
-{% assign section_padding_top = settings.path_section.padding.top -%}
-{% assign section_padding_bottom = settings.path_section.padding.bottom -%}
-{% assign section_padding_left = settings.path_section.padding.left -%}
-{% assign section_padding_right = settings.path_section.padding.right -%}
+{% assign section_body_bgcolor = path_section_settings.bgcolor -%}
+{% assign section_email_bgcolor = path_section_settings.bgcolor_body -%}
+{% assign section_padding_top = path_section_settings.padding.top -%}
+{% assign section_padding_bottom = path_section_settings.padding.bottom -%}
+{% assign section_padding_left = path_section_settings.padding.left -%}
+{% assign section_padding_right = path_section_settings.padding.right -%}
 {% assign path_overrides = item.section_overrides -%}
 {% assign path_padding =  item.padding -%}
 {% if path_overrides.body_bgcolor %}

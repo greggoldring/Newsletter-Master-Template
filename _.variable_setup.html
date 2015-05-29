@@ -43,42 +43,49 @@ Schema path variables (so you don't have to find-replace every time you change t
 This section detects what the default fonts are used
 *****************************************************************
 {% endcomment -%}
+
 {% assign base_font_fam = path_font_family -%}
 {% if base_font_fam == "other" -%}
-{% assign base_font_fam = path_other_font_family -%}
+  {% assign base_font_fam = path_other_font_family -%}
 {% elsif base_font_fam == "inherit"  -%}
-{% assign base_font_fam = "inherit" -%}
+  {% assign base_font_fam = "inherit" -%}
 {% endif -%}
+
 {% assign base_heading_font_fam = path_heading_font_family -%}
 {% if base_heading_font_fam == "other" -%}
-{% assign base_heading_font_fam = path_other_heading_font_family -%}
+  {% assign base_heading_font_fam = path_other_heading_font_family -%}
 {% elsif base_heading_font_fam == "inherit"  -%}
-{% assign base_heading_font_fam = base_font_fam -%}
+  {% assign base_heading_font_fam = base_font_fam -%}
 {% endif -%}
+
 {% assign main_body_font_fam = path_main_body_article_font_family -%}
 {% if main_body_font_fam == "other" -%}
-{% assign main_body_font_fam = path_main_body_article_other_font_family -%}
+  {% assign main_body_font_fam = path_main_body_article_other_font_family -%}
 {% elsif main_body_font_fam == "inherit"  -%}
-{% assign main_body_font_fam = base_font_fam -%}
+  {% assign main_body_font_fam = base_font_fam -%}
 {% endif -%}
+
 {% assign main_body_heading_font_fam = path_main_body_article_font_family -%}
 {% if main_body_heading_font_fam == "other" -%}
-{% assign main_body_heading_font_fam = path_main_body_article_other_font_family -%}
+  {% assign main_body_heading_font_fam = path_main_body_article_other_font_family -%}
 {% elsif main_body_heading_font_fam == "inherit"  -%}
-{% assign main_body_heading_font_fam = base_heading_font_fam -%}
+  {% assign main_body_heading_font_fam = base_heading_font_fam -%}
 {% endif -%}
+
 {% assign sidebar_font_fam = path_sidebar_article_font_family -%}
 {% if sidebar_font_fam == "other" -%}
-{% assign sidebar_font_fam = path_sidebar_article_other_font_family -%}
+	{% assign sidebar_font_fam = path_sidebar_article_other_font_family -%}
 {% elsif msidebar_font_fam == "inherit"  -%}
-{% assign sidebar_font_fam = base_font_fam -%}
+	{% assign sidebar_font_fam = base_font_fam -%}
 {% endif -%}
+
 {% assign sidebar_heading_font_fam = path_sidebar_article_font_family -%}
 {% if sidebar_heading_font_fam == "other" -%}
-{% assign sidebar_heading_font_fam = path_sidebar_article_other_font_family -%}
+	{% assign sidebar_heading_font_fam = path_sidebar_article_other_font_family -%}
 {% elsif sidebar_heading_font_fam == "inherit"  -%}
-{% assign sidebar_heading_font_fam = base_heading_font_fam -%}
+	{% assign sidebar_heading_font_fam = base_heading_font_fam -%}
 {% endif -%}
+
 {% comment -%}
 *****************************************************************
 This section detects if any defaults are Google and creates an array 
@@ -93,42 +100,62 @@ to be used to import the font from the Google CDN
 {% endif -%}
 
 {% assign base_font_family = base_font_fam | replace: "GF, ","" -%}
-{% assign font_fam_split = base_heading_font_fam | split : ', ' -%}
 
+
+
+
+{% assign font_fam_split = base_heading_font_fam | split : ', ' -%}
 {% if font_fam_split[0] == "GF" -%}
 {% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
 {% endif -%}
 
 {% assign base_heading_font_family = base_heading_font_fam | replace: "GF, ","" -%}
-{% assign font_fam_split = main_body_font_fam | split : ', ' -%}
 
+
+
+
+{% assign font_fam_split = main_body_font_fam | split : ', ' -%}
 {% if font_fam_split[0] == "GF" -%}
 {% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
 {% endif -%}
 
 {% assign main_body_font_family = main_body_font_fam | replace: "GF, ","" -%}
-{% assign font_fam_split = main_body_heading_font_fam | split : ', ' -%}
 
+
+
+{% assign font_fam_split = main_body_heading_font_fam | split : ', ' -%}
 {% if font_fam_split[0] == "GF" -%}
 {% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
 {% endif -%}
 
 {% assign main_body_heading_font_family = main_body_heading_font_fam | replace: "GF, ","" -%}
-{% assign font_fam_split = sidebar_font_fam | split : ', ' -%}
 
+
+
+
+
+
+
+{% assign font_fam_split = sidebar_font_fam | split : ', ' -%}
 {% if font_fam_split[0] == "GF" -%}
 {% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
 {% endif -%}
 
 {% assign sidebar_font_family = sidebar_font_fam | replace: "GF, ","" -%}
-{% assign font_fam_split = sidebar_heading_font_fam | split : ', ' -%}
 
+
+
+
+
+{% assign font_fam_split = sidebar_heading_font_fam | split : ', ' -%}
 {% if font_fam_split[0] == "GF" -%}
 {% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
 {% endif -%}
 
 {% assign sidebar_heading_font_family = sidebar_heading_font_fam | replace: "GF, ","" -%}
-{% assign google_font_array = google_font_array | split : "," -%}
+
+
+
 
 {% comment -%}
 *****************************************************************
