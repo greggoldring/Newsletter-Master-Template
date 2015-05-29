@@ -1,10 +1,13 @@
 {% capture title_font_family -%}
 {% unless item.font.fontfamily_custom == "other"-%}
 {% unless item.font.fontfamily == "inherit"-%}
-{{ item.font.fontfamily }}{% else -%}
-{{ heading_font_family }}{% endunless -%}
+{{ item.font.fontfamily }}
 {% else -%}
-{{ item.font.fontfamily_custom }}{% endunless -%}
+{{ heading_font_family }}
+{% endunless -%}
+{% else -%}
+{{ item.font.fontfamily_custom }}
+{% endunless -%}
 {% endcapture -%}
 {% capture title_font_size -%}
 {% unless item.font.size == "inherit"-%}
@@ -17,12 +20,24 @@
 {{ heading_line_height }}{% endunless -%}
 {% endcapture -%}
 <h1 style="margin:0; 
-           font-family: {{ title_font_family }};
-           color: {{ item.font.color }};
-           font-size: {{ title_font_size }}px;
-           line-height: {{ title_line_height }};
-           font-weight: {% unless item.font.bold %}normal{%else%}bold{%endunless%};
-           font-style: {% unless item.font.italic %}none{%else%}italic{%endunless%};
-           ">
-    {{ item.title }}
+	{% if title_font_family %}
+		font-family: {{ title_font_family }};
+	{% endif %}
+	{% if item.font.color %}
+		color: {{ item.font.color }};
+	{% endif %}
+	{% if title_font_size %}
+		font-size: {{ title_font_size }}px;
+	{% endif %}
+	{% if title_line_height %}
+		line-height: {{ title_line_height }};
+	{% endif %}
+	{% if item.font.bold %}
+		font-weight: {% unless item.font.bold %}normal{%else%}bold{%endunless%};
+	{% endif %}
+	{% if item.font.italic %}
+		font-style: {% unless item.font.italic %}none{%else%}italic{%endunless%};
+	{% endif %}
+	">
+	{{ item.title }}
 </h1>
