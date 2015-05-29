@@ -96,116 +96,46 @@ to be used to import the font from the Google CDN
 
 {% assign font_fam_split = base_font_fam | split : ', ' -%}
 {% if font_fam_split[0] == "GF" -%}
-{% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
+	{% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
 {% endif -%}
 
 {% assign base_font_family = base_font_fam | replace: "GF, ","" -%}
 
-
-
-
 {% assign font_fam_split = base_heading_font_fam | split : ', ' -%}
 {% if font_fam_split[0] == "GF" -%}
-{% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
+	{% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
 {% endif -%}
 
 {% assign base_heading_font_family = base_heading_font_fam | replace: "GF, ","" -%}
 
-
-
-
 {% assign font_fam_split = main_body_font_fam | split : ', ' -%}
 {% if font_fam_split[0] == "GF" -%}
-{% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
+	{% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
 {% endif -%}
 
 {% assign main_body_font_family = main_body_font_fam | replace: "GF, ","" -%}
 
-
-
 {% assign font_fam_split = main_body_heading_font_fam | split : ', ' -%}
 {% if font_fam_split[0] == "GF" -%}
-{% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
+	{% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
 {% endif -%}
 
 {% assign main_body_heading_font_family = main_body_heading_font_fam | replace: "GF, ","" -%}
 
-
-
-
-
-
-
 {% assign font_fam_split = sidebar_font_fam | split : ', ' -%}
 {% if font_fam_split[0] == "GF" -%}
-{% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
+	{% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
 {% endif -%}
 
 {% assign sidebar_font_family = sidebar_font_fam | replace: "GF, ","" -%}
 
-
-
-
-
 {% assign font_fam_split = sidebar_heading_font_fam | split : ', ' -%}
 {% if font_fam_split[0] == "GF" -%}
-{% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
+	{% assign google_font_array = google_font_array | plus: font_fam_split[1] | strip | replace: " ","+" | replace: "'","" | plus:"," -%}
 {% endif -%}
 
 {% assign sidebar_heading_font_family = sidebar_heading_font_fam | replace: "GF, ","" -%}
 
-
-
-
-{% comment -%}
-*****************************************************************
-Main Body Settings
-*****************************************************************
-{% endcomment -%}
-{% assign main_body_font_family = base_font_family -%}
-{% assign main_body_font_size = base_font_size -%}
-{% if path_main_body_articles.base_font.fontsize -%}
-{% assign main_body_font_size = path_main_body_articles.base_font.fontsize -%}
-{% endif -%}
-{% assign main_body_line_height = base_font_line_height -%}
-{% if path_main_body_articles.base_font.lineheight -%}
-{% assign main_body_line_height = path_main_body_articles.base_font.lineheight -%}
-{% endif -%}
-{% assign main_body_font_color = base_font_color -%}
-{% if path_main_body_articles.base_font.color -%}
-{% assign main_body_font_color = path_main_body_articles.base_font.color -%}
-{% endif -%}
-{% assign main_body_link_decoration = base_link_decoration -%}
-{% if path_main_body_articles.link.textdecoration != "inherit" -%}
-{% assign main_body_link_decoration =  path_main_body_articles.link.textdecoration -%}
-{% endif -%}
-{% assign main_body_link_color = base_link_color -%}
-{% if path_main_body_articles.link.color -%}
-{% assign main_body_link_color = path_main_body_articles.link.color -%}
-{% endif -%}
-{% comment -%}
-==================================
-{% endcomment -%}
-{% assign sidebar_font_size = base_font_size -%}
-{% if path_sidebar_articles.base_font.fontsize -%}
-{% assign sidebar_font_size = path_sidebar_articles.base_font.fontsize -%}
-{% endif -%}
-{% assign sidebar_line_height = primary_line_height -%}
-{% if path_sidebar_articles.base_font.lineheight -%}
-{% assign sidebar_line_height = path_sidebar_articles.base_font.lineheight -%}
-{% endif -%}
-{% assign sidebar_font_color = primary_font_color -%}
-{% if path_sidebar_articles.base_font.color -%}
-{% assign sidebar_font_color = path_sidebar_articles.base_font.color -%}
-{% endif -%}
-{% assign sidebar_link_decoration = primary_link_decoration -%}
-{% if path_sidebar_articles.link.textdecoration != "inherit" -%}
-{% assign sidebar_link_decoration =  path_sidebar_articles.link.textdecoration -%}
-{% endif -%}
-{% assign sidebar_link_color = primary_link_color -%}
-{% if path_sidebar_articles.link.color -%}
-{% assign sidebar_link_color = path_sidebar_articles.link.color -%}
-{% endif -%}
 {% comment -%}
 *****************************************************************
 Heading Font Settings
@@ -275,13 +205,67 @@ Heading Font Settings
 {% assign sidebar_header_bottom_padding = heading_bottom_padding -%}
 {% if path_sidebar_articles.title.bottomPadding != "inherit" -%}
 {% assign sidebar_header_bottom_padding = path_sidebar_articles.title.bottomPadding -%}    {% endif -%}
+
+
 {% comment -%}
 *****************************************************************
-Main Table Settings
+Main Body Settings
+*****************************************************************
+{% endcomment -%}
+{% assign main_body_font_family = base_font_family -%}
+{% assign main_body_font_size = base_font_size -%}
+{% if path_main_body_articles.base_font.fontsize -%}
+{% assign main_body_font_size = path_main_body_articles.base_font.fontsize -%}
+{% endif -%}
+{% assign main_body_line_height = base_font_line_height -%}
+{% if path_main_body_articles.base_font.lineheight -%}
+{% assign main_body_line_height = path_main_body_articles.base_font.lineheight -%}
+{% endif -%}
+{% assign main_body_font_color = base_font_color -%}
+{% if path_main_body_articles.base_font.color -%}
+{% assign main_body_font_color = path_main_body_articles.base_font.color -%}
+{% endif -%}
+{% assign main_body_link_decoration = base_link_decoration -%}
+{% if path_main_body_articles.link.textdecoration != "inherit" -%}
+{% assign main_body_link_decoration =  path_main_body_articles.link.textdecoration -%}
+{% endif -%}
+{% assign main_body_link_color = base_link_color -%}
+{% if path_main_body_articles.link.color -%}
+{% assign main_body_link_color = path_main_body_articles.link.color -%}
+{% endif -%}
+{% comment -%}
+==================================
+{% endcomment -%}
+{% assign sidebar_font_size = base_font_size -%}
+{% if path_sidebar_articles.base_font.fontsize -%}
+{% assign sidebar_font_size = path_sidebar_articles.base_font.fontsize -%}
+{% endif -%}
+{% assign sidebar_line_height = primary_line_height -%}
+{% if path_sidebar_articles.base_font.lineheight -%}
+{% assign sidebar_line_height = path_sidebar_articles.base_font.lineheight -%}
+{% endif -%}
+{% assign sidebar_font_color = primary_font_color -%}
+{% if path_sidebar_articles.base_font.color -%}
+{% assign sidebar_font_color = path_sidebar_articles.base_font.color -%}
+{% endif -%}
+{% assign sidebar_link_decoration = primary_link_decoration -%}
+{% if path_sidebar_articles.link.textdecoration != "inherit" -%}
+{% assign sidebar_link_decoration =  path_sidebar_articles.link.textdecoration -%}
+{% endif -%}
+{% assign sidebar_link_color = primary_link_color -%}
+{% if path_sidebar_articles.link.color -%}
+{% assign sidebar_link_color = path_sidebar_articles.link.color -%}
+{% endif -%}
+
+
+{% comment -%}
+*****************************************************************
+Fixed Width
 *****************************************************************
 {% endcomment -%}
 {% assign table_width = settings.width.emailWidth -%}
 {% assign columnGutter = 0 -%}
+
 {% comment -%}
 *****************************************************************
 Margins and Paddings
@@ -303,6 +287,7 @@ Margins and Paddings
 {% assign sidebar_article_padding_right = path_sidebar_articles.padding.right -%}
 {% assign sidebar_article_padding_bottom = path_sidebar_articles.padding.bottom -%}
 {% assign sidebar_article_padding_left = path_sidebar_articles.padding.left -%}
+
 {% comment -%}
 *****************************************************************
 Backgrounds
@@ -317,6 +302,7 @@ Backgrounds
 {% endif -%}
 {% assign main_article_bgcolor = path_main_body_settings.bgcolor -%}
 {% assign sidebar_article_bgcolor = path_sidebar_articles.bgcolor -%}
+
 {% comment -%}
 *****************************************************************
 Borders
@@ -331,6 +317,7 @@ Borders
 {% assign sidebar_article_border = path_sidebar_articles.border.border_color -%}
 {% assign sidebar_article_width = path_sidebar_articles.border.border_width -%}
 {% assign sidebar_article_style = path_sidebar_articles.border.border_style -%}
+
 {% comment -%}
 *****************************************************************
 Column Widths
@@ -342,6 +329,7 @@ Column Widths
 {% assign sidebar_column_width = path_sidebar_settings.width | minus: sidebar_column_article_margin_right | minus: sidebar_column_article_margin_left -%}
 {% assign main_column_width = main_column_width | minus: path_sidebar_settings.width -%}
 {% endif -%}
+
 {% comment -%}
 *****************************************************************
 Column Order and Mobile Responsiveness Settings
@@ -356,17 +344,8 @@ Column Order and Mobile Responsiveness Settings
 {% assign sidebar_align = "left" -%}
 {% assign text_flow = "rtl" -%}
 {% endif -%}
-{% comment -%}
-*****************************************************************
-Header/ Email Image
-*****************************************************************
-{% endcomment -%}
-{% assign emailImage =  null -%}
-{% if pre_content.image.img -%}
-{% capture emailImage -%}{% image_url pre_content.image.img -%}{% endcapture -%}
-{% endif -%}
-{% assign emailImage_link = pre_content.image.link -%}
-{% assign emailImage_bgcolor = pre_content.image.bgcolor -%}
+
+
 {% comment -%}
 *****************************************************************
 Bar Section

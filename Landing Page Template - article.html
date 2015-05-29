@@ -9,11 +9,6 @@
     {% webbug -%}
       
       <div style="background-color:{{ body_bgcolor }};">
-          {% if pre_content.preview_text.content != "" %}
-          <div style="font-size:0; line-height:0; color: {{ body_bgcolor }};">
-              {{ pre_content.preview_text.content }}
-          </div>
-          {% endif %}
           <!--[if gte mso 9]>
           <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
           <v:fill type="tile" src="{% image_url  body_bgimg %}" color="{{ body_bgcolor }}"/>
