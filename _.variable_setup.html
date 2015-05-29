@@ -43,19 +43,17 @@
 {% assign base_font_size = path_settings.fontsize -%}
 {% assign base_font_color = path_settings.font_color -%}
 {% assign base_font_line_height = path_settings.lineheight -%}
-{% assign base_link_color = path_settings.link_color -%}
-{% assign base_link_decoration = path_settings.link_textdecoration -%}
 {% assign heading_font_color = path_settings.headings.color %}
 {% assign heading_font_weight = path_settings.headings.weight %}
 {% assign heading_font_style = path_settings.headings.style %}
+{% assign base_link_color = path_settings.link_color -%}
+{% assign base_link_decoration = path_settings.link_textdecoration -%}
+{% assign body_bgcolor = settings.background.bgcolor_body -%}
+{% assign body_bgimg = settings.background.bgImg_body -%}
+{% assign table_width = settings.width.emailWidth -%}
 
 {% comment -%} 
 	NEED: 
-	
-	
-	
-	Background color
-	Background image
 	
 	Width
 	Custom CSS
@@ -266,10 +264,6 @@
 {% endif -%}
 
 
-{% comment -%} *** Fixed Width *** {% endcomment -%}
-
-{% assign table_width = settings.width.emailWidth -%}
-{% assign columnGutter = 0 -%}
 
 {% comment -%} *** Margins and Paddings *** {% endcomment -%}
 
@@ -292,8 +286,6 @@
 
 {% comment -%} *** Backgrounds *** {% endcomment -%}
 
-{% assign body_bgcolor = settings.email.background.bgcolor_body -%}
-{% assign body_bgimg = settings.email.background.bgImg_body -%}
 {% assign email_bgcolor = path_main_body_settings.bgcolor -%}
 {% assign sidebar_bgcolor = email_bgcolor -%} 
 {% if path_sidebar_settings.bgcolor -%}
