@@ -1,15 +1,6 @@
-{% comment -%} 
-*****************************************************************
-Schema path variables (so you don't have to find-replace every time you change the schema)
-*****************************************************************
-{% endcomment -%}
+{% comment -%} *** Schema path variables (so you don't have to find-replace every time you change the schema) *** {% endcomment -%}
 {% assign path_settings = settings -%}
-{% comment -%} base_font_family is assigned below in the Google font section {% endcomment -%}
-{% assign base_font_size = path_settings.fontsize -%}
-{% assign base_font_color = path_settings.font_color -%}
-{% assign base_font_line_height = path_settings.lineheight -%}
-{% assign base_link_color = path_settings.link_color -%}
-{% assign base_link_decoration = path_settings.link_textdecoration -%}
+
 {% assign path_font_family = path_settings.family -%}
 {% assign path_other_font_family = path_settings.family_other -%}
 {% assign path_heading_font_family = path_settings.headings.family -%}
@@ -28,21 +19,50 @@ Schema path variables (so you don't have to find-replace every time you change t
 {% assign path_footer_settings = path_settings.footer_settings -%}
 {% assign path_default_links = path_settings.default_links -%}
 {% assign path_returntonewsletter = path_default_links.returntonewsletter -%}
+
 {% assign returntonewsletter_show = path_returntonewsletter.show -%}
 {% assign returntonewsletter_label = path_returntonewsletter.label -%}
 {% assign returntonewsletter_position = path_returntonewsletter.position -%}
+
 {% assign path_deliveredby = path_default_links.deliveredby -%}
+
 {% assign deliveredby_show = path_deliveredby.show -%}
+
 {% assign path_trouble = path_default_links.trouble -%}
+
 {% assign trouble_show = path_trouble.show -%}
 {% assign trouble_label = path_trouble.label -%}
+
 {% assign path_sidebar_settings = settings.sidebar_settings -%}
 {% assign path_sidebar_articles = path_sidebar_settings.articles -%}
-{% comment -%} 
-*****************************************************************
-This section detects what the default fonts are used
-*****************************************************************
-{% endcomment -%}
+
+
+{% comment -%} *** Base (i.e. page level) variables *** {% endcomment -%}
+
+	{% comment -%} base_font_family and base_heading_font_family are assigned below in the Google font section {% endcomment -%}
+{% assign base_font_size = path_settings.fontsize -%}
+{% assign base_font_color = path_settings.font_color -%}
+{% assign base_font_line_height = path_settings.lineheight -%}
+{% assign base_link_color = path_settings.link_color -%}
+{% assign base_link_decoration = path_settings.link_textdecoration -%}
+	{% comment -%} 
+	NEED: 
+	base_heading_font_color
+	base_heading_font_size
+	base_heading_line_height
+	base_heading_font_style
+	base_heading_bottom_padding
+	
+	Background color
+	Background image
+	
+	Width
+	Custom CSS
+	
+	{% endcomment -%}
+
+
+{% comment -%} *** This section detects what the default fonts are used *** {% endcomment -%}
 
 {% assign base_font_fam = path_font_family -%}
 {% if base_font_fam == "other" -%}
@@ -86,12 +106,8 @@ This section detects what the default fonts are used
 	{% assign sidebar_heading_font_fam = base_heading_font_fam -%}
 {% endif -%}
 
-{% comment -%}
-*****************************************************************
-This section detects if any defaults are Google and creates an array 
-to be used to import the font from the Google CDN
-*****************************************************************
-{% endcomment -%}
+{% comment -%} *** This section detects if any defaults are Google and creates an array to be used to import the font from the Google CDN *** {% endcomment -%}
+
 {% assign google_font_array = "" -%} 
 
 {% assign font_fam_split = base_font_fam | split : ', ' -%}
@@ -136,11 +152,8 @@ to be used to import the font from the Google CDN
 
 {% assign sidebar_heading_font_family = sidebar_heading_font_fam | replace: "GF, ","" -%}
 
-{% comment -%}
-*****************************************************************
-Heading Font Settings
-*****************************************************************
-{% endcomment -%}
+{% comment -%} *** Heading Font Settings *** {% endcomment -%}
+
 {% assign heading_font_family = base_heading_font_family -%}
 {% assign heading_font_size = base_font_size | to_int | times: 1.4 | round -%}
 {% if path_main_body_settings.title.fontsize -%}
@@ -207,11 +220,8 @@ Heading Font Settings
 {% assign sidebar_header_bottom_padding = path_sidebar_articles.title.bottomPadding -%}    {% endif -%}
 
 
-{% comment -%}
-*****************************************************************
-Main Body Settings
-*****************************************************************
-{% endcomment -%}
+{% comment -%} *** Main Body Settings *** {% endcomment -%}
+
 {% assign main_body_font_family = base_font_family -%}
 {% assign main_body_font_size = base_font_size -%}
 {% if path_main_body_articles.base_font.fontsize -%}
@@ -258,19 +268,13 @@ Main Body Settings
 {% endif -%}
 
 
-{% comment -%}
-*****************************************************************
-Fixed Width
-*****************************************************************
-{% endcomment -%}
+{% comment -%} *** Fixed Width *** {% endcomment -%}
+
 {% assign table_width = settings.width.emailWidth -%}
 {% assign columnGutter = 0 -%}
 
-{% comment -%}
-*****************************************************************
-Margins and Paddings
-*****************************************************************
-{% endcomment -%}
+{% comment -%} *** Margins and Paddings *** {% endcomment -%}
+
 {% assign main_column_padding_top = path_main_body_settings.padding.top -%}
 {% assign main_column_padding_bottom = path_main_body_settings.padding.bottom -%}
 {% assign main_column_article_margin_right = path_main_body_settings.margin.right -%}
@@ -288,11 +292,8 @@ Margins and Paddings
 {% assign sidebar_article_padding_bottom = path_sidebar_articles.padding.bottom -%}
 {% assign sidebar_article_padding_left = path_sidebar_articles.padding.left -%}
 
-{% comment -%}
-*****************************************************************
-Backgrounds
-*****************************************************************
-{% endcomment -%}
+{% comment -%} *** Backgrounds *** {% endcomment -%}
+
 {% assign body_bgcolor = settings.email.background.bgcolor_body -%}
 {% assign body_bgimg = settings.email.background.bgImg_body -%}
 {% assign email_bgcolor = path_main_body_settings.bgcolor -%}
@@ -303,11 +304,8 @@ Backgrounds
 {% assign main_article_bgcolor = path_main_body_settings.bgcolor -%}
 {% assign sidebar_article_bgcolor = path_sidebar_articles.bgcolor -%}
 
-{% comment -%}
-*****************************************************************
-Borders
-*****************************************************************
-{% endcomment -%}
+{% comment -%} *** Borders *** {% endcomment -%}
+
 {% if settings.main_body_settings.border.border_width and settings.main_body_settings.border.border_color and settings.main_body_settings.border.border_style -%}
 {% assign email_border = "border: " | plus: settings.main_body_settings.border.border_width | plus: "px " | plus: settings.main_body_settings.border.border_color | plus: " " | plus: settings.main_body_settings.border.border_style | plus: ";" -%}
 {% endif -%}
@@ -318,11 +316,8 @@ Borders
 {% assign sidebar_article_width = path_sidebar_articles.border.border_width -%}
 {% assign sidebar_article_style = path_sidebar_articles.border.border_style -%}
 
-{% comment -%}
-*****************************************************************
-Column Widths
-*****************************************************************
-{% endcomment -%}
+{% comment -%} *** Column Widths *** {% endcomment -%}
+
 {% assign main_column_width = table_width | minus: main_column_article_margin_left | minus: main_column_article_margin_right -%}
 {% assign sidebarCount = sidebar_area | size -%}
 {% if sidebarCount > 0 -%}
@@ -330,11 +325,8 @@ Column Widths
 {% assign main_column_width = main_column_width | minus: path_sidebar_settings.width -%}
 {% endif -%}
 
-{% comment -%}
-*****************************************************************
-Column Order and Mobile Responsiveness Settings
-*****************************************************************
-{% endcomment -%}
+{% comment -%} *** Column Order and Mobile Responsiveness Settings *** {% endcomment -%}
+
 {% assign sidebar_side = path_sidebar_settings.side -%}
 {% assign main_align = "left" -%}
 {% assign sidebar_align = "right" -%}
@@ -346,11 +338,8 @@ Column Order and Mobile Responsiveness Settings
 {% endif -%}
 
 
-{% comment -%}
-*****************************************************************
-Bar Section
-*****************************************************************
-{% endcomment -%}
+{% comment -%} *** Share buttons item variables *** {% endcomment -%}
+
 {% assign share_path = settings.share_bar_settings -%}
 {% assign share_alignment = share_path.alignment -%}
 {% assign share_cellspacing = share_path.spacing -%}
