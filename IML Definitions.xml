@@ -17,9 +17,12 @@
 			<textbox id="link_label" label="'Read more' link label" default="Read more" help="The link will point to either 'Landing page content' or 'Link to web page' but not both." />
 			<type id="image_override" label="Image settings" nested="nested">
 				<listbox id="side" label="Position">
-					<listitem id="left" text="Left" default="default" />
-					<listitem id="above" text="Above" />
-					<listitem id="right" text="Right" />
+					<listitem id="left" text="Left, beside Title" default="default" />
+					<listitem id="above" text="Above Title and Content" />
+					<listitem id="right" text="Right, beside Title" />
+					<listitem id="left_belowTitle" text="Left, below Title" />
+					<listitem id="above_belowTitle" text="Above Content, below Title" />
+					<listitem id="right_belowTitle" text="Right, below Title" />
 				</listbox>
 				<listbox id="flow" label="Text wrap" help="Wraps text to the full width of line immedately below the image.">
 					<listitem id="wrap" text="On" default="default" />
@@ -27,6 +30,7 @@
 				</listbox>
 				<textbox id="maxWidth" label="Max width" help="The maximum width of the image (in pixels). This value is ignored when 'Position' is set to 'Above'. In that case the maxwidth will become the width of it's container." regex="^\d*$" regexerror="Please enter a whole number only." />
 			</type>
+
 			<type id="overrides" label="Background settings" nested="nested">
 				<colorpicker id="bgcolor" label="Background color" default="" /> 
 			</type>
