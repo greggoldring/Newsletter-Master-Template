@@ -1,12 +1,15 @@
 {% assign imgalign = "middle" -%}
-{% if img_align != "above" -%}
-{% assign imgalign = img_align -%}
-{% endif -%}
+{% if img_align contains "left" %}
+  {% assign imgalign = "left" -%}
+{% elsif img_align contains "right" %}
+  {% assign imgalign = "right" -%}
+{% endif %}
+
 {% if link -%}
      <a href="{{ link | strip }}">
 {% endif -%}
-    <img src="{{ item.image | asset_url  }}" width="{{ img_width }}" height="{{ img_height }}" alt="{{ item.image.alttext }}"  border="0" align="{{ imgalign }}" class="image_{{imgalign}}" />
-    {% if img_align != "above" and img_flow != "column" -%}
+    <img src="{{ item.image | asset_url  }}" width="{{ img_width }}" height="{{ img_height }}" alt="{{ item.image.alttext }}"  border="0" align="{{ imgalign }}" class="image_{{ imgalign }}" />
+    {% if img_align != "above" and img_align !="above_belowTitle" and img_flow != "column" -%}
          <img src="{{ "/customers/_public_shared/spacer.gif" | asset_url }}" height="{{ img_height }}" width="10" alt="" align="{{ imgalign }}" class="noshow" style="height: {{ img_height }}px !important;" border="0" />
     {% endif -%}
 {% if link -%}
