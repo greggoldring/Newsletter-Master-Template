@@ -1,21 +1,31 @@
+
 {% comment %}
 IMAGE SETUP
 ========================================
 {% endcomment -%}
+
 {% assign content_column_width = itemContentWidth %}
 {% include .macro_setup_image_params -%}
+
 {% assign img_flow = item.image_override.flow -%}
-{% if img_width == content_column_width -%}
-     {% assign img_align = "above" -%}
+
+{% if img_width == content_column_width and img_align != "above_belowTitle" -%}
+  {% if img_align contains "belowTitle" %}
+   {% assign img_align = "above_belowTitle" -%}
+  {% else %}
+   {% assign img_align = "above" -%}
+  {% endif %}
 {% endif %}
+
 {% comment %}
 COLUMN SETUP
 ========================================
 {% endcomment -%}
-{% if img_flow == "column" and img_align != "above"- %}
+{% if img_flow == "column" and img_align != "above" - %}
      {% assign image_column_width = img_width -%}
      {% assign content_column_width = content_column_width | minus: image_column_width | minus: 10 -%}
 {% endif -%}
+
 {% assign image_column_align = "left" -%}
 {% assign content_column_align = "right" -%}
 {% if img_align == "right" -%}
