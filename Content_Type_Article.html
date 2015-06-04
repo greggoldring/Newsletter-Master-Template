@@ -19,14 +19,7 @@
       {% if item.title != null && item.title != "" %}
         <tr>
             <td>
-              <h1 class="article_header" style="
-                {% if item.header.color %}color: {{ item.header.color }};{% endif -%}
-                {% if item.header.fontsize %}font-size: {{ item.header.fontsize }}px;{% endif -%}
-                {% if item.header.lineheight %}line-height: {{ item.header.lineheight }};{% endif -%}
-                {% if item.header.weight %}font-weight: {{ item.header.weight }};{% endif -%}
-                {% if item.header.style %}font-style: {{ item.header.style }};{% endif -%}
-                {% if item.header.bottomPadding %}margin-bottom: {{ item.header.bottomPadding }}px;{% endif -%}
-                ">
+              <h1 class="article_header">
               {{ item.title }}
               </h1>
           </td>
